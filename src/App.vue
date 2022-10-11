@@ -8,6 +8,7 @@
     </nav>
     <router-view />
   </div>
+  <div> <h1> I'm doing something </h1></div>
 </template>
 
 <script>
