@@ -1,6 +1,6 @@
 <template>
-<div>   
-  <form id ="login" @submit.prevent="login">     
+<div>
+    <form id ="login" @submit.prevent="login">     
     <h2>Login Page</h2>     
     <input type="email" placeholder="Email Address" v-model="email" /> <br><br> 
     <input type="password" placeholder="Password" v-model="password" /> <br><br>
@@ -39,5 +39,6 @@ export default {
 <style>
 #login {
     text-align: center;
+    padding-top: 80px;
 }
 </style>

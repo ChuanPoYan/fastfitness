@@ -40,6 +40,7 @@ export default {
 <style>
 #signup {
     text-align: center;
+    padding-top: 80px;
 }
 </style>
 
