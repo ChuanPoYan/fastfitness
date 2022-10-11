@@ -32,7 +32,7 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 10%;
+  height: 12%;
   border-bottom: 2px solid grey;
   line-height: 50px;
 }
@@ -52,6 +52,6 @@ li a {
 }
 
 li a:hover {
-  color: orange;
+  color: #FF6A28;
 }
 </style>
