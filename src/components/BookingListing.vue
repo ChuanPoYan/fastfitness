@@ -29,7 +29,8 @@
   height: 340px;
   border-radius: 10px;
   border: solid 2px;
-  margin: 20px;
+  margin-right: 30px;
+  float: left;
 }
 
 .link {

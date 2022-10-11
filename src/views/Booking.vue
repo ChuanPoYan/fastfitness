@@ -3,9 +3,13 @@
 <div class="booking">
     <div id="upcoming">
         <h1 style="text-align: left">Upcoming Bookings</h1>
+        <BookingListing/>  
+        <BookingListing/> 
     </div>
     <div id="previous">
         <h1 style="text-align: left">Previous Bookings</h1>
+        <BookingListing/> 
+        <BookingListing/> 
     </div>
 </div>
 </template>
@@ -18,14 +22,25 @@
 }
 #upcoming {
   margin-left: 30px;
-  height: 300px;
+  height: 400px;
   width: 100%;
   
 }
 #previous { 
   margin-left: 30px;
-  height: 300px;
+  height: 400px;
   width: 100%;
 }
 </style>
+
+<script>
+import BookingListing from '@/components/BookingListing.vue'
+
+export default {
+    name: 'Booking',
+    components:{
+        BookingListing
+    }
+}
+</script>
 
