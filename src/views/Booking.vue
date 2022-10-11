@@ -13,6 +13,7 @@
 <style>
 .booking {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px; 
 }
 #upcoming {
   margin-left: 30px;
