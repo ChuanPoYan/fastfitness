@@ -16,8 +16,16 @@ const router = createRouter({
         component: () => import('@/views/Login.vue'), 
     }, 
     {
-        path: '/about',
-        component: () => import('@/views/About.vue'), 
+        path: '/search',
+        component: () => import('@/views/Search.vue'), 
+    }, 
+    {
+        path: '/booking',
+        component: () => import('@/views/Booking.vue'), 
+    }, 
+    {
+        path: '/profile',
+        component: () => import('@/views/Profile.vue'), 
     }, 
     ], 
 }); 

@@ -1,14 +1,15 @@
 <template>
   <div> 
     <nav id="nav">
+      <router-link to="/">Home</router-link>
+      <router-link to="/search">Search</router-link>
+      <router-link to="/booking">Booking</router-link>
+      <router-link to="/profile">Profile</router-link>
       <router-link to="/login">Login</router-link>
       <router-link to="/signup">SignUp</router-link>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
     </nav>
     <router-view />
   </div>
-  <div> <h1> Hello </h1></div>
 </template>
 
 <script>
