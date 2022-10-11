@@ -8,6 +8,7 @@
         <li><router-link to="/booking">Booking</router-link></li>
         <li><router-link to="/search">Search</router-link></li>
         <li><router-link to="/">Home</router-link></li>
+        <img src="./assets/ff.png" style="float: left; width: 150px; height: auto; margin: 10px 10px 10px 30px" alt="poyan">
       </ul>
     </nav>
     <router-view />
