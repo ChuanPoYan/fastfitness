@@ -2,7 +2,7 @@
   <div> 
     <nav id="nav">
       <ul>
-        <li><router-link to="/signup">SignUp</router-link></li>
+        <li><router-link to="/signup" style="margin-right: 30px">SignUp</router-link></li>
         <li><router-link to="/login">Login</router-link></li>
         <li><router-link to="/profile">Profile</router-link></li>
         <li><router-link to="/booking">Booking</router-link></li>
@@ -32,7 +32,7 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 12%;
+  height: 10%;
   border-bottom: 2px solid grey;
   line-height: 50px;
 }

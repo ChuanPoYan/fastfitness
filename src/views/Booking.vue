@@ -2,7 +2,7 @@
     <h1> Booking Page </h1>
 <div class="booking">
     <div id="upcoming">
-        <br><br>
+        <br>
         <h1 style="text-align: left">Upcoming Bookings</h1>
     </div>
     <div id="previous">
