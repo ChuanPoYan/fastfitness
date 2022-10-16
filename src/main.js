@@ -9,6 +9,10 @@ import { initializeApp } from 'firebase/app'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//import calendar
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 const firebaseConfig = {
   apiKey: "AIzaSyDEPncc2M53wOvNAnV_uEYsfV8Z3WaTOuE",
   authDomain: "democpp-54388.firebaseapp.com",
@@ -25,5 +29,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 export default firebaseApp;
 
 const app = createApp(App); 
+app.component('Datepicker', Datepicker);
 app.use(router); 
 app.mount('#app'); 
