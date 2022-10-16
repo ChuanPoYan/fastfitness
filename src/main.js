@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router/index.js'
 import {initializeApp} from 'firebase/app'
 
+//import calendar
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 const firebaseConfig = {
   apiKey: "AIzaSyCyPZY5m7Nk-OcpLDYyafbLvHP1AKyAV90",
   authDomain: "fastfitness-7aab4.firebaseapp.com",
@@ -18,5 +22,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 export default firebaseApp;
 
 const app = createApp(App); 
+app.component('Datepicker', Datepicker);
 app.use(router); 
 app.mount('#app'); 
