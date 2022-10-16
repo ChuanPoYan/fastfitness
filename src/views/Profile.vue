@@ -1,0 +1,111 @@
+<template>
+    <br>
+<div class="AddEmployeeForm">
+    <h1> Personal information </h1>
+       <label for="name"> Name: </label>
+    <input type = "text" id = "name"  placeholder="Name" v-model="name" /> 
+    <br><br>
+
+    <label for="email"> Email: </label>
+    <input type="text" id = "email"  placeholder="Email" v-model="email" /> 
+    <br><br>
+
+    <label for="Phone"> Phone Number </label>
+    <input type="text" id = "number"  placeholder="number" v-model="email" /> 
+    <br><br>
+
+    <label for="Address"> Address: </label> 
+    <input type = "text" id = "address"  placeholder="Address" v-model="address" /> 
+    <br><br>
+
+    <v-layout row>
+      <v-flex  md6 offset-sm3 >
+       <div>
+         <div >
+           <v-button id="Save changes" @click="click1">Save Changes</v-button>              
+         </div>  
+      
+       </div>
+       </v-flex>
+    </v-layout>
+</div>
+
+<div class="sidenav">
+  <a href="#">Account</a>
+  <a href="#">Membership</a>
+  <a href="#">Personal information</a>
+  <a href="#">Payment History</a>
+</div>
+<br><br>
+</template>
+<style>
+    .header{
+        height: 50px;
+        background-color: grey;
+        text-align: center;
+        font-size: 17px;
+    }
+    #desc{
+        height: 50px;
+        background-color: none;
+        text-align: center;
+        font-size: 16px;
+    }
+    .AddEmployeeForm{
+        text-align: center;
+        font-size: 20px;
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;   
+        padding: 80px;  
+        background: #ffffff;  
+        border-radius: 15px ;
+    }
+    
+    label{
+			display: inline-block;
+			width: 200px;
+			text-align: right;
+			margin-right: 5px;	
+		}
+    
+    #profilepic {
+        background: white;
+        color: black;
+        border:1px grey solid;
+    }
+
+    /* The sidebar menu */
+.sidenav {
+  margin-top: 95px !important;
+  height: 100%; 
+  width: 300px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: orange; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 100px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+</style>>

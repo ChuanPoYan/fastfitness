@@ -10,7 +10,7 @@
   "dependencies": {
     "@vuepic/vue-datepicker": "^3.5.2",
     "core-js": "^3.8.3",
-    "firebase": "^9.11.0",
+    "firebase": "^9.12.1",
     "firestore": "^1.1.6",
     "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.13",

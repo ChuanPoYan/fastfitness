@@ -1,15 +1,18 @@
 <template>
   <div> 
     <nav id="nav">
-      <router-link to="/login">Login</router-link>
-      <router-link to="/signup">SignUp</router-link>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/booking-information">Booking Information</router-link>
+      <ul>
+        <li><router-link to="/signup" style="margin-right: 30px">SignUp</router-link></li>
+        <li><router-link to="/login">Login</router-link></li>
+        <li><router-link to="/profile">Profile</router-link></li>
+        <li><router-link to="/booking">Booking</router-link></li>
+        <li><router-link to="/search">Search</router-link></li>
+        <li><router-link to="/">Home</router-link></li>
+        <img src="./assets/ff.png" style="float: left; width: 150px; height: auto; margin: 10px 10px 10px 30px" alt="poyan">
+      </ul>
     </nav>
     <router-view />
   </div>
-  <div> <h1> Hello </h1></div>
 </template>
 
 <script>
@@ -18,15 +21,37 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  colour: black; 
-  font-family: 'Courier New', Courier, monospace;  
+<style scoped>
+ul {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid grey;
+  line-height: 50px;
 }
 
-#nav {
-  font-family: Arial, Helvetica, sans-serif;
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: black;
   text-align: center;
-  padding: 20px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 120%;
+  margin: 7px;
+}
+
+li a:hover {
+  color: #FF6A28;
 }
 </style>
