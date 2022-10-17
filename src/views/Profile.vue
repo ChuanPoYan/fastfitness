@@ -11,7 +11,7 @@
     <br><br>
 
     <label for="Phone"> Phone Number </label>
-    <input type="text" id = "number"  placeholder="number" v-model="email" /> 
+    <input type="text" id = "number"  placeholder="number" v-model="number" /> 
     <br><br>
 
     <label for="Address"> Address: </label> 
@@ -21,10 +21,7 @@
     <v-layout row>
       <v-flex  md6 offset-sm3 >
        <div>
-         <div >
-           <v-button id="Save changes" @click="click1">Save Changes</v-button>              
-         </div>  
-      
+         <button @click="saveChanges"> Save Changes </button>
        </div>
        </v-flex>
     </v-layout>
@@ -38,6 +35,42 @@
 </div>
 <br><br>
 </template>
+
+<script>
+import firebaseApp from '../main.js';
+import { getFirestore } from "firebase/firestore"
+import { collection, doc, setDoc } from "firebase/firestore"
+const db = getFirestore(firebaseApp);
+
+collection(db, "users");
+
+export default {
+    name: "SaveProfileChanges",
+    data() {
+        return {
+            name: "",
+            email: "",
+            number: "",
+            address: ""
+        }
+    },
+    methods: {
+        saveChanges() {
+            setDoc(doc(db, "users", this.name), {First_Name: this.name, Phone_Number: this.number, 
+                Email: this.email, Address: this.address
+            })
+            .then((docRef) => {
+                console.log(docRef);
+                window.location.reload();
+            })
+            .catch((error) => {
+                console.error("Error Saving Information", error)
+            })
+        }
+    }
+};
+</script>
+
 <style>
     .header{
         height: 50px;
