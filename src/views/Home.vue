@@ -34,8 +34,7 @@ export default {
 
 <style scoped>
 #pic {
-    padding-top: 100px;
-    width: 950px;
+    width: 1100px;
     height: 800px;  
 }
 
@@ -45,7 +44,7 @@ export default {
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
   max-width: 30%;
-  max-height: 30%;
+  height: 450px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: right; 
   padding-top: 120px;
