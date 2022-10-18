@@ -39,10 +39,8 @@
 <script>
 import firebaseApp from '../main.js';
 import { getFirestore } from "firebase/firestore"
-import { collection, doc, setDoc } from "firebase/firestore"
+import { doc, updateDoc } from "firebase/firestore"
 const db = getFirestore(firebaseApp);
-
-collection(db, "users");
 
 export default {
     name: "SaveProfileChanges",
@@ -56,12 +54,9 @@ export default {
     },
     methods: {
         saveChanges() {
-            setDoc(doc(db, "users", this.name), {First_Name: this.name, Phone_Number: this.number, 
+            const userRef = doc(db, "users", this.email);
+            updateDoc(userRef, {First_Name: this.name, Phone_Number: this.number, 
                 Email: this.email, Address: this.address
-            })
-            .then((docRef) => {
-                console.log(docRef);
-                window.location.reload();
             })
             .catch((error) => {
                 console.error("Error Saving Information", error)

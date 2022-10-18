@@ -42,7 +42,7 @@ export default {
                     alert(error.message)
                 }
             });
-            setDoc(doc(db, "users", "empty"), {First_Name: "empty", Phone_Number: "empty", 
+            setDoc(doc(db, "users", this.email), {First_Name: "empty", Phone_Number: "empty", 
                 Email: this.email, Address: "empty"
             }).then((docRef) => {
                 console.log(docRef);
