@@ -23,31 +23,18 @@
       <div style="margin-left: 67%; ">
         <h3 class="title">Studio Location</h3>
       </div>
-      <div>
-        <SavedModal v-show="showModal" @close-modal="showModal = false" />
-      </div>
-      <div class="save-btn">
-        <button @click="showModal = true">Booking Successful Popup</button>
-      </div>
     </div>
 
   </template>
   
   <script>
   import BookingListing from '@/components/BookingListing.vue'
-  import SavedModal from '@/components/SavedModal.vue'
-
+  
   export default {
     name: "App",
     components: {
       BookingListing,
-      SavedModal,
     },
-    data() {
-      return {
-      showModal: false,
-    }
-  },
   };
   </script>
   

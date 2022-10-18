@@ -4,7 +4,7 @@
       <img class= "check" src="../assets/checkicon.png" alt="checkicon">
       <h6>Saved!</h6>
       <p>Your Booking is Successful!</p>
-      <button>Cancel</button>
+      <button>Back to Page</button>
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />
@@ -63,7 +63,7 @@ p {
 }
 
 button {
-  background-color: orange;
+  background-color:#FF6A28;
   width: 150px;
   height: 40px;
   color: white;
