@@ -14,6 +14,9 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { default as error_dict } from "../data/error.js"
 import firebaseApp from '@/main';
+import { getFirestore } from "firebase/firestore"
+import { doc, setDoc } from "firebase/firestore"
+const db = getFirestore(firebaseApp);
 
 export default {
     name: "SignUp", 
@@ -39,6 +42,16 @@ export default {
                     alert(error.message)
                 }
             });
+            setDoc(doc(db, "users", "empty"), {First_Name: "empty", Phone_Number: "empty", 
+                Email: this.email, Address: "empty"
+            }).then((docRef) => {
+                console.log(docRef);
+                window.location.reload();
+            })
+            .catch((error) => {
+                console.error("Error Creating User", error)
+            })
+
         },
     },
 };
