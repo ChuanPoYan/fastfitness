@@ -3,7 +3,7 @@
 <div class="AddEmployeeForm">
     <h1> Personal information </h1>
        <label for="name"> Name: </label>
-    <input type = "text" id = "name"  placeholder="Name" v-model="name" /> 
+    <input type ="text" id = "name"  placeholder="Name" v-model="name" /> 
     <br><br>
 
     <label for="email"> Email: </label>
@@ -15,7 +15,7 @@
     <br><br>
 
     <label for="Address"> Address: </label> 
-    <input type = "text" id = "address"  placeholder="Address" v-model="address" /> 
+    <input type ="text" id = "address"  placeholder="Address" v-model="address" /> 
     <br><br>
 
     <v-layout row>
@@ -85,28 +85,16 @@ export default {
         font-size: 16px;
     }
     .AddEmployeeForm{
-        text-align: center;
+        text-align: left;
         font-size: 20px;
         width: 382px;  
         overflow: hidden;  
         margin: auto;   
-        padding: 80px;  
+        padding: 100px;  
         background: #ffffff;  
         border-radius: 15px ;
     }
     
-    label{
-			display: inline-block;
-			width: 200px;
-			text-align: right;
-			margin-right: 5px;	
-		}
-    
-    #profilepic {
-        background: white;
-        color: black;
-        border:1px grey solid;
-    }
 
     /* The sidebar menu */
 .sidenav {
@@ -138,7 +126,25 @@ export default {
 
 /* Style page content */
 .main {
-  margin-left: 160px; /* Same as the width of the sidebar */
+  margin-left: 200px; /* Same as the width of the sidebar */
   padding: 0px 10px;
+}
+.input-contain{
+    position: relative;
+}
+input{
+    height: 5rem;
+    width: 20rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+input:focus{
+    outline: none;
+    border-color: orange;
+}
+
+input, .placeholder{
+    font-size: 1.4rem;
+    padding: 0 1.2rem;
 }
 </style>>
