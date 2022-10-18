@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router/index.js'
 import { initializeApp } from 'firebase/app'
 
+
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
