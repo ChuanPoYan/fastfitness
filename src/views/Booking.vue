@@ -1,5 +1,4 @@
 <template>
-    <h1> Booking Page </h1>
 <div class="booking">
     <div id="upcoming">
         <h1 style="text-align: left">Upcoming Bookings</h1>
@@ -18,7 +17,7 @@
 .booking {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px; 
-    padding-top: 10px;
+    padding-top: 30px;
 }
 #upcoming {
   margin-left: 30px;
