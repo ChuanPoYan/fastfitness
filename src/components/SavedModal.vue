@@ -67,12 +67,18 @@ p {
 
 button {
   background-color:#FF6A28;
-  width: 150px;
-  height: 40px;
+  padding: 1rem 3rem;
+  text-align: center;
+  font-size: 16px;
+  width: 200px;
+  height: 60px;
   color: white;
-  font-size: 14px;
-  border-radius: 16px;
+  border-radius: 9px;
   margin-top: 50px;
+  letter-spacing: 0px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 

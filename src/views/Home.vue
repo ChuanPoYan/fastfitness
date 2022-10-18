@@ -15,6 +15,7 @@
     <div class="save-btn">
         <button @click="showModal = true">Booking Successful Popup</button>
     </div>
+    <button class="creditsbutton" role="button" > 20 CREDITS </button>
 </template>
 
 <script>
@@ -38,7 +39,7 @@ export default {
     width: 1100px;
     height: 800px;  
 }
-
+/* card */
 #card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -62,4 +63,23 @@ export default {
   padding: 2px 16px;
 }
 
+/* credits button */
+.creditsbutton{ 
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: #ff7b31;
+    border-radius: 9px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.creditsbutton:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+        
 </style>
