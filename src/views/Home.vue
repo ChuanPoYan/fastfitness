@@ -1,4 +1,11 @@
 <template>
-    <h1> Home Page </h1>
-    <img src="../assets/home.png" style="float: height: 80%; left; width: auto; height: auto; margin: 10px 10px 10px 10px" alt="poyan">
+    <img id= "pic" src="../assets/homepage.png" alt="homepage">
 </template>
+
+<style scoped>
+#pic {
+    text-align: center;
+    padding-top: 100px;
+    min-height: 100%; 
+}
+</style>
