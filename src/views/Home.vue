@@ -5,7 +5,6 @@
 <style scoped>
 #pic {
     text-align: center;
-    padding-top: 100px;
-    min-height: 100%; 
+    padding-top: 120px;
 }
 </style>
