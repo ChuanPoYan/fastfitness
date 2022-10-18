@@ -33,7 +33,7 @@
 .modal {
   text-align: center;
   background-color: white;
-  height: 500px;
+  height: 400px;
   width: 500px;
   margin-top: 10%;
   padding: 60px 0;
@@ -55,11 +55,13 @@ h6 {
   font-weight: 500;
   font-size: 28px;
   margin: 20px 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
   font-size: 16px;
   margin: 20px 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
@@ -70,6 +72,7 @@ button {
   font-size: 14px;
   border-radius: 16px;
   margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 </style>
