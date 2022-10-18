@@ -1,10 +1,11 @@
 <template>
     <img id= "pic" src="../assets/homepage.png" alt="homepage">
-<div class="card">
-    <img src="../assets/promo1.png" alt="Promotion1" style="width:100%">
+<div id="card">
+    <img src="../assets/promo2.png" alt="Promotion1" style="width:100%">
     <div class="container">
-    <h4><b>Collaboration with Cheak Activewear!</b></h4>
-    <p>Up to 75% discounts if you spend minimum $50!</p>
+    <h4><b>Collaboration with Kydra Activewear!</b></h4>
+    <p>Up to 75% discounts if you spend a minimum of $50!</p>
+    <h5><b>Promotion up till 31st December 2022</b></h5>
 </div>
 </div>
     <!-- include Booking Successful Popup -temporary -->
@@ -38,16 +39,17 @@ export default {
     height: 800px;  
 }
 
-.card {
+#card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
-  max-width: 30%;
-  height: 450px;
+  width: 500px;
+  height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: right; 
   padding-top: 120px;
+  padding-right: 30px;
 }
 
 /* On mouse-over, add a deeper shadow */
