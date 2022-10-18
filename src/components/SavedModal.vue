@@ -4,7 +4,8 @@
       <img class= "check" src="../assets/checkicon.png" alt="checkicon">
       <h6>Saved!</h6>
       <p>Your Booking is Successful!</p>
-      <button>Back to Page</button>
+      <!-- Button has currently no usage -->
+      <button>Back to Page</button> 
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />
