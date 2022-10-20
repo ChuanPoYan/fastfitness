@@ -1,12 +1,17 @@
 <template>
-    <img id= "pic" src="../assets/homepage.png" alt="homepage">
-<div id="card">
+<div class="parent">
+<div class="child" id="pic">
+    <img src="../assets/homepage.png" alt="homepage">
+</div>
+<div class="child" id="card">
     <img src="../assets/promo2.png" alt="Promotion1" style="width:100%">
     <div class="container">
     <h4><b>Collaboration with Kydra Activewear!</b></h4>
     <p>Up to 75% discounts if you spend a minimum of $50!</p>
     <h5><b>Promotion up till 31st December 2022</b></h5>
 </div>
+</div>
+
 </div>
     <!-- include Booking Successful Popup -temporary -->
     <div>
@@ -35,9 +40,19 @@ export default {
 </script>
 
 <style scoped>
+.parent {
+  margin: 1rem;
+  padding: 2rem 2rem;
+}
+.child {
+  display: inline-block;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  float:left
+}
 #pic {
-    width: 1100px;
-    height: 800px;  
+    width: 800px;
+    height: 600px;  
 }
 /* card */
 #card {
@@ -46,11 +61,10 @@ export default {
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
   width: 500px;
-  height: 100%;
+  height: 500px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  float: right; 
-  padding-top: 120px;
-  padding-right: 30px;
+  float: left; 
+  padding-top: 20px;
 }
 
 /* On mouse-over, add a deeper shadow */
