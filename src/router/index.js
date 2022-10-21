@@ -27,6 +27,10 @@ const router = createRouter({
         path: '/profile',
         component: () => import('@/views/Profile.vue'), 
     },
+    {
+        path: '/bookInfo',
+        component: () => import('@/views/BookingInformation.vue'), 
+    },
     ], 
 }); 
 

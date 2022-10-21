@@ -1,7 +1,7 @@
 <template>
   <article class="article">
     <a
-      href="https://www.figma.com/file/9EXPTUK9zgE8OQ0Xh8IwyY/BT3103-MockUp"
+      href="http://localhost:8080/vue/dist/bookInfo"
       class="link"
     >
       <figure class="image">
