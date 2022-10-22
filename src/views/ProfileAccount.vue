@@ -1,21 +1,50 @@
 <template>
-  <h1>Account</h1>
-  <div class = "rectangle"></div>
+  <header>Header</header>
+  
+  <main>Content</main>
+  <nav>Navigation</nav>
+
+  <div><h1>Heading</h1></div>
+
+
+
+  <div class="grid-container">
+    <div class ="grid-item-1"></div>
+    <div class ="grid-item-2"></div>
+    <div class ="grid-item-3"></div>
+    <div class ="grid-item-4"></div>
+
+  </div>
+
+    
+
 </template>
 
 <script>
 export default {
-
+  name: "ProfileAccount",
 }
+
 </script>
 
-<style>
-.rectangle {
-    width: 54.28px;
-    height: 3.14px;
-    left: 709.87px;
-    top: 128.23px;
+<style scoped>
+*{
+  display: grid;
+}
+header{
+  font-size: 16px;
+  height:10vh;
 
-background: #3A3A3A;
+ } 
+
+/* header{
+  height:20%;
+}, */
+main,
+nav{
+  background-color: steelblue;
+  color:white;
+  padding:20px;
+  border:skyblue;
 }
 </style>

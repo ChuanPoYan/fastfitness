@@ -17,7 +17,6 @@
     <label for="Address"> Address: </label> 
     <input type ="text" id = "address"  placeholder="Address" v-model="address" /> 
     <br><br>
-
     <v-layout row>
       <v-flex  md6 offset-sm3 >
        <div>
@@ -28,10 +27,19 @@
 </div>
 
 <div class="sidenav">
-  <a href="#">Account</a>
-  <a href="#">Membership</a>
-  <a href="#">Personal information</a>
-  <a href="#">Payment History</a>
+    
+    
+    <router-link to="/profile">Profile</router-link>
+    <router-link to="/profileAccount">Account</router-link>
+    <router-link to="/profileHistory">Profile History</router-link>
+    <router-link to="/profileMembership">Membership</router-link>
+    
+    <router-view/>
+  <!-- <a class ="active" href="#personalinfo">Personal information</a>
+  <a href="#account">Account</a>
+  <a href="#membership">Membership</a>
+  <a href="#paymenthistory">Payment History</a> -->
+  
 </div>
 <br><br>
 </template>
@@ -100,7 +108,7 @@ export default {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: orange; /* Black */
+  background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 100px;
 }
@@ -110,19 +118,23 @@ export default {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: black;
   display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: orange;
 }
-
+.active {
+  background-color: orange;
+  color: white;
+}
 /* Style page content */
 .main {
   margin-left: 200px; /* Same as the width of the sidebar */
   padding: 0px 10px;
+  font-family: Arial, Helvetica, sans-serif; 
 }
 .input-contain{
     position: relative;

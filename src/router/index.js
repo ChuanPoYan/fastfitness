@@ -31,6 +31,18 @@ const router = createRouter({
         path: '/bookInfo',
         component: () => import('@/views/BookingInformation.vue'), 
     },
+    {
+        path: '/profileAccount',
+        component: () => import('@/views/ProfileAccount.vue'), 
+    },
+    {
+        path: '/profileHistory',
+        component: () => import('@/views/ProfileHistory.vue'), 
+    },
+    {
+        path: '/profileAccount',
+        component: () => import('@/views/ProfileMembership.vue'), 
+    }
     ], 
 }); 
 
