@@ -40,7 +40,7 @@ const router = createRouter({
         component: () => import('@/views/ProfileHistory.vue'), 
     },
     {
-        path: '/profileAccount',
+        path: '/profileMembership',
         component: () => import('@/views/ProfileMembership.vue'), 
     }
     ], 

@@ -1,23 +1,42 @@
 <template>
-  <header>Header</header>
-  
-  <main>Content</main>
-  <nav>Navigation</nav>
+  <body>
+  <br><br><br><br><br>
+  <div class="main">
+    <div class="sidebar">
+      <h2>sidebar</h2>
+    </div>
 
-  <div><h1>Heading</h1></div>
+    <div class ="Currentmembershipplan">
+      <h1>Current membership plan</h1>
+      <div class = "card">
+        <h2>Intermediate Membership</h2>
+        <h3>Purchased Date is 26 October 2022</h3>
+        <p>Our package gives you access to 60 credits</p>
+        <h3>Read more</h3>
+      </div>
+    </div>
 
-
-
-  <div class="grid-container">
-    <div class ="grid-item-1"></div>
-    <div class ="grid-item-2"></div>
-    <div class ="grid-item-3"></div>
-    <div class ="grid-item-4"></div>
+    <div class ="Credits">
+      <h1>Credits</h1>
+      <div class = "card2">
+        <h1>14</h1>
+        <hr/>
+        <h3>Credits remaining</h3>
+        <p>Expiring on 1st October</p>
+        <h3>Read more</h3>
+        <button>Top up credits</button>
+      </div>
+    </div>
 
   </div>
-
-    
-
+</body>
+<div class="sidenav">
+    <router-link to="/profile">Profile</router-link>
+    <router-link to="/profileAccount">Account</router-link>
+    <router-link to="/profileHistory">Profile History</router-link>
+    <router-link to="/profileMembership">Membership</router-link>
+    <router-view/>  
+  </div>
 </template>
 
 <script>
@@ -28,23 +47,69 @@ export default {
 </script>
 
 <style scoped>
-*{
-  display: grid;
-}
-header{
-  font-size: 16px;
-  height:10vh;
 
- } 
+.main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+ 
 
 /* header{
   height:20%;
 }, */
-main,
-nav{
-  background-color: steelblue;
-  color:white;
-  padding:20px;
-  border:skyblue;
+.sidenav {
+  margin-top: 95px !important;
+  height: 100%; 
+  width: 300px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(241, 241, 241, 1); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 100px;
+}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  width: 400px;
+  height: 300px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  float: left; 
+  padding-top: 20px;
+  padding-left: 30px;
+}
+.card2{
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px; /* 5px rounded corners */
+  width: 400px;
+  height: 300px;
+  padding-top: 20px;
+}
+button{
+    border: none;
+    background-color: orange;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px 30px;
+    color: white;
+    text-transform: uppercase;
+}
+hr{
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: orange;
 }
 </style>
