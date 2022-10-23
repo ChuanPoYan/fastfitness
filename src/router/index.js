@@ -28,21 +28,21 @@ const router = createRouter({
         component: () => import('@/views/Profile.vue'), 
     },
     {
-        path: '/bookInfo',
-        component: () => import('@/views/BookingInformation.vue'), 
-    },
-    {
-        path: '/profileAccount',
+        path: '/profile/account',
         component: () => import('@/views/ProfileAccount.vue'), 
     },
     {
-        path: '/profileHistory',
+        path: '/profile/history',
         component: () => import('@/views/ProfileHistory.vue'), 
     },
     {
-        path: '/profileMembership',
+        path: '/profile/membership',
         component: () => import('@/views/ProfileMembership.vue'), 
-    }
+    }, 
+    {
+        path: '/bookInfo',
+        component: () => import('@/views/BookingInformation.vue'), 
+    },
     ], 
 }); 
 
