@@ -59,30 +59,34 @@ import { getAuth } from "firebase/auth";
 const db = getFirestore(firebaseApp);
 
 export default {
-  name: "ProfileMembership", 
-  data(){
-   return {membership : null}
-  }, 
-  created: async function(){
+  name: "ProfileMembership",
+  data() {
+    return { membership: null };
+  },
+  created: async function () {
     const auth = getAuth(firebaseApp);
-      this.email = auth.currentUser.email;
-      const docRef = doc(db, "users", this.email);
-      getDoc(docRef).then((result) => {
-        if (result.exists()) {
-          this.membership = result.data()["Membership"]; 
-        }
-      });
-  }, 
+    this.email = auth.currentUser.email;
+    const docRef = doc(db, "users", this.email);
+    getDoc(docRef).then((result) => {
+      if (result.exists()) {
+        this.membership = result.data()["Membership"];
+      }
+    });
+  },
   methods: {
     select(membership) {
       const auth = getAuth(firebaseApp);
       this.email = auth.currentUser.email;
       const userRef = doc(db, "users", this.email);
       updateDoc(userRef, {
-        Membership: membership, 
-      }).catch((error) => {
-        console.error("Error Saving Information", error);
-      });
+        Membership: membership,
+      })
+        .then(() => {
+          this.membership = membership;
+        })
+        .catch((error) => {
+          console.error("Error Saving Information", error);
+        });
     },
   },
 };
