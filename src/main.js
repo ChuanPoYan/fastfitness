@@ -15,12 +15,13 @@ import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCT-Blatmyh-dTUwicQ-fhN8rvr7q0HyxQ",
-  authDomain: "democpp-cf849.firebaseapp.com",
-  projectId: "democpp-cf849",
-  storageBucket: "democpp-cf849.appspot.com",
-  messagingSenderId: "636418969215",
-  appId: "1:636418969215:web:2416a77205a6f9b1b3f94a"
+  apiKey: "AIzaSyDEPncc2M53wOvNAnV_uEYsfV8Z3WaTOuE",
+  authDomain: "democpp-54388.firebaseapp.com",
+  projectId: "democpp-54388",
+  storageBucket: "democpp-54388.appspot.com",
+  messagingSenderId: "311137043974",
+  appId: "1:311137043974:web:2d7bcfd1afd97de3f96587",
+  measurementId: "G-T1TTVTZXHN"
 };
 
 // Initialize Firebase
