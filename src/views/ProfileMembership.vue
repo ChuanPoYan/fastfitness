@@ -23,7 +23,7 @@
         <hr/>
         <p>Access to all classes</p>
         <div v-if="'Starter' == this.membership">Selected</div>
-      <button v-else @click="select('Starter')">Select</button>
+      <button class="creditsbutton" v-else @click="select('Starter')">20 Credits</button>
       </div> 
     </div>
 
@@ -46,7 +46,7 @@
         <hr/>
         <p>Access to all classes</p>
         <div v-if="'Intermediate' == this.membership">Selected</div>
-  <button v-else @click="select('Intermediate')">Select</button>
+  <button class="creditsbutton" v-else @click="select('Intermediate')">35 Credits</button>
       </div> 
     </div>
 
@@ -69,7 +69,7 @@
         <hr/>
         <p>Access to all classes</p>
         <div v-if="'Advance' == this.membership">Selected</div>
-      <button v-else @click="select('Advance')">Select</button>
+      <button class="creditsbutton" v-else @click="select('Advance')">60 Credits</button>
       </div> 
     </div>
   </div>
@@ -180,4 +180,23 @@ export default {
   h1{
     text-align: center;
   }
+
+  /* credits button */
+.creditsbutton{ 
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: #ff7b31;
+    border-radius: 9px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.creditsbutton:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 </style>
