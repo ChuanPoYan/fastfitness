@@ -3,13 +3,20 @@
         <br><br><br>
         <!-- Contains course information -->
         <h4> Course Information </h4>
+        <!-- TODO: Currently calendar UI goes over it, need new Calendar UI-->
+        <div>
+            <SavedModal v-show="showModal" @close-modal="showModal = false" />
+        </div>
         <div class="main">
             <div class="photoandreview">
                 <!-- Contains picture and review -->
                 <img src="../assets/spinclass.png" alt="spin class photo" width="500" height="312.5">
                 <!-- To change to actual name of the class -->
                 <div class="description">
-                    <p><b>Description</b></p>
+                    <p><b>{{this.className}}</b></p>
+                    <p> Instructor: {{this.classInstructor}}</p>
+                    <p> Category: {{this.classCategory}}</p>
+                    <p> Price: {{this.classPrice}} credits</p>
                     <p>This is the best spin class you'll ever take, 
                         with the most intense instructors and peers, 
                         you'll be a world class athlete in no time!</p>
@@ -45,7 +52,7 @@
                     <p style="font-size: 14px">You have booked</p>
                     <p><b>19 September 10:30am</b></p>
                     <div class="buttons2">
-                        <button class="actionbtn" type="submit" value="Book">Book</button>
+                        <button class="actionbtn" type="submit" value="Book" @click="book()">Book</button>
                         <button class="actionbtn" type="reset" value="Cancel">Cancel</button>
                     </div>
                 </div>
@@ -55,11 +62,56 @@
 </template>
 
 <script>
+    //Firebase imports
+    import firebaseApp from "../main.js";
+    import { getFirestore } from "firebase/firestore";
+    import { doc, getDoc } from "firebase/firestore";
+
+    //Calendar import
     import BookingCalendar from '../components/BookingCalendar.vue';
+
+    //Popup import
+    import SavedModal from '../components/SavedModal.vue'
+
+    //Initialise Firebase
+    const db = getFirestore(firebaseApp);
+
     export default {
         name: "BookingInformation",
         components: {
             BookingCalendar,
+            SavedModal,
+        },
+        data() {
+            return { membership: null,
+                className: "Description",
+                classCapacity: null,
+                classCategory: null,
+                classInstructor: null,
+                classPrice: null,
+                classVenue: null,
+                showModal: false,
+            }
+        },
+        created: async function () {
+            const docRefClass = doc(db, "Class", "SpinClass1");
+            console.log("ABCDE");
+            getDoc(docRefClass).then((result) => {
+                if (result.exists()) {
+                    this.className = result.data()["Name"];
+                    this.classCapacity = result.data()["Capacity"];
+                    this.classCategory = result.data()["Category"];
+                    this.classInstructor = result.data()["Instructor"];
+                    this.classPrice = result.data()["Price"];
+                    this.classVenue = result.data()["Venue"];
+                }
+            })
+        },
+        methods: {
+            //Need method for this cause will have to extend later on
+            book() {
+                this.showModal = true;
+            }
         },
     }
 </script>
