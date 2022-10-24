@@ -24,7 +24,7 @@
         <h3>Credits remaining</h3>
         <p>Expiring on 1st October</p>
         <h3>Read more</h3>
-        <button>Top up credits</button>
+        <button class="topupbutton">Top Up Credits</button>
       </div>
     </div>
 
@@ -97,19 +97,30 @@ export default {
   height: 300px;
   padding-top: 20px;
 }
-button{
-    border: none;
-    background-color: orange;
-    width: 50%;
-    margin: 10px auto;
-    padding: 10px 30px;
-    color: white;
+
+/* credits button */
+.topupbutton{ 
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 16px;
     text-transform: uppercase;
+    cursor: pointer;
+    background: #ff7b31;
+    border-radius: 9px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
+.topupbutton:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 hr{
     display: block;
     border: none;
     height: 3px;
-    background-color: orange;
+    background-color: #ff7b31;
 }
 </style>

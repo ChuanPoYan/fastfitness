@@ -1,5 +1,4 @@
 <template>
-<div class="parent">
 <div class="child" id="pic">
     <img src="../assets/homepage.png" alt="homepage">
 </div>
@@ -9,48 +8,19 @@
     <h4><b>Collaboration with Kydra Activewear!</b></h4>
     <p>Up to 75% discounts if you spend a minimum of $50!</p>
     <h5><b>Promotion up till 31st December 2022</b></h5>
-</div>
-</div>
-
-</div>
-    <!-- include Booking Successful Popup -temporary -->
-    <div>
-        <SavedModal v-show="showModal" @close-modal="showModal = false" />
-      </div>
-    <div class="save-btn">
-        <button @click="showModal = true">Booking Successful Popup</button>
     </div>
-    <button class="creditsbutton" role="button" > 20 CREDITS </button>
+</div>
 </template>
 
 <script>
-import SavedModal from '@/components/SavedModal.vue'
-
 export default {
     name: "App",
-    components: {
-      SavedModal,
-    },
-    data() {
-      return {
-      showModal: false,
-    }
-  },
 };
 </script>
 
 <style scoped>
-.parent {
-  margin: 1rem;
-  padding: 2rem 2rem;
-}
-.child {
-  display: inline-block;
-  padding: 1rem 1rem;
-  vertical-align: middle;
-  float:left
-}
 #pic {
+    padding-top: 20px;
     width: 800px;
     height: 600px;  
 }
@@ -75,25 +45,6 @@ export default {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
-}
-
-/* credits button */
-.creditsbutton{ 
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    padding: 1rem 3rem;
-    text-align: center;
-    font-size: 16px;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: #ff7b31;
-    border-radius: 9px;
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-.creditsbutton:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
         
 </style>
