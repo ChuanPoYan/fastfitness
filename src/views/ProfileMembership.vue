@@ -3,7 +3,7 @@
   <br><br><br><br><br>
   <div class="main">
     <div class="sidebar">
-      <h2>sidebar</h2>
+      <h2>sideb</h2>
     </div>
     <div class ="Credits">
       <!-- <h1>Credits</h1> -->
@@ -19,7 +19,7 @@
         <hr/>
         <p>Free Lanyard</p>
         <hr/>
-        <p>bronze Member</p>
+        <p>Bronze Member</p>
         <hr/>
         <p>Access to all classes</p>
         <div v-if="'Starter' == this.membership">Selected</div>
@@ -42,7 +42,7 @@
         <hr/>
         <p>Free Shirt</p>
         <hr/>
-        <p>silver Member</p>
+        <p>Silver Member</p>
         <hr/>
         <p>Access to all classes</p>
         <div v-if="'Intermediate' == this.membership">Selected</div>
@@ -76,9 +76,9 @@
   </body>
 <div class="sidenav">
     <router-link to="/profile">Profile</router-link>
-    <router-link to="/profileAccount">Account</router-link>
-    <router-link to="/profileHistory">Profile History</router-link>
-    <router-link to="/profileMembership">Membership</router-link>
+    <router-link to="/profile/account">Account</router-link>
+    <router-link to="/profile/history">Profile History</router-link>
+    <router-link to="/profile/membership">Membership</router-link>
     <router-view/>  
   </div>
   </template>
@@ -164,7 +164,7 @@ export default {
   }
   button{
       border: none;
-      background-color: orange;
+      background-color: c;
       width: 50%;
       margin: 10px auto;
       padding: 10px 30px;
@@ -189,7 +189,7 @@ export default {
     font-size: 16px;
     text-transform: uppercase;
     cursor: pointer;
-    background: #ff7b31;
+    background: rgba(255,106,40);
     border-radius: 9px;
     border: none;
     color: #fff;

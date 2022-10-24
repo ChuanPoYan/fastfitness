@@ -3,7 +3,7 @@
   <br><br><br><br><br>
   <div class="main">
     <div class="sidebar">
-      <h2>sidebar</h2>
+      <h2>sideba</h2>
     </div>
 
     <div class ="Currentmembershipplan">
@@ -32,9 +32,9 @@
 </body>
 <div class="sidenav">
     <router-link to="/profile">Profile</router-link>
-    <router-link to="/profileAccount">Account</router-link>
-    <router-link to="/profileHistory">Profile History</router-link>
-    <router-link to="/profileMembership">Membership</router-link>
+    <router-link to="/profile/account">Account</router-link>
+    <router-link to="/profile/history">Profile History</router-link>
+    <router-link to="/profile/membership">Membership</router-link>
     <router-view/>  
   </div>
 </template>
@@ -50,14 +50,8 @@ export default {
 
 .main{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 400px 1fr 1fr;
 }
-
- 
-
-/* header{
-  height:20%;
-}, */
 .sidenav {
   margin-top: 95px !important;
   height: 100%; 
@@ -106,7 +100,7 @@ export default {
     font-size: 16px;
     text-transform: uppercase;
     cursor: pointer;
-    background: #ff7b31;
+    background:  rgba(255,106,40);
     border-radius: 9px;
     border: none;
     color: #fff;
@@ -121,6 +115,6 @@ hr{
     display: block;
     border: none;
     height: 3px;
-    background-color: #ff7b31;
+    background-color: rgba(255,106,40);
 }
 </style>

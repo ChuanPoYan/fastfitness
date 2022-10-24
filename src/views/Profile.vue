@@ -123,10 +123,10 @@ export default {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: orange;
+  color:  rgba(255,106,40);;
 }
 .active {
-  background-color: orange;
+  background-color:  rgba(255,106,40);;
   color: white;
 }
 /* Style page content */
@@ -146,7 +146,7 @@ input {
 }
 input:focus {
   outline: none;
-  border-color: orange;
+  border-color:  rgba(255,106,40);;
 }
 
 input,
