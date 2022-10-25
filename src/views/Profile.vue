@@ -1,5 +1,5 @@
 <template>
-  <br />
+  <div style="margin-left:15%">
   <div class="AddEmployeeForm">
     <h1>Personal information</h1>
     <label for="name"> Name: </label>
@@ -25,8 +25,9 @@
       </v-flex>
     </v-layout>
   </div>
+</div>
 
-  <div class="sidenav">
+  <div class="sidenav" style="width:15%">
     <router-link to="/profile">Profile</router-link>
     <router-link to="/profile/account">Account</router-link>
     <router-link to="/profile/history">Profile History</router-link>
@@ -102,14 +103,13 @@ export default {
 .sidenav {
   margin-top: 95px !important;
   height: 100%;
-  width: 300px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 100px;
+  padding-top: 40px;
 }
 
 /* The navigation menu links */

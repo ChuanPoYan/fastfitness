@@ -1,11 +1,8 @@
 <template>
   <body>
-  <br><br><br><br><br>
+    <div class="bodyalignment" style="margin-left:15%">
+    <br><br><br><br><br>
   <div class="main">
-    <div class="sidebar">
-      <h2>sideba</h2>
-    </div>
-
     <div class ="Currentmembershipplan">
       <h1>Current membership plan</h1>
       <div class = "card">
@@ -29,8 +26,9 @@
     </div>
 
   </div>
+</div>
 </body>
-<div class="sidenav">
+<div class="sidenav" style="width:15%">
     <router-link to="/profile">Profile</router-link>
     <router-link to="/profile/account">Account</router-link>
     <router-link to="/profile/history">Profile History</router-link>
@@ -50,19 +48,19 @@ export default {
 
 .main{
   display: grid;
-  grid-template-columns: 400px 1fr 1fr;
+  grid-template-columns:  1fr 1fr;
 }
 .sidenav {
   margin-top: 95px !important;
   height: 100%; 
-  width: 300px; /* Set the width of the sidebar */
+  /* width: 300px; Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 100px;
+  padding-top: 40px;
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -81,8 +79,13 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: left; 
   padding-top: 20px;
-  padding-left: 30px;
+  padding-left: 70px;
 }
+/* .Currentmembershipplan {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+} */
 .card2{
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -110,11 +113,13 @@ export default {
 .topupbutton:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
 hr{
     display: block;
     border: none;
     height: 3px;
     background-color: rgba(255,106,40);
+}
+h1{
+  text-align: center;
 }
 </style>
