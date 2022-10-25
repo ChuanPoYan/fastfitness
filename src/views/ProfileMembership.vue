@@ -20,7 +20,7 @@
           <p>Bronze Member</p>
           <hr />
           <p>Access to all classes</p>
-          <div v-if="'Starter' == this.membership">Selected</div>
+          <button class="selected" v-if="'Starter' == this.membership"> Selected </button>
           <button class="creditsbutton" v-else @click="select('Starter')">
             25 Credits
           </button>
@@ -43,7 +43,7 @@
           <p>Silver Member</p>
           <hr />
           <p>Access to all classes</p>
-          <div v-if="'Intermediate' == this.membership">Selected</div>
+          <button class="selected" v-if="'Intermediate' == this.membership"> Selected </button>
           <button class="creditsbutton" v-else @click="select('Intermediate')">
             50 Credits
           </button>
@@ -66,7 +66,7 @@
           <p>Gold Member</p>
           <hr />
           <p>Access to all classes</p>
-          <div v-if="'Advance' == this.membership">Selected</div>
+          <button class="selected" v-if="'Advance' == this.membership"> Selected </button>
           <button class="creditsbutton" v-else @click="select('Advance')">
             80 Credits
           </button>
@@ -201,5 +201,20 @@ h1 {
 }
 .creditsbutton:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  padding: 1rem 3rem;
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: red;
+  border-radius: 9px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 </style>
