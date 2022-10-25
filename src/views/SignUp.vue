@@ -54,7 +54,8 @@ export default {
         Phone_Number: null,
         Email: this.email,
         Address: null,
-        Membership: null,
+        Membership: null, 
+        Credits: 0, 
       })
         .then((docRef) => {
           console.log(docRef);
