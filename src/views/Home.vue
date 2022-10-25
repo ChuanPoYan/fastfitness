@@ -23,13 +23,32 @@
     </div>
   </div>
 
+    <!-- Credits Purchase Popup - temporary -->
+    <div>
+        <SavedModalCredits v-show="showModal" @close-modal="showModal = false" />
+    </div>
+    <div class="save-btn">
+        <button @click="showModal = true">Credits Purchased Popup</button>
+    </div>
+
 </div>
 </template>
 
 <script>
+import SavedModalCredits from '@/components/SavedModalCredits.vue'
+
 export default {
     name: "App",
+    components: {
+      SavedModalCredits,
+    },
+    data() {
+      return {
+      showModal: false,
+    }
+  },
 };
+
 </script>
 
 <style scoped>
