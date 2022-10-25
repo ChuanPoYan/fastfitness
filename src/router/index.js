@@ -32,10 +32,6 @@ const router = createRouter({
         component: () => import('@/views/ProfileAccount.vue'), 
     },
     {
-        path: '/profile/history',
-        component: () => import('@/views/ProfileHistory.vue'), 
-    },
-    {
         path: '/profile/membership',
         component: () => import('@/views/ProfileMembership.vue'), 
     }, 

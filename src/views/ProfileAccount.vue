@@ -31,7 +31,6 @@
 <div class="sidenav" style="width:15%">
     <router-link to="/profile">Profile</router-link>
     <router-link to="/profile/account">Account</router-link>
-    <router-link to="/profile/history">Profile History</router-link>
     <router-link to="/profile/membership">Membership</router-link>
     <router-view/>  
   </div>
