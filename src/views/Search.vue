@@ -2,8 +2,15 @@
     <div>
       <div style="width: 67%; float: left">
         <div>
-          <input type="text" placeholder="Search.." class="topnav"/>
-          <select v-model="selected" class="topnav">
+          <!-- Load seach icon library -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <!-- searchbar -->
+          <div class="searchbar" id="topnav">
+            <input type="text" placeholder="Search.." name="topnav"/>
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
+          <!-- dropdown -->
+          <select v-model="selected" id="topnav">
             <option disabled value="">Category</option>
             <option>Exercise</option>
             <option>Karate</option>
@@ -53,10 +60,40 @@
     display: inline-block;
   }
   
-  .topnav {
+  #topnav {
     font-size: 20px;
     width: 400px;
     margin: 20px;
   }
-  </style>
+
+
+/* Style the search field */
+searchbar.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid rgba(255, 106, 40);
+    float: left;
+    font-size: 20px;
+    width: 400px;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+searchbar.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: rgba(255, 106, 40);
+  color: white;
+  font-size: 17px;
+  border: 1px solid rgba(255, 106, 40);
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+searchbar.example button:hover {
+  background: rgba(255, 106, 40);
+}
+
+</style>
   
