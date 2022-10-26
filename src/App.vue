@@ -1,14 +1,27 @@
 <template>
-  <div> 
+  <div>
     <nav id="nav">
       <ul>
-        <li><router-link to="/signup" style="margin-right: 30px">SignUp</router-link></li>
+        <li>
+          <router-link to="/signup" style="margin-right: 30px"
+            >SignUp</router-link
+          >
+        </li>
         <li><router-link to="/login">Login</router-link></li>
         <li><router-link to="/profile">Profile</router-link></li>
         <li><router-link to="/booking">Booking</router-link></li>
         <li><router-link to="/search">Search</router-link></li>
         <li><router-link to="/">Home</router-link></li>
-        <img src="./assets/ff.png" style="float: left; width: 150px; height: auto; margin: 10px 10px 10px 30px" alt="poyan">
+        <img
+          src="./assets/ff.png"
+          style="
+            float: left;
+            width: 150px;
+            height: auto;
+            margin: 10px 10px 10px 30px;
+          "
+          alt="poyan"
+        />
       </ul>
     </nav>
     <router-view />
@@ -17,8 +30,8 @@
 
 <script>
 export default {
-  name: 'App',
-}
+  name: "App",
+};
 </script>
 
 <style scoped>
@@ -52,6 +65,6 @@ li a {
 }
 
 li a:hover {
-  color: #FF6A28;
+  color: #ff6a28;
 }
 </style>

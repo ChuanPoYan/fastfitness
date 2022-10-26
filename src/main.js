@@ -1,8 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router/index.js'
-import { initializeApp } from 'firebase/app'
-
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router/index.js";
+import { initializeApp } from "firebase/app";
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -11,8 +10,8 @@ import { initializeApp } from 'firebase/app'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 //import calendar
-import Datepicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDEPncc2M53wOvNAnV_uEYsfV8Z3WaTOuE",
@@ -21,7 +20,7 @@ const firebaseConfig = {
   storageBucket: "democpp-54388.appspot.com",
   messagingSenderId: "311137043974",
   appId: "1:311137043974:web:2d7bcfd1afd97de3f96587",
-  measurementId: "G-T1TTVTZXHN"
+  measurementId: "G-T1TTVTZXHN",
 };
 
 // Initialize Firebase
@@ -29,7 +28,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 export default firebaseApp;
 
-const app = createApp(App); 
-app.component('Datepicker', Datepicker);
-app.use(router); 
-app.mount('#app'); 
+const app = createApp(App);
+app.component("Datepicker", Datepicker);
+app.use(router);
+app.mount("#app");

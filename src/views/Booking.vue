@@ -1,31 +1,30 @@
 <template>
-<div class="booking">
+  <div class="booking">
     <div id="upcoming">
-        <h1 style="text-align: left">Upcoming Bookings</h1>
-        <BookingListing/>  
-        <BookingListing/> 
+      <h1 style="text-align: left">Upcoming Bookings</h1>
+      <BookingListing />
+      <BookingListing />
     </div>
     <div id="previous">
-        <h1 style="text-align: left">Previous Bookings</h1>
-        <BookingListing/> 
-        <BookingListing/> 
+      <h1 style="text-align: left">Previous Bookings</h1>
+      <BookingListing />
+      <BookingListing />
     </div>
-</div>
+  </div>
 </template>
 
 <style>
 .booking {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px; 
-    padding-top: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding-top: 30px;
 }
 #upcoming {
   margin-left: 30px;
   height: 400px;
   width: 100%;
-  
 }
-#previous { 
+#previous {
   margin-left: 30px;
   height: 400px;
   width: 100%;
@@ -33,13 +32,12 @@
 </style>
 
 <script>
-import BookingListing from '@/components/BookingListing.vue'
+import BookingListing from "@/components/BookingListing.vue";
 
 export default {
-    name: 'Booking',
-    components:{
-        BookingListing
-    }
-}
+  name: "Booking",
+  components: {
+    BookingListing,
+  },
+};
 </script>
-

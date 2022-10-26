@@ -1,11 +1,11 @@
 <template>
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <img class= "check" src="../assets/checkicon.png" alt="checkicon">
+      <img class="check" src="../assets/checkicon.png" alt="checkicon" />
       <h6>Saved!</h6>
       <p>Your Booking is Successful!</p>
       <!-- Button has currently no usage -->
-      <button>Back to Page</button> 
+      <button>Back to Page</button>
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />
@@ -14,12 +14,10 @@
 </template>
 
 <script>
-  export default {
-}
+export default {};
 </script>
 
 <style scoped>
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -66,7 +64,7 @@ p {
 }
 
 button {
-  background-color:#FF6A28;
+  background-color: #ff6a28;
   padding: 1rem 3rem;
   text-align: center;
   font-size: 16px;
@@ -81,5 +79,4 @@ button {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 </style>

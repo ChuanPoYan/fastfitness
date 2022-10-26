@@ -1,9 +1,6 @@
 <template>
   <article class="article">
-    <a
-      href="http://localhost:8080/vue/dist/bookInfo"
-      class="link"
-    >
+    <a href="http://localhost:8080/vue/dist/bookInfo" class="link">
       <figure class="image">
         <img src="../assets/logo.png" alt="Booking" />
       </figure>
