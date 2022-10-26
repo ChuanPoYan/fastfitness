@@ -2,12 +2,9 @@
   <div style="margin-left:15%">
   <div class="AddEmployeeForm">
     <h1>Personal information</h1>
+
     <label for="name"> Name: </label>
     <input type="text" id="name" placeholder="Name" v-model="name" />
-    <br /><br />
-
-    <label for="email"> Email: </label>
-    <input type="text" id="email" placeholder="Email" v-model="email" />
     <br /><br />
 
     <label for="Phone"> Phone Number </label>
@@ -45,7 +42,9 @@
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
 import { doc, updateDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
+const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
 export default {
@@ -53,7 +52,6 @@ export default {
   data() {
     return {
       name: "",
-      email: "",
       number: "",
       address: "",
     };
