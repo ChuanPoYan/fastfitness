@@ -44,7 +44,6 @@ import { getFirestore } from "firebase/firestore";
 import { doc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
 export default {
@@ -58,11 +57,12 @@ export default {
   },
   methods: {
     saveChanges() {
+      const auth = getAuth(firebaseApp);
+      this.email = auth.currentUser.email;
       const userRef = doc(db, "users", this.email);
       updateDoc(userRef, {
         First_Name: this.name,
         Phone_Number: this.number,
-        Email: this.email,
         Address: this.address,
       }).catch((error) => {
         console.error("Error Saving Information", error);
