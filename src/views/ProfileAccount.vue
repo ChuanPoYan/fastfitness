@@ -48,6 +48,7 @@ export default {
 .main{
   display: grid;
   grid-template-columns:  1fr 1fr;
+  justify-content: space-around;
 }
 .sidenav {
   margin-top: 95px !important;
