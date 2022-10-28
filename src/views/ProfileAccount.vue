@@ -9,6 +9,9 @@
         <h2>Intermediate Membership</h2>
         <h3>Purchased Date is 26 October 2022</h3>
         <p>Our package gives you access to 60 credits</p>
+        <p>{{name}}</p>
+        <p>{{address}}</p>
+        <p>{{phone}}</p>
         <h3>Read more</h3>
       </div>
     </div>
@@ -37,8 +40,32 @@
 </template>
 
 <script>
+import firebaseApp from "../main.js";
+import { getFirestore, doc , getDoc} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+const db = getFirestore(firebaseApp);
+
 export default {
-  name: "ProfileAccount",
+  data(){
+    return{
+      name: this.name,
+      number: this.phone,
+      address: this.address,
+    };
+  },
+  created: async function () {
+    const auth = getAuth(firebaseApp);
+    this.email = auth.currentUser.email;
+    const userRef = doc(db, "users", this.email);
+    getDoc(userRef).then((userDoc) => {
+      if (userDoc.exists()) {
+        this.name = userDoc.data()["First_Name"]
+        this.phone = userDoc.data()["Phone_Number"]
+        this.address = userDoc.data()["Address"]
+      }
+    })
+  }
 }
 
 </script>
@@ -48,7 +75,6 @@ export default {
 .main{
   display: grid;
   grid-template-columns:  1fr 1fr;
-  justify-content: space-around;
 }
 .sidenav {
   margin-top: 95px !important;

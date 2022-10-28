@@ -7,7 +7,7 @@
     <input type="text" id="name" placeholder="Name" v-model="name" />
     <br /><br />
 
-    <label for="Phone"> Phone Number </label>
+    <label for="Phone"> Phone Number: </label>
     <input type="text" id="number" placeholder="number" v-model="number" />
     <br /><br />
 
