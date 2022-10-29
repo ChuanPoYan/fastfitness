@@ -116,9 +116,9 @@ export default {
       showModal: false,
     };
   },
+  //Get details based on classID
   created: async function () {
     const docRefClass = doc(db, "Class", "SpinClass1");
-    console.log("ABCDE");
     getDoc(docRefClass).then((result) => {
       if (result.exists()) {
         this.className = result.data()["Name"];

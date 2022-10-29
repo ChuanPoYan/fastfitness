@@ -5,11 +5,11 @@
         <img src="../assets/logo.png" alt="Booking" />
       </figure>
       <div class="content">
-        <h3 class="title">Exercise</h3>
+        <h3 class="title">{{this.classCategory}}</h3>
         <hr class="solid" />
         <div style="width: 40%; float: left">
           <img src="../assets/person.png" alt="Icon" class="icon" />
-          <span class="post">Jirapat</span>
+          <span class="post">{{this.classInstructor}}</span>
         </div>
         <div style="margin-left: 40%">
           <img src="../assets/time.png" alt="Icon" class="icon" />
@@ -19,6 +19,49 @@
     </a>
   </article>
 </template>
+
+<script>
+//Firebase imports
+import firebaseApp from "../main.js";
+import { getFirestore } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+
+const db = getFirestore(firebaseApp);
+
+export default {
+  name: "BookingListing",
+  //Pass classID from Booking to this component
+  props: {
+    classID: String
+  },
+  data() {
+    return {
+      className: "Description",
+      classCapacity: null,
+      classCategory: null,
+      classInstructor: null,
+      classPrice: null,
+      classVenue: null,
+    };
+  },
+  //Get details based on classID
+  updated: async function () {
+    const docRefClass = doc(db, "Class", this.classID);
+    getDoc(docRefClass).then((result) => {
+      if (result.exists()) {
+        this.className = result.data()["Name"];
+        this.classCapacity = result.data()["Capacity"];
+        this.classCategory = result.data()["Category"];
+        this.classInstructor = result.data()["Instructor"];
+        this.classPrice = result.data()["Price"];
+        this.classVenue = result.data()["Venue"];
+      }
+    });
+  },
+}
+
+</script>
+
 
 <style>
 .article {

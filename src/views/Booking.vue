@@ -13,6 +13,19 @@
   </div>
 </template>
 
+<script>
+//Import BookingListing so can pass bookingID to it
+import BookingListing from "../components/BookingListing.vue"
+
+export default {
+  name: "Booking",
+  components: {
+    BookingListing
+  },
+}
+</script>
+
+
 <style>
 .booking {
   font-family: Arial, Helvetica, sans-serif;
@@ -30,14 +43,3 @@
   width: 100%;
 }
 </style>
-
-<script>
-import BookingListing from "@/components/BookingListing.vue";
-
-export default {
-  name: "Booking",
-  components: {
-    BookingListing,
-  },
-};
-</script>

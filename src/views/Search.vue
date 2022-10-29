@@ -19,12 +19,12 @@
           </select>
         </div>
         <div class="child inline-block-child">
-          <BookingListing />
-          <BookingListing />
+          <BookingListing :classID = "classIDs[0]" />
+          <BookingListing :classID = "classIDs[1]"/>
         </div>
         <div class="child inline-block-child">
-          <BookingListing />
-          <BookingListing />
+          <BookingListing :classID = "classIDs[2]"/>
+          <BookingListing :classID = "classIDs[3]"/>
         </div>
       </div>
       <div style="margin-left: 67%; ">
@@ -32,20 +32,40 @@
       </div>
     </div>
 
-  </template>
+</template>
   
-  <script>
-  import BookingListing from '@/components/BookingListing.vue'
+<script>
+//Import BookingListing so can pass classID to it
+import BookingListing from "../components/BookingListing.vue"
+
+//Firebase imports
+import firebaseApp from "../main.js";
+import { getFirestore } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+
+const db = getFirestore(firebaseApp);
+
+export default {
+  name: "Search",
+  components: {
+    BookingListing
+  },
+  data() {
+    return {
+      classIDs: []
+    }
+  },
+  created: async function () {
+    const classRef = collection(db, "Class");
+    const snapshot = await getDocs(classRef);
+    snapshot.forEach(doc => {
+      this.classIDs.push(doc.id);
+    })
+  },
+}
+</script>
   
-  export default {
-    name: "App",
-    components: {
-      BookingListing,
-    },
-  };
-  </script>
-  
-  <style>
+<style>
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -94,6 +114,5 @@ searchbar.example button {
 searchbar.example button:hover {
   background: rgba(255, 106, 40);
 }
-
 </style>
   
