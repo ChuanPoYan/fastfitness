@@ -1,81 +1,91 @@
 <template>
   <body>
-    <div style="margin-left:15%">
-    <br /><br /><br /><br /><br />
-    <div class="main">
-      <div class="Credits">
-        <!-- <h1>Credits</h1> -->
-        <br /><br /><br /><br />
-        <div class="card2">
-          <h2>Starter Package</h2>
-          <hr />
-          <br />
-          <h1>50/month</h1>
-          <br />
-          <hr />
-          <h3>4-5 Classes</h3>
-          <hr />
-          <p>Free Lanyard</p>
-          <hr />
-          <p>Bronze Member</p>
-          <hr />
-          <p>Access to all classes</p>
-          <button class="selected" v-if="'Starter' == this.membership"> Selected </button>
-          <button class="creditsbutton" v-else @click="select('Starter')">
-            25 Credits
-          </button>
+    <div style="margin-left: 15%">
+      <br /><br /><br /><br /><br />
+      <div class="main">
+        <div class="Credits">
+          <!-- <h1>Credits</h1> -->
+          <br /><br /><br /><br />
+          <div class="card2">
+            <h2>Starter Package</h2>
+            <hr />
+            <br />
+            <h1>50/month</h1>
+            <br />
+            <hr />
+            <h3>4-5 Classes</h3>
+            <hr />
+            <p>Free Lanyard</p>
+            <hr />
+            <p>Bronze Member</p>
+            <hr />
+            <p>Access to all classes</p>
+            <button class="selected" v-if="'Starter' == this.membership">
+              Selected
+            </button>
+            <button class="creditsbutton" v-else @click="select('Starter')">
+              25 Credits
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="Credits">
-        <h1>Our Packages</h1>
-        <div class="card2">
-          <h2>Intermediate Package</h2>
-          <hr />
-          <br />
-          <h1>90/month</h1>
-          <br />
-          <hr />
-          <h3>6-9 Classes</h3>
-          <hr />
-          <p>Free Shirt</p>
-          <hr />
-          <p>Silver Member</p>
-          <hr />
-          <p>Access to all classes</p>
-          <button class="selected" v-if="'Intermediate' == this.membership"> Selected </button>
-          <button class="creditsbutton" v-else @click="select('Intermediate')">
-            50 Credits
-          </button>
+        <div class="Credits">
+          <h1>Our Packages</h1>
+          <div class="card2">
+            <h2>Intermediate Package</h2>
+            <hr />
+            <br />
+            <h1>90/month</h1>
+            <br />
+            <hr />
+            <h3>6-9 Classes</h3>
+            <hr />
+            <p>Free Shirt</p>
+            <hr />
+            <p>Silver Member</p>
+            <hr />
+            <p>Access to all classes</p>
+            <button class="selected" v-if="'Intermediate' == this.membership">
+              Selected
+            </button>
+            <button
+              class="creditsbutton"
+              v-else
+              @click="select('Intermediate')"
+            >
+              50 Credits
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="intermediate">
-        <br /><br /><br /><br />
-        <div class="card2">
-          <h2>Advanced Package</h2>
-          <hr />
-          <br />
-          <h1>120/month</h1>
-          <br />
-          <hr />
-          <h3>10-15 Classes</h3>
-          <hr />
-          <p>Free Resistance Beads</p>
-          <hr />
-          <p>Gold Member</p>
-          <hr />
-          <p>Access to all classes</p>
-          <button class="selected" v-if="'Advance' == this.membership"> Selected </button>
-          <button class="creditsbutton" v-else @click="select('Advance')">
-            80 Credits
-          </button>
+        <div class="intermediate">
+          <br /><br /><br /><br />
+          <div class="card2">
+            <h2>Advanced Package</h2>
+            <hr />
+            <br />
+            <h1>120/month</h1>
+            <br />
+            <hr />
+            <h3>10-15 Classes</h3>
+            <hr />
+            <p>Free Resistance Beads</p>
+            <hr />
+            <p>Gold Member</p>
+            <hr />
+            <p>Access to all classes</p>
+            <button class="selected" v-if="'Advance' == this.membership">
+              Selected
+            </button>
+            <button class="creditsbutton" v-else @click="select('Advance')">
+              80 Credits
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </body>
-  <div class="sidenav" style="width:15%">
+  <div class="sidenav" style="width: 15%">
     <router-link to="/profile">Profile</router-link>
     <router-link to="/profile/account">Account</router-link>
     <router-link to="/profile/membership">Membership</router-link>
@@ -93,7 +103,10 @@ const db = getFirestore(firebaseApp);
 export default {
   name: "ProfileMembership",
   data() {
-    return { membership: null };
+    return {
+      membership: null,
+      email: null,
+    };
   },
   created: async function () {
     const auth = getAuth(firebaseApp);

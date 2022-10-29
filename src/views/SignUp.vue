@@ -56,6 +56,7 @@ export default {
         Address: null,
         Membership: null,
         Credits: 0,
+        Bookings: [],
       })
         .then((docRef) => {
           console.log(docRef);

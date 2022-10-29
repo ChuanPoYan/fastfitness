@@ -86,8 +86,9 @@
 <script>
 //Firebase imports
 import firebaseApp from "../main.js";
-import { getFirestore } from "firebase/firestore";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, getFirestore, setDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 //Calendar import
 import BookingCalendar from "../components/BookingCalendar.vue";
@@ -106,6 +107,8 @@ export default {
   },
   data() {
     return {
+      email: null,
+      class: null,
       membership: null,
       className: "Description",
       classCapacity: null,
@@ -114,10 +117,14 @@ export default {
       classPrice: null,
       classVenue: null,
       showModal: false,
+      credits: 0,
     };
   },
   //Get details based on classID
   created: async function () {
+    const auth = getAuth(firebaseApp);
+    this.email = auth.currentUser.email;
+    console.log(this.email);
     const docRefClass = doc(db, "Class", "SpinClass1");
     getDoc(docRefClass).then((result) => {
       if (result.exists()) {
@@ -132,8 +139,32 @@ export default {
   },
   methods: {
     //Need method for this cause will have to extend later on
-    book() {
-      this.showModal = true;
+    async bookClass() {
+      const auth = getAuth(firebaseApp);
+      this.email = auth.currentUser.email;
+      console.log(this.email);
+      const newBookingRef = doc(collection(db, "Booking"));
+      await setDoc(newBookingRef, {
+        Status: "Booked",
+        User: this.email,
+        Class: this.class,
+      });
+      var bookingId = newBookingRef.id;
+      const usersDocRef = doc(db, "users", this.email);
+      getDoc(usersDocRef).then((usersDoc) => {
+        if (usersDoc.exists()) {
+          var credits = usersDoc.data()["Credits"];
+          credits -= this.credits;
+          const bookings = usersDoc.data()["Bookings"];
+          bookings.push(bookingId);
+          updateDoc(usersDocRef, {
+            Credits: credits,
+            Bookings: bookings,
+          }).catch((error) => {
+            console.error("Error Saving Information", error);
+          });
+        }
+      });
     },
   },
 };
