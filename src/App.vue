@@ -1,14 +1,9 @@
 <template>
   <div>
-    <!-- navigation bar when person is logged IN: Home Search Login Signup-->
+    <!-- navigation bar when person is logged IN: Home search booking profile logout-->
     <nav id="nav">
       <ul>
-        <li>
-          <router-link to="/signup" style="margin-right: 30px"
-            >SignUp</router-link
-          >
-        </li>
-        <li><router-link to="/login">Login</router-link></li>
+        <li><router-link to="/logout">LogOut</router-link></li>
         <li><router-link to="/profile">Profile</router-link></li>
         <li><router-link to="/booking">Booking</router-link></li>
         <li><router-link to="/search">Search</router-link></li>
