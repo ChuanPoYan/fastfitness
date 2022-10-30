@@ -3,6 +3,8 @@
     <!-- navigation bar when person is logged IN: Home search booking profile logout-->
     <nav id="nav">
       <ul>
+        <!-- fetch username from account here -->
+        <li class="username"> Username </li> 
         <li><router-link to="/logout">LogOut</router-link></li>
         <li><router-link to="/profile">Profile</router-link></li>
         <li><router-link to="/booking">Booking</router-link></li>
@@ -31,6 +33,20 @@ export default {
 </script>
 
 <style scoped>
+.username {
+  padding: 5px 25px; 
+  background-color: #ff6a28; 
+  color: white;
+  border-radius: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 2.5em;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  font-size: 18px;
+  font-weight: 400; 
+
+}
+
 ul {
   font-family: Arial, Helvetica, sans-serif;
   list-style-type: none;
