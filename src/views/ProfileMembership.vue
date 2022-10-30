@@ -1,6 +1,6 @@
 <template>
   <body>
-    <div style="margin-left: 15%">
+    <div class ="Body">
       <br /><br /><br /><br /><br />
       <div class="main">
         <div class="Credits">
@@ -143,8 +143,13 @@ export default {
 
 <style>
 .main {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  background-color: grey;
+  justify-content: space-between;
+  align-content: center; */
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* header{

@@ -1,35 +1,34 @@
 <template>
   <body>
-    <div class="bodyalignment" style="margin-left:15%">
+    <div class="bodyalignment">
     <br><br><br><br><br>
-  <div class="main">
-    <div class ="Currentmembershipplan">
-      <h1>Current membership plan</h1>
-      <div class = "card">
-        <h2>Intermediate Membership</h2>
-        <h3>Purchased Date is 26 October 2022</h3>
-        <p>Our package gives you access to 60 credits</p>
-        <p>{{name}}</p>
-        <p>{{address}}</p>
-        <p>{{phone}}</p>
-        <h3>Read more</h3>
-      </div>
-    </div>
+      <div class="main">
+        <div class ="Currentmembershipplan">
+          <h1>Current membership plan</h1>
+          <div class = "card">
+            <h2>Intermediate Membership</h2>
+            <h3>Purchased Date is 26 October 2022</h3>
+            <p>Our package gives you access to 60 credits</p>
+            <p>{{name}}</p>
+            <p>{{address}}</p>
+            <p>{{phone}}</p>
+            <h3>Read more</h3>
+          </div>
+        </div>
 
-    <div class ="Credits">
-      <h1>Credits</h1>
-      <div class = "card2">
-        <h1>14</h1>
-        <hr/>
-        <h3>Credits remaining</h3>
-        <p>Expiring on 1st October</p>
-        <h3>Read more</h3>
-        <button class="topupbutton">Top Up Credits</button>
+        <div class ="Credits">
+          <h1>Credits</h1>
+          <div class = "card2">
+            <h1>14</h1>
+            <hr/>
+            <h3>Credits remaining</h3>
+            <p>Expiring on 1st October</p>
+            <h3>Read more</h3>
+            <button class="topupbutton">Top Up Credits</button>
+          </div>
+        </div>
       </div>
-    </div>
-
   </div>
-</div>
 </body>
 <div class="sidenav" style="width:15%">
     <router-link to="/profile">Profile</router-link>
@@ -73,8 +72,17 @@ export default {
 <style scoped>
 
 .main{
-  display: grid;
-  grid-template-columns:  1fr 1fr;
+  /* display: grid;
+  grid-template-columns:  1fr 1fr; */
+  /* justify-content: space-around; */
+  /* align-content: center; */
+  /* column-gap:200px; */
+  /* background-color: grey; */
+  /* margin-left: 200px; */
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: grey; */
+
 }
 .sidenav {
   margin-top: 95px !important;
@@ -103,7 +111,7 @@ export default {
   width: 400px;
   height: 300px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  float: left; 
+  float: center; 
   padding-top: 20px;
   padding-left: 70px;
 }
