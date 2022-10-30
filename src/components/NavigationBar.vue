@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- navigation bar when person is logged IN: Home Search Login Signup-->
+    <!-- navigation bar when person is logged OUT: Home Search Login Signup-->
     <nav id="nav">
       <ul>
         <li>
@@ -9,8 +9,6 @@
           >
         </li>
         <li><router-link to="/login">Login</router-link></li>
-        <li><router-link to="/profile">Profile</router-link></li>
-        <li><router-link to="/booking">Booking</router-link></li>
         <li><router-link to="/search">Search</router-link></li>
         <li><router-link to="/">Home</router-link></li>
         <img
