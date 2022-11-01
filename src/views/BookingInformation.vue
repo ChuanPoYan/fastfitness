@@ -18,13 +18,24 @@
     <div class="booking">
       <h3 > Pick an available time! </h3>
     </div>
+    <!-- this -->
+		<div class="datetime">
+			<label for="datepicker">Date</label>
+			<datepicker v-model="picked" id="datepicker"/>
+		</div>
     
   </div>
 </div>
 </template>
 
 <script>
+import Datepicker from 'vue3-datepicker'
 
+export default {
+	components: {
+		Datepicker,
+	},
+}
 </script>
 
 <style>
