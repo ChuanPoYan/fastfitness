@@ -1,6 +1,6 @@
 <template>
   <body>
-    <div class ="Body">
+    <div class="Body">
       <br /><br /><br /><br /><br />
       <div class="main">
         <div class="Credits">
