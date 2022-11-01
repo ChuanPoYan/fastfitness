@@ -2,31 +2,44 @@
   <!-- navigation bar when person is logged IN: Home search booking profile logout-->
   <nav id="nav">
     <ul>
-      <!-- fetch username from account here -->
-      <li class="username">Username</li>
+      <p>{{name}}</p>
+      <li class="username"></li>
       <li><router-link to="/logout">LogOut</router-link></li>
       <li><router-link to="/profile">Profile</router-link></li>
       <li><router-link to="/booking">Booking</router-link></li>
       <li><router-link to="/search">Search</router-link></li>
       <li><router-link to="/">Home</router-link></li>
-      <img
-        src="../assets/ff.png"
-        style="
-          float: left;
-          width: 150px;
-          height: auto;
-          margin: 10px 10px 10px 30px;
-        "
-        alt="poyan"
-      />
+      <img src="../assets/ff.png" style="float: left; width: 150px; height: auto; margin: 10px 10px 10px 30px;" alt="poyan"/>
     </ul>
   </nav>
 </template>
 
 <script>
+/*
+import firebaseApp from "../main.js";
+import { getFirestore, doc , getDoc} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+const db = getFirestore(firebaseApp);
+
 export default {
-  name: "NavBarLoggedIn",
+  data(){
+    return{
+      name: this.name
+    };
+  },
+  created: async function () {
+    const auth = getAuth(firebaseApp);
+    this.email = auth.currentUser.email;
+    const userRef = doc(db, "users", this.email);
+    getDoc(userRef).then((userDoc) => {
+      if (userDoc.exists()) {
+        this.name = userDoc.data()["First_Name"]
+      }
+    })
+  }
 };
+*/
 </script>
 
 <style scoped>
