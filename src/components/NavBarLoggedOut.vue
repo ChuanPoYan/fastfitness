@@ -12,7 +12,7 @@
         <li><router-link to="/search">Search</router-link></li>
         <li><router-link to="/">Home</router-link></li>
         <img
-          src="./assets/ff.png"
+          src="../assets/ff.png"
           style="
             float: left;
             width: 150px;
@@ -23,13 +23,12 @@
         />
       </ul>
     </nav>
-    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: "NavBarLoggedOut",
 };
 </script>
 
