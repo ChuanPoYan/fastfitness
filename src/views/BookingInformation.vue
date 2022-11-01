@@ -18,7 +18,8 @@
     <div class="booking">
       <h3 > Pick an available time! </h3>
     </div>
-    <!-- this -->
+    <!-- calendar datapicker-->
+    <!-- remember to change css inside calendar -->
 		<div class="datetime">
 			<label for="datepicker">Date</label>
 			<datepicker v-model="picked" id="datepicker"/>
