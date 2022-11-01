@@ -1,208 +1,61 @@
 <template>
-  <body>
-    <br /><br /><br />
-    <!-- Contains course information -->
-    <h4>Course Information</h4>
-    <!-- TODO: Currently calendar UI goes over it, need new Calendar UI-->
+<div class="main">
+
+  <div class="sub">
+    <img src="../assets/spin.png" alt="Spin" style="width: 100%" />
+  </div>
+
+  <div class="sub" id="information">
+    <h1> Booking Information </h1>
     <div>
-      <SavedModal v-show="showModal" @close-modal="showModal = false" />
+      <h3> Category: Spin </h3>
+      <h3> Studio: Ride the Current!  </h3>
+      <h3> Instructor: Mandalyn Tan  </h3>
+      <h3> Duration: 50mins </h3>
+      <h3> Credits: 8 </h3>
+      <h3> Description: Ride the Current! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
+        It is the ultimate party on a bike experience for anyone looking for that full body workout </h3>
     </div>
-    <div class="main">
-      <div class="photoandreview">
-        <!-- Contains picture and review -->
-        <img
-          src="../assets/spinclass.png"
-          alt="spin class photo"
-          width="500"
-          height="312.5"
-        />
-        <!-- To change to actual name of the class -->
-        <div class="description">
-          <p>
-            <b>{{ this.className }}</b>
-          </p>
-          <p>Instructor: {{ this.classInstructor }}</p>
-          <p>Category: {{ this.classCategory }}</p>
-          <p>Price: {{ this.classPrice }} credits</p>
-          <p>
-            This is the best spin class you'll ever take, with the most intense
-            instructors and peers, you'll be a world class athlete in no time!
-          </p>
-        </div>
-      </div>
-      <div class="mapcalendarandbooking">
-        <!-- Details -->
-        <div class="details">
-          <h4>Details</h4>
-          <!-- To get details from data -->
-          <p>+65 9830 9205</p>
-          <p>movetolive@gmail.com</p>
-          <p>movetolive.sg</p>
-          <p>@movetolive</p>
-        </div>
-        <!--Map -->
-        <div class="map">
-          <img
-            src="../assets/placeholdermap.png"
-            alt="map"
-            width="250"
-            height="200"
-          />
-        </div>
-        <!-- Calendar, if someone find a better one pls hmu :< -->
-        <div class="calendar">
-          <BookingCalendar />
-        </div>
-        <!-- Booking -->
-        <div class="booking">
-          <h4><b>Pick an available time</b></h4>
-          <!-- Time data to be dervied from backend? -->
-          <div class="buttons1">
-            <button class="timebtn" type="button" value="time1">09:30am</button>
-            <button class="timebtn" type="button" value="time2">10:30am</button>
-            <button class="timebtn" type="button" value="time2">11:30am</button>
-          </div>
-          <p style="font-size: 14px">You have booked</p>
-          <p><b>19 September 10:30am</b></p>
-          <div class="buttons2">
-            <button
-              class="actionbtn"
-              type="submit"
-              value="Book"
-              @click="book()"
-            >
-              Book
-            </button>
-            <button class="actionbtn" type="reset" value="Cancel">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
+
+    <div class="booking">
+      <h3 > Pick an available time! </h3>
     </div>
-  </body>
+
+  </div>
+
+</div>
+  
 </template>
 
 <script>
-//Firebase imports
-import firebaseApp from "../main.js";
-import { collection, getFirestore, setDoc } from "firebase/firestore";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
-
-//Calendar import
-import BookingCalendar from "../components/BookingCalendar.vue";
-
-//Popup import
-import SavedModal from "../components/SavedModal.vue";
-
-//Initialise Firebase
-const db = getFirestore(firebaseApp);
-
 export default {
-  name: "BookingInformation",
-  components: {
-    BookingCalendar,
-    SavedModal,
-  },
-  data() {
-    return {
-      email: null,
-      class: null,
-      membership: null,
-      className: "Description",
-      classCapacity: 0, 
-      classBookings: 0, 
-      classCategory: null,
-      classInstructor: null,
-      classPrice: null,
-      classVenue: null,
-      showModal: false,
-      credits: 0,
-    };
-  },
-  //Get details based on classID
-  created: async function () {
-    const auth = getAuth(firebaseApp);
-    this.email = auth.currentUser.email;
-    console.log(this.email);
-    const docRefClass = doc(db, "Class", "SpinClass1");
-    getDoc(docRefClass).then((result) => {
-      if (result.exists()) {
-        this.className = result.data()["Name"];
-        this.classCapacity = result.data()["Capacity"];
-        this.classCategory = result.data()["Category"];
-        this.classInstructor = result.data()["Instructor"];
-        this.classPrice = result.data()["Price"];
-        this.classVenue = result.data()["Venue"];
-      }
-    });
-  },
-  methods: {
-    //Need method for this cause will have to extend later on
-    async bookClass() {
-      const auth = getAuth(firebaseApp);
-      this.email = auth.currentUser.email;
-      console.log(this.email);
-      const newBookingRef = doc(collection(db, "Booking"));
-      await setDoc(newBookingRef, {
-        Status: "Booked",
-        User: this.email,
-        Class: this.class,
-      });
-      var bookingId = newBookingRef.id;
-      const usersDocRef = doc(db, "users", this.email);
-      getDoc(usersDocRef).then((usersDoc) => {
-        if (usersDoc.exists()) {
-          var credits = usersDoc.data()["Credits"];
-          credits -= this.credits;
-          const bookings = usersDoc.data()["Bookings"];
-          bookings.push(bookingId);
-          updateDoc(usersDocRef, {
-            Credits: credits,
-            Bookings: bookings,
-          }).catch((error) => {
-            console.error("Error Saving Information", error);
-          });
-        }
-      });
-    },
-  },
-};
+
+}
 </script>
 
-<style scoped>
-.main {
-  width: 1000px;
-  height: 200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+<style>
+.main{
+  padding-top: 70px;
+  width: 100%; 
+  display: flex;
 }
-.description {
-  margin-top: 10px;
-  padding: 5px;
+
+.sub {
+  width: 50%; 
+  padding: 60px;
 }
-.mapcalendarandbooking {
-  margin-left: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr, 1fr;
+
+#information {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
-.map {
-  margin-left: 5px;
-}
-.details {
-  height: 200px;
-}
+
 .booking {
+  background-color: rgba(255, 106, 40);
   text-align: center;
-  background-color: black;
-  color: white;
+  color: white; 
+  border-radius: 30px;
+  height: 200px; 
 }
-.timebtn {
-  margin: 5px;
-}
-.actionbtn {
-  margin: 10px;
-}
+
+
 </style>
