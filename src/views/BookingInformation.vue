@@ -7,18 +7,19 @@
 
   <div class="sub">
     <div class="information">
-      <h5> CLASS INFORMATION </h5>
-      <h1> RIDE THE CURRENT!  </h1>
+      <div class="information1">
+        <p id="classinformation"> CLASS INFORMATION </p>
+        <h1 id="studio"> RIDE THE CURRENT!  </h1>
+        <h4 id="credits"> 8 CREDITS </h4>
       <hr>
-      <h5> Category: Spin </h5>
-      <h5> Instructor: Mandalyn Tan  </h5>
-      <h5> Duration: 50mins </h5>
-      <h5> Credits: 8 </h5>
-      <h5> Ride the Current! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
-        It is the ultimate party on a bike experience for anyone looking for that full body workout </h5>
-      <!-- <div class="map">
-        <img src="../assets/map.png" alt="Map" style="align: right" />  
-      </div> -->
+      </div>
+      <div class="information2">
+        <p> Category: Spin  </p>
+        <p> Instructor: Mandalyn Tan  </p>
+        <p> Duration: 50mins </p>
+        <p> RIDE THE CURRENT! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
+          It is the ultimate party on a bike experience for anyone looking for that full body workout </p>
+      </div>
     </div>
     <br>
     <div class="booking">
@@ -47,6 +48,38 @@ export default {
 </script>
 
 <style>
+.information1 {
+  line-height: 0.5em;
+}
+
+.information2 {
+  font-weight: 500;
+}
+
+#classinformation {
+  letter-spacing: 2px; 
+  color: rgba(255, 106, 40);
+}
+#studio {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: black; 
+}
+#credits {
+  color: rgba(255, 106, 40);
+  font-size: 25px;
+}
+
+#category {
+  border-radius: 20px;
+  background-color:lightgray;
+  width: 70px;
+  height: 10px; 
+  color:black;
+  text-transform: uppercase;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
 .map {
   transition: all 0.3s ease-out;
 	display: inline-block;
@@ -57,9 +90,7 @@ export default {
 	width: 50%;
 	display: inline-block;
 }
-hr {
-  color: rgba(255, 106, 40);
-}
+
 .main{
   padding-top: 50px;
   width: 100%; 
