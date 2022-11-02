@@ -4,27 +4,25 @@
   <div class="sub">
     <img src="../assets/spin.png" alt="Spin" style="width: 100%" />
   </div>
+
   <div class="sub">
     <div class="information">
-      <h1> Booking Information </h1>
-      <h3> Category: Spin </h3>
-      <h3> Studio: Ride the Current!  </h3>
-      <h3> Instructor: Mandalyn Tan  </h3>
-      <h3> Duration: 50mins </h3>
-      <h3> Credits: 8 </h3>
-      <h3> Description: Ride the Current! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
-        It is the ultimate party on a bike experience for anyone looking for that full body workout </h3>
+      <h1> Class Information </h1>
+      <h5> Category: Spin </h5>
+      <h5> Studio: Ride the Current!  </h5>
+      <h5> Instructor: Mandalyn Tan  </h5>
+      <h5> Duration: 50mins </h5>
+      <h5> Credits: 8 </h5>
+      <h5> Description: Ride the Current! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
+        It is the ultimate party on a bike experience for anyone looking for that full body workout </h5>
     </div>
+    <br>
     <div class="booking">
-      <h3 > Pick an available time! </h3>
-    </div>
-    <!-- calendar datapicker-->
-    <!-- remember to change css inside calendar -->
-		<div class="datetime">
+      <h3> Select an available date! </h3>
+      <!-- calendar datapicker-->
 			<label for="datepicker">Date</label>
 			<datepicker v-model="picked" id="datepicker"/>
-		</div>
-    
+    </div>
   </div>
 </div>
 </template>
@@ -41,25 +39,38 @@ export default {
 
 <style>
 .main{
-  padding-top: 70px;
+  padding-top: 50px;
   width: 100%; 
   display: flex;
 }
 
 .sub {
   width: 50%; 
-  padding: 60px;
+  padding: 30px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+.information {
+  background-colour: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px; 
+  padding: 10px; 
 }
 
 .booking {
   background-color: rgba(255, 106, 40);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   color: white; 
   border-radius: 30px;
-  height: 500px; 
-
+  height: 250px; 
+  width: 700px;
+  display: inline-block;
+	margin: 5px;
 }
 
-
+/* On mouse-over, add a deeper shadow */
+.booking:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 </style>
