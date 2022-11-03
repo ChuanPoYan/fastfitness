@@ -5,30 +5,46 @@
           <!-- Load seach icon library -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <!-- searchbar -->
-          <div class="searchbar" id="topnav">
-            <input type="text" placeholder="Search.." name="topnav"/>
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </div>
-          <!-- dropdown -->
-          <select v-model="selected" id="topnav">
+          <div class="grid-container">
+
+            <div class="search-bar">
+            <input type="text" class="input" placeholder="&nbsp;">
+            <span class="label">Search</span>
+            <span class="highlight"></span>
+            <div class="search-btn">
+              <i class="fa fa-search"></i>
+            </div>
+            </div>
+
+          <div class="dropdown">
+            <select v-model="selected" id="topnav">
             <option disabled value="">Category</option>
             <option>Exercise</option>
             <option>Karate</option>
             <option>Yoga</option>
             <option>Meditation</option>
           </select>
+          </div>
+
+          </div>
+          
+          
         </div>
-        <div class="child inline-block-child">
-          <BookingListing :classID = "classIDs[0]" />
-          <BookingListing :classID = "classIDs[1]"/>
+
+            <div class="child inline-block-child">
+            <BookingListing :classID = "classIDs[0]" />
+            <BookingListing :classID = "classIDs[1]"/>
+            </div>
+          <div class="child inline-block-child">
+            <BookingListing :classID = "classIDs[2]"/>
+            <BookingListing :classID = "classIDs[3]"/>
+          </div>
         </div>
-        <div class="child inline-block-child">
-          <BookingListing :classID = "classIDs[2]"/>
-          <BookingListing :classID = "classIDs[3]"/>
-        </div>
-      </div>
+        
+
       <div style="margin-left: 67%; ">
         <h3 class="title">Studio Location</h3>
+        <img src="../assets/Mapsicle.png" alt="Icon" />
       </div>
     </div>
 
@@ -42,6 +58,7 @@ import BookingListing from "../components/BookingListing.vue"
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
+
 
 const db = getFirestore(firebaseApp);
 
@@ -66,6 +83,8 @@ export default {
 </script>
   
 <style>
+
+
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -85,34 +104,126 @@ export default {
     width: 400px;
     margin: 20px;
   }
-
-
-/* Style the search field */
-searchbar.example input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid rgba(255, 106, 40);
-    float: left;
-    font-size: 20px;
-    width: 400px;
-    background: #f1f1f1;
+/* .content{
+  display: flex;
+  justify-content: space-around;
+} */
+.grid-container{
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  display: flex;
+  justify-content: space-evenly;
+  /* grid-gap: 10px; */
+  background-color: grey;
+  padding-right: 40px;
+  padding-left:40px;
+  /* justify-content: space-evenly; */
 }
+
 
 /* Style the submit button */
-searchbar.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: rgba(255, 106, 40);
-  color: white;
-  font-size: 17px;
-  border: 1px solid rgba(255, 106, 40);
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
+.search-bar {
+  height: 44px;
+  width: 400px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 20px;
+  position: relative;
+  background: #fff;
+  margin-top: 10px;
 }
 
+.input {
+  border: none;
+  height: 25px;
+  width: 150px;
+  color: #1b1b1b;
+  font-size: 15px;
+  outline: none;
+}
+
+
+.input:focus ~ .label {
+  font-size: 9px;
+  top: 3px;
+  color: rgba(255, 106, 40);
+  transition: all 0.5s ease;
+}
+
+.label {
+  color: #aaaaaa;
+  position: absolute;
+  top: 13px;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.search-btn {
+  background:rgba(255, 106, 40);
+  border-radius: 20px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  justify-content: center;
+  cursor: pointer;
+  right: 2px;
+  position: absolute;
+  transition: all 1s ease;
+}
+
+.icon {
+  display: inline-flex;
+}
+
+.icon-18 {
+  width: 18px;
+  height: 18px;
+}
+
+.highlight {
+  width: 0px;
+  height: 1px;
+  background:rgba(255, 106, 40);
+  position: absolute;
+  bottom: 8px;
+  transition: all 1s ease;
+}
+
+.input:focus ~ .highlight {
+  width: 300px;
+  transition: all 1s ease;
+}
 searchbar.example button:hover {
   background: rgba(255, 106, 40);
 }
+
+{
+  outline: 0;
+  font-family: sans-serif
+}
+body {
+  background-color: #fafafa
+}
+span.msg,
+span.choose {
+  color: #555;
+  padding: 5px 0 10px;
+  display: inherit
+}
+.container {
+  width: 500px;
+  margin: 50px auto 0;
+  text-align: center
+}
+
+/*Styling Selectbox*/
+
 </style>
   
+
+
+
+

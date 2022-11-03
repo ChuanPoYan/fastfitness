@@ -38,11 +38,11 @@
 </template>
 
 <script>
-import Datepicker from 'vue3-datepicker'
+// import Datepicker from 'vue3-datepicker'
 
 export default {
 	components: {
-		Datepicker,
+		// Datepicker,
 	},
 }
 </script>
