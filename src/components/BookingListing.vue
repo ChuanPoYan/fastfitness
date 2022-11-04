@@ -68,9 +68,10 @@ export default {
   width: 400px;
   height: 340px;
   border-radius: 10px;
-  border: solid 2px;
+  /* border: solid 2px; */
   margin-right: 30px;
   float: left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .link {
@@ -104,5 +105,11 @@ export default {
   margin: 5px;
   position: relative;
   bottom: 15px;
+}
+.solid{
+  display: block;
+  border: none;
+  height: 3px;
+  background-color: grey;
 }
 </style>

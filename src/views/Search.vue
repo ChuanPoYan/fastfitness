@@ -42,9 +42,9 @@
         </div>
         
 
-      <div style="margin-left: 67%; ">
-        <h3 class="title">Studio Location</h3>
-        <img src="../assets/Mapsicle.png" alt="Icon" />
+        <div style="margin-left: 67%; padding-right: 20px; padding-top: 10px;">
+        <!-- <h3 class="title">Studio Location</h3> -->
+        <img src="../assets/mapwithtop.png" alt="Icon" style= "width:100%   ">
       </div>
     </div>
 
@@ -114,7 +114,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   /* grid-gap: 10px; */
-  background-color: grey;
+  /* background-color: grey; */
   padding-right: 40px;
   padding-left:40px;
   /* justify-content: space-evenly; */
