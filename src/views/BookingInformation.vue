@@ -14,9 +14,9 @@
       <hr>
       </div>
       <div class="information2">
-        <p> Category: Spin  </p>
-        <p> Instructor: Mandalyn Tan  </p>
-        <p> Duration: 50mins </p>
+        <p> CATEGORY: SPIN  </p>
+        <p> INSTRUCTOR: MANDALYN TAN  </p>
+        <p> DURATION: 50 MINS </p>
         <p> RIDE THE CURRENT! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
           It is the ultimate party on a bike experience for anyone looking for that full body workout </p>
       </div>
@@ -24,10 +24,12 @@
     <br>
     <div class="booking">
       <h3> Select an available date! </h3>
-      <!-- calendar datapicker-->
+      <!-- calendar datepicker-->
+      <div class="calendar">
 			<label for="datepicker">Date</label>
 			<datepicker v-model="picked" id="datepicker"/>
       <br>
+      </div>
       <div class="bookingbutton">
         <button id="button"> BOOK </button> 
         <button id="button"> CANCEL </button>
@@ -38,11 +40,11 @@
 </template>
 
 <script>
-// import Datepicker from 'vue3-datepicker'
+import Datepicker from 'vue3-datepicker'
 
 export default {
 	components: {
-		// Datepicker,
+		Datepicker,
 	},
 }
 </script>
@@ -54,6 +56,7 @@ export default {
 
 .information2 {
   font-weight: 500;
+  letter-spacing: 1px; 
 }
 
 #classinformation {
@@ -129,9 +132,9 @@ export default {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.datepicker {
-  --vdp-hover-bg-color: rgba(255, 106, 40);
-  --vdp-selected-bg-color: rgba(255, 106, 40);
+.calendar {
+	display: inline-block;
+	margin: 5px;
 }
 
 .bookingbutton {
