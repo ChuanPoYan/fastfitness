@@ -8,7 +8,7 @@
   <div class="sub">
   <!-- CARD 1 -->
   <div class="information1">
-        <img src="../assets/promo4.png" alt="Promotion1" style="object-fit: cover; width: 80%" />
+        <img src="../assets/promo4.png" alt="Promotion1" style="object-fit: contain; width: 80%" />
         <h4><b>Collaboration with Kydra Activewear!</b></h4>
         <p>Up to 75% discounts if you spend a minimum of $50!</p>
         <h5><b>Promotion up till 31st December 2022</b></h5>
@@ -49,10 +49,9 @@ export default {
   background-colour: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; 
-  
-  line-height: 0.2em;
+  line-height: 0.5em;
   width: 500px;
-  height: 300px;
+  height: 320px;
 }
 
 .information2 {
@@ -60,11 +59,9 @@ export default {
   background-colour: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; 
-
-  line-height: 0.2em;
+  line-height: 0.5em;
   width: 500px;
-  height: 300px;
-
+  height: 320px;
 }
 
 </style>
