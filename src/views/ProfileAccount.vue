@@ -6,13 +6,15 @@
         <div class ="Currentmembershipplan">
           <h1>Current membership plan</h1>
           <div class = "card">
+            <br><br>
             <h2>Intermediate Membership</h2>
+            <hr/>
             <h3>Purchased Date is 26 October 2022</h3>
             <p>Our package gives you access to 60 credits</p>
             <p>{{name}}</p>
             <p>{{address}}</p>
             <p>{{phone}}</p>
-            <h3>Read more</h3>
+
           </div>
         </div>
 
@@ -23,7 +25,6 @@
             <hr/>
             <h3>Credits remaining</h3>
             <p>Expiring on 1st October</p>
-            <h3>Read more</h3>
             <button class="topupbutton">Top Up Credits</button>
           </div>
         </div>
@@ -106,14 +107,14 @@ export default {
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+  /* transition: 0.3s; */
   border-radius: 5px; /* 5px rounded corners */
   width: 400px;
   height: 300px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: center; 
-  padding-top: 20px;
-  padding-left: 70px;
+  /* padding-top: 20px; */
+  /* padding-left: 70px; */
 }
 /* .Currentmembershipplan {
   display: flex;
