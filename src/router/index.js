@@ -39,6 +39,10 @@ const router = createRouter({
         path: '/bookInfo',
         component: () => import('@/views/BookingInformation.vue'), 
     },
+    {
+        path: '/logout',
+        component: () => import('@/views/Logout.vue'), 
+    },
     ], 
 }); 
 
