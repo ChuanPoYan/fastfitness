@@ -1,7 +1,7 @@
 <template>
     <div>
       <div style="width: 67%; float: left">
-        <div>
+        <div class="top_search">
           <!-- Load seach icon library -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <!-- searchbar -->
@@ -16,7 +16,7 @@
             </div>
             </div>
 
-          <div class="dropdown">
+          <!-- <div class="dropdown"> -->
             <select v-model="selected" id="topnav">
             <option disabled value="">Category</option>
             <option>Exercise</option>
@@ -24,7 +24,7 @@
             <option>Yoga</option>
             <option>Meditation</option>
           </select>
-          </div>
+          <!-- </div> -->
 
           </div>
           
@@ -99,11 +99,7 @@ export default {
     display: inline-block;
   }
   
-  #topnav {
-    font-size: 20px;
-    width: 400px;
-    margin: 20px;
-  }
+  
 /* .content{
   display: flex;
   justify-content: space-around;
@@ -119,8 +115,21 @@ export default {
   padding-left:40px;
   /* justify-content: space-evenly; */
 }
-
-
+.top_search{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#topnav {
+    /* font-size: 20px; */
+    width: 400px;
+    height: 44px;
+    margin-top: 10px;
+    /* margin: 20px; */
+    /* background-color: green; */
+    border-color: rgba(241, 241, 241, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 40px;
+  }
 /* Style the submit button */
 .search-bar {
   height: 44px;
@@ -132,12 +141,14 @@ export default {
   position: relative;
   background: #fff;
   margin-top: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+
 }
 
 .input {
   border: none;
   height: 25px;
-  width: 150px;
+  width: 300px;
   color: #1b1b1b;
   font-size: 15px;
   outline: none;
@@ -200,26 +211,6 @@ searchbar.example button:hover {
   background: rgba(255, 106, 40);
 }
 
-{
-  outline: 0;
-  font-family: sans-serif
-}
-body {
-  background-color: #fafafa
-}
-span.msg,
-span.choose {
-  color: #555;
-  padding: 5px 0 10px;
-  display: inherit
-}
-.container {
-  width: 500px;
-  margin: 50px auto 0;
-  text-align: center
-}
-
-/*Styling Selectbox*/
 
 </style>
   

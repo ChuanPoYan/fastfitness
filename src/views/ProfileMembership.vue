@@ -8,11 +8,17 @@
           <br /><br /><br /><br />
           <div class="card2">
             <h2>Starter Package</h2>
+            <!-- <hr />
+            <br /> -->
+            <div class="price">
             <hr />
             <br />
-            <h1>50/month</h1>
+              <h1>50/month</h1>
             <br />
             <hr />
+            </div>
+            <!-- <br />
+            <hr /> -->
             <h3>4-5 Classes</h3>
             <hr />
             <p>Free Lanyard</p>
@@ -31,13 +37,16 @@
 
         <div class="Credits">
           <h1>Our Packages</h1>
+          <span class="dot"></span>
           <div class="card2">
             <h2>Intermediate Package</h2>
+            <div class="price">
             <hr />
             <br />
-            <h1>90/month</h1>
+              <h1>90/month</h1>
             <br />
             <hr />
+            </div>
             <h3>6-9 Classes</h3>
             <hr />
             <p>Free Shirt</p>
@@ -62,11 +71,13 @@
           <br /><br /><br /><br />
           <div class="card2">
             <h2>Advanced Package</h2>
+            <div class="price">
             <hr />
             <br />
-            <h1>120/month</h1>
+              <h1>120/month</h1>
             <br />
             <hr />
+            </div>
             <h3>10-15 Classes</h3>
             <hr />
             <p>Free Resistance Beads</p>
@@ -142,6 +153,11 @@ export default {
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Avenir);
+
+.Body{
+  font-family: 'Avenir',serif;
+}
 .main {
   /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -150,8 +166,15 @@ export default {
   align-content: center; */
   display: flex;
   justify-content: space-evenly;
+  font-family: 'Avenir',serif;
 }
-
+/* .dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+} */
 /* header{
     height:20%;
   }, */
@@ -166,6 +189,8 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
+  font-family: 'Avenir',serif;
+
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -177,11 +202,12 @@ export default {
 .card2 {
   background-color: rgba(241, 241, 241, 1);
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 5px; /* 5px rounded corners */
-  width: 400px;
-  height: 500px;
+  width: 350px;
+  height: 475px;
   padding-top: 20px;
+  font-family: 'Avenir',serif;
 }
 button {
   border: none;
@@ -196,10 +222,12 @@ hr {
   display: block;
   border: none;
   height: 3px;
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 h1 {
   text-align: center;
+  font-family: 'Avenir',serif;
+  /* font-size:60px; */
 }
 
 /* credits button */
@@ -211,7 +239,7 @@ h1 {
   text-transform: uppercase;
   cursor: pointer;
   background: rgba(255, 106, 40);
-  border-radius: 9px;
+  border-radius: 30px;
   border: none;
   color: #fff;
   font-weight: bold;
@@ -235,4 +263,8 @@ h1 {
   font-weight: bold;
   letter-spacing: 1px;
 }
+.price{
+  background-color: white;
+}
+
 </style>

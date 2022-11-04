@@ -21,7 +21,7 @@
         <div class ="Credits">
           <h1>Credits</h1>
           <div class = "card2">
-            <h1>14</h1>
+            <h1 style="font-size:60px">14</h1>
             <hr/>
             <h3>Credits remaining</h3>
             <p>Expiring on 1st October</p>
@@ -96,6 +96,8 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
+  font-family: 'Avenir',serif;
+
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -113,6 +115,8 @@ export default {
   height: 300px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: center; 
+  text-align: center;
+
   /* padding-top: 20px; */
   /* padding-left: 70px; */
 }
@@ -132,7 +136,7 @@ export default {
 
 /* credits button */
 .topupbutton{ 
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Avenir', serif;
     padding: 1rem 3rem;
     text-align: center;
     font-size: 16px;

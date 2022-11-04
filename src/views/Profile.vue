@@ -28,7 +28,6 @@
     <router-link to="/profile">Profile</router-link>
     <router-link to="/profile/account">Account</router-link>
     <router-link to="/profile/membership">Membership</router-link>
-
     <router-view />
     <!-- <a class ="active" href="#personalinfo">Personal information</a>
   <a href="#account">Account</a>
@@ -94,6 +93,8 @@ export default {
   padding: 100px;
   background: #ffffff;
   border-radius: 15px;
+  font-family: 'Avenir',serif;
+
 }
 
 /* The sidebar menu */
@@ -107,6 +108,8 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
+  font-family: 'Avenir',serif;
+
 }
 
 /* The navigation menu links */
@@ -116,6 +119,7 @@ export default {
   font-size: 25px;
   color: black;
   display: block;
+  
 }
 
 /* When you mouse over the navigation links, change their color */
