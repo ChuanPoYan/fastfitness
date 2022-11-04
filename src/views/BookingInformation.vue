@@ -14,9 +14,9 @@
       <hr>
       </div>
       <div class="information2">
-        <p> CATEGORY: Spin  </p>
-        <p> INSTRUCTOR: Mandalyn Tan  </p>
-        <p> DURATION: 50mins </p>
+        <p> CATEGORY: SPIN  </p>
+        <p> INSTRUCTOR: MANDALYN TAN  </p>
+        <p> DURATION: 50 MINS </p>
         <p> RIDE THE CURRENT! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
           It is the ultimate party on a bike experience for anyone looking for that full body workout </p>
       </div>
