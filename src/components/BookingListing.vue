@@ -2,7 +2,7 @@
   <article class="article">
     <a href="http://localhost:8080/vue/dist/bookInfo" class="link">
       <figure class="image">
-        <img src="../assets/logo.png" alt="Booking" />
+        <img src="@/assets/logo.png" alt="Booking" />
       </figure>
       <div class="content">
         <h3 class="title">{{this.classCategory}}</h3>

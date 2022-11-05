@@ -2,7 +2,7 @@
 <div class="main">
 
   <div class="sub">
-    <img id="photo" src="../assets/spin.png" alt="Spin" style="width: 100%" />
+    <img id="photo" :src="require(`@/${this.classPhoto}`)" :alt='this.className' style="width: 100%" />
   </div>
 
   <div class="sub">
@@ -67,7 +67,7 @@ export default {
   },
   //Get details based on classID
   created: async function () {
-    const docRefClass = doc(db, "Class", "SpinClass1");
+    const docRefClass = doc(db, "Class", "Rugby1");
     getDoc(docRefClass).then((result) => {
       if (result.exists()) {
         this.className = result.data()["Name"];
@@ -78,13 +78,9 @@ export default {
         this.classVenue = result.data()["Venue"];
         this.classPhoto = result.data()["Photo"];
         this.classDescription = result.data()["Description"];
+        console.log(this.classPhoto);
       }
     });
-    var img = document.getElementById("photo");
-    console.log(img);
-    console.log(this.classPhoto);
-    console.log("hello");
-    img.src = this.classPhoto;
   },
 }
 </script>
