@@ -2,23 +2,22 @@
 <div class="main">
 
   <div class="sub">
-    <img src="../assets/spin.png" alt="Spin" style="width: 100%" />
+    <img id="photo" src="../assets/spin.png" alt="Spin" style="width: 100%" />
   </div>
 
   <div class="sub">
     <div class="information">
       <div class="information1">
         <p id="classinformation"> CLASS INFORMATION </p>
-        <h1 id="studio"> RIDE THE CURRENT!  </h1>
-        <h4 id="credits"> 8 CREDITS </h4>
+        <h1 id="studio"> {{this.classVenue}}  </h1>
+        <h4 id="credits"> {{this.classPrice}} CREDITS </h4>
       <hr>
       </div>
       <div class="information2">
-        <p><b>CATEGORY:</b> SPIN  </p>
-        <p><b>INSTRUCTOR:</b> MANDALYN TAN  </p>
+        <p><b>CATEGORY:</b> {{this.className}}  </p>
+        <p><b>INSTRUCTOR:</b> {{this.classInstructor}}  </p>
         <p><b>DURATION:</b> 50 MINS </p>
-        <p>RIDE THE CURRENT! puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
-          It is the ultimate party on a bike experience for anyone looking for that full body workout </p>
+        <p>{{this.classDescription}} </p>
       </div>
     </div>
     <br>
@@ -40,12 +39,53 @@
 </template>
 
 <script>
+//Import Datepicker for calendar
 import Datepicker from 'vue3-datepicker'
+
+//Firebase imports
+import firebaseApp from "../main.js";
+import { getFirestore } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+
+const db = getFirestore(firebaseApp);
 
 export default {
 	components: {
 		Datepicker,
 	},
+  data() {
+    return {
+      className: "Description",
+      classCapacity: null,
+      classCategory: null,
+      classInstructor: null,
+      classPrice: null,
+      classVenue: null,
+      classPhoto: null,
+      classDescription: null,
+    };
+  },
+  //Get details based on classID
+  created: async function () {
+    const docRefClass = doc(db, "Class", "SpinClass1");
+    getDoc(docRefClass).then((result) => {
+      if (result.exists()) {
+        this.className = result.data()["Name"];
+        this.classCapacity = result.data()["Capacity"];
+        this.classCategory = result.data()["Category"];
+        this.classInstructor = result.data()["Instructor"];
+        this.classPrice = result.data()["Price"];
+        this.classVenue = result.data()["Venue"];
+        this.classPhoto = result.data()["Photo"];
+        this.classDescription = result.data()["Description"];
+      }
+    });
+    var img = document.getElementById("photo");
+    console.log(img);
+    console.log(this.classPhoto);
+    console.log("hello");
+    img.src = this.classPhoto;
+  },
 }
 </script>
 

@@ -42,6 +42,8 @@ export default {
       classInstructor: null,
       classPrice: null,
       classVenue: null,
+      classPhoto: null,
+      classDescription: null,
     };
   },
   //Get details based on classID
@@ -55,6 +57,8 @@ export default {
         this.classInstructor = result.data()["Instructor"];
         this.classPrice = result.data()["Price"];
         this.classVenue = result.data()["Venue"];
+        this.classPhoto = result.data()["Photo"];
+        this.classDescription = result.data()["Description"];
       }
     });
   },
