@@ -8,7 +8,7 @@
     <br /><br />
 
     <label for="Phone"> Phone Number: </label>
-    <input type="text" id="number" placeholder="number" v-model="number" />
+    <input type="text" id="number" placeholder="Number" v-model="number" />
     <br /><br />
 
     <label for="Address"> Address: </label>
