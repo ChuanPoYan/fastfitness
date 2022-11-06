@@ -2,15 +2,8 @@
 <div class="main">
 
   <div class="sub">
-<<<<<<< Updated upstream
+
     <img id="photo" :src="require(`@/${this.classPhoto}`)" :alt='this.className' style="width: 100%" />
-=======
-<<<<<<< HEAD
-    <img id="photo" src="../assets/spin.png" alt="Spin" style="width: 100%" />
-=======
-    <img id="photo" :src="require(`@/${this.classPhoto}`)" :alt='this.className' style="width: 100%" />
->>>>>>> 33c1463694e76b6cbc1a506809c9a128f87ed988
->>>>>>> Stashed changes
   </div>
 
   <div class="sub">
@@ -25,24 +18,7 @@
         <p><b>CATEGORY:</b> {{this.className}}  </p>
         <p><b>INSTRUCTOR:</b> {{this.classInstructor}}  </p>
         <p><b>DURATION:</b> 50 MINS </p>
-<<<<<<< Updated upstream
         <p>{{this.classDescription}} </p>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <p><b>RIDE THE CURRENT!</b> puts the fun factor into getting your sweat on. You decide how far to push yourself, their instructors are there to guide and encourage you the whole ride.
-          It is the ultimate party on a bike experience for anyone looking for that full body workout </p>
-=======
-        <p>{{this.classDescription}} </p>
->>>>>>> e4d35325d228d2d0d875eab7fb547b12051713e8
-=======
-        <p>{{this.classDescription}} </p>
->>>>>>> e4d35325d228d2d0d875eab7fb547b12051713e8
-=======
-        <p>{{this.classDescription}} </p>
->>>>>>> 33c1463694e76b6cbc1a506809c9a128f87ed988
->>>>>>> Stashed changes
       </div>
     </div>
     <br>
@@ -92,15 +68,7 @@ export default {
   },
   //Get details based on classID
   created: async function () {
-<<<<<<< Updated upstream
     const docRefClass = doc(db, "Class", "Rugby1");
-=======
-<<<<<<< HEAD
-    const docRefClass = doc(db, "Class", "SpinClass1");
-=======
-    const docRefClass = doc(db, "Class", "Rugby1");
->>>>>>> 33c1463694e76b6cbc1a506809c9a128f87ed988
->>>>>>> Stashed changes
     getDoc(docRefClass).then((result) => {
       if (result.exists()) {
         this.className = result.data()["Name"];
@@ -111,26 +79,9 @@ export default {
         this.classVenue = result.data()["Venue"];
         this.classPhoto = result.data()["Photo"];
         this.classDescription = result.data()["Description"];
-<<<<<<< Updated upstream
-        console.log(this.classPhoto);
       }
     });
-=======
-<<<<<<< HEAD
-      }
-    });
-    var img = document.getElementById("photo");
-    console.log(img);
-    console.log(this.classPhoto);
-    console.log("hello");
-    img.src = this.classPhoto;
-=======
-        console.log(this.classPhoto);
-      }
-    });
->>>>>>> 33c1463694e76b6cbc1a506809c9a128f87ed988
->>>>>>> Stashed changes
-  },
+  }
 }
 </script>
 
