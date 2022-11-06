@@ -2,58 +2,90 @@
   <div class="booking">
     <div id="upcoming">
       <h1 style="text-align: left">Upcoming Bookings</h1>
-      <BookingListing :classID = "classIDs[0]" />
-      <BookingListing :classID = "classIDs[1]" />
+      <div v-for="item in this.classIDs" :key="item">
+        <BookingListing
+          v-if="'Booked' == item.Status"
+          :Category="item.Category"
+          :Instructor="item.Instructor"
+        />
+      </div>
     </div>
     <div id="previous">
       <h1 style="text-align: left">Previous Bookings</h1>
-      <BookingListing />
-      <BookingListing />
+      <div v-for="item in this.classIDs" :key="item">
+        <BookingListing
+          v-if="'Completed' == item.Status"
+          :Category="item.Category"
+          :Instructor="item.Instructor"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 //Import BookingListing so can pass classID to it
-import BookingListing from "../components/BookingListing.vue"
+import BookingListing from "../components/BookingListing.vue";
 
 //Firebase imports
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
-import { doc, getDoc, collection, getDocs } from "firebase/firestore";
-
+import { doc, getDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
 
 export default {
   name: "Booking",
   components: {
-    BookingListing
+    BookingListing,
   },
   data() {
     return {
-      classIDs: []
-    }
+      email: null,
+      bookingIDs: [],
+      classIDs: [],
+    };
   },
   created: async function () {
-    const classRef = collection(db, "Booking");
-    const snapshot = await getDocs(classRef);
-    snapshot.forEach(doc => {
-      this.classIDs.push(doc.id);
-    })
-    //Filter for bookings that the user has made, and pass the class to classID instead of bookingID
-    for (let i = 0; i < this.classIDs.length; i++) {
-      const docRefClass = doc(db, "Booking", this.classIDs[i]);
-      getDoc(docRefClass).then((result) => {
-        if (result.exists()) {
-          this.classIDs[i] = result.data()["Class"];
-        }
-      });
-    } 
-  },
-}
-</script>
 
+    // Get user bookings data
+    const auth = await getAuth(firebaseApp);
+    this.email = auth.currentUser.email;
+    const usersDocRef = doc(db, "users", this.email);
+    getDoc(usersDocRef).then((userDoc) => {
+      if (userDoc.exists()) {
+        this.bookingIDs = userDoc.data()["Bookings"];
+
+        // Get bookings class data
+        this.bookingIDs.forEach((item) => {
+          const docRefBooking = doc(db, "Booking", item);
+            getDoc(docRefBooking).then((refBooking) => {
+              if (refBooking.exists()) {
+                var bookingInfo = refBooking.data();
+                var docRefClass = doc(db, "Class", bookingInfo["Class"]);
+
+                // Get class data
+                getDoc(docRefClass).then((refClass) => {
+                  if (refClass.exists()) {
+                    var classInfo = refClass.data();
+                    var data = {
+                      Status: bookingInfo["Status"],
+                      Category: classInfo["Category"],
+                      Instructor: classInfo["Instructor"],
+                    };
+                    this.classIDs.push(data);
+                  }
+                });
+              }
+            });
+          
+        });
+      }
+    });
+  },
+};
+</script>
 
 <style>
 .booking {
