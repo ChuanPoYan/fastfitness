@@ -81,10 +81,15 @@ export default {
   methods: {
     filterClasses() {
       const filteredClasses = []
-      for (const Class of this.classArray){
-        if(Class["Name"].toLowerCase().includes(this.search.toLowerCase()))
-          filteredClasses.push(Class)
-          this.filteredClasses = filteredClasses;
+      console.log(this.search)
+      if(this.search.length != 0) {
+        for (const Class of this.classArray){
+          if(Class["Name"].toLowerCase().includes(this.search.toLowerCase())) 
+            filteredClasses.push(Class)
+            this.filteredClasses = filteredClasses;
+        }
+      } else  {
+        window.alert("Search Field Empty")
       }
     }
   }
