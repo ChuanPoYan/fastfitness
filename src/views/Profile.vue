@@ -39,8 +39,7 @@
 
 <script>
 import firebaseApp from "../main.js";
-import { getFirestore } from "firebase/firestore";
-import { doc, updateDoc } from "firebase/firestore";
+import { getFirestore, doc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
