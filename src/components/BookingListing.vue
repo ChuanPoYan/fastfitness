@@ -1,6 +1,6 @@
 <template>
   <article class="article">
-    <a href="http://localhost:8080/vue/dist/bookInfo" class="link">
+    <router-link to="/bookInfo">
       <figure class="image">
         <img src="@/assets/logo.png" alt="Booking" />
       </figure>
@@ -16,7 +16,7 @@
           <span class="post">8:00AM - 11:00AM</span>
         </div>
       </div>
-    </a>
+    </router-link>
   </article>
 </template>
 
