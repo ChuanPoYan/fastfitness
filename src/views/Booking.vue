@@ -5,6 +5,7 @@
       <div v-for="item in this.classIDs" :key="item">
         <BookingListing
           v-if="'Booked' == item.Status"
+          :Viewing="item.Viewing"
           :Category="item.Category"
           :Instructor="item.Instructor"
         />
@@ -15,6 +16,7 @@
       <div v-for="item in this.classIDs" :key="item">
         <BookingListing
           v-if="'Completed' == item.Status"
+          :Viewing="item.Viewing"
           :Category="item.Category"
           :Instructor="item.Instructor"
         />
@@ -42,8 +44,6 @@ export default {
   },
   data() {
     return {
-      email: null,
-      bookingIDs: [],
       classIDs: [],
     };
   },
@@ -51,14 +51,14 @@ export default {
 
     // Get user bookings data
     const auth = await getAuth(firebaseApp);
-    this.email = auth.currentUser.email;
-    const usersDocRef = doc(db, "users", this.email);
+    var email = auth.currentUser.email;
+    const usersDocRef = doc(db, "users", email);
     getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
-        this.bookingIDs = userDoc.data()["Bookings"];
+        var bookingIDs = userDoc.data()["Bookings"];
 
         // Get bookings class data
-        this.bookingIDs.forEach((item) => {
+        bookingIDs.forEach((item) => {
           const docRefBooking = doc(db, "Booking", item);
             getDoc(docRefBooking).then((refBooking) => {
               if (refBooking.exists()) {
@@ -70,6 +70,7 @@ export default {
                   if (refClass.exists()) {
                     var classInfo = refClass.data();
                     var data = {
+                      Viewing: refClass.id, 
                       Status: bookingInfo["Status"],
                       Category: classInfo["Category"],
                       Instructor: classInfo["Instructor"],
