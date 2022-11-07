@@ -32,12 +32,12 @@
         </div>
 
             <div class="child inline-block-child">
-            <BookingListing :classID = "classIDs[0]" />
-            <BookingListing :classID = "classIDs[1]"/>
+            <BookingListing :Category = "categories[0]" :Instructor = "instructors[0]"/>
+            <BookingListing :Category = "categories[1]" :Instructor = "instructors[1]"/>
             </div>
           <div class="child inline-block-child">
-            <BookingListing :classID = "classIDs[2]"/>
-            <BookingListing :classID = "classIDs[3]"/>
+            <BookingListing :Category = "categories[2]" :Instructor = "instructors[2]"/>
+            <BookingListing :Category = "categories[3]" :Instructor = "instructors[3]"/>
           </div>
         </div>
         
@@ -69,7 +69,9 @@ export default {
   },
   data() {
     return {
-      classIDs: []
+      classIDs: [],
+      instructors: [],
+      categories: [],
     }
   },
   created: async function () {
@@ -77,6 +79,8 @@ export default {
     const snapshot = await getDocs(classRef);
     snapshot.forEach(doc => {
       this.classIDs.push(doc.id);
+      this.categories.push(doc.data()["Category"]);
+      this.instructors.push(doc.data()["Instructor"]);
     })
   },
 }

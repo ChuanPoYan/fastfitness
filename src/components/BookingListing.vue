@@ -21,9 +21,8 @@
 </template>
 
 <script>
-//Firebase imports
 export default {
-  name: "BookingListing2",
+  name: "BookingListing",
   //Pass classID from Booking to this component
   props: {
     Category: String,
@@ -36,7 +35,7 @@ export default {
     };
   },
   //Get details based on classID
-  created: function () {
+  updated: function () {
     this.classCategory = this.Category;
     this.classInstructor = this.Instructor;
   },
