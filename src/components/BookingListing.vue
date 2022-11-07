@@ -35,7 +35,13 @@ export default {
     };
   },
   //Get details based on classID
+  created: function () {
+    console.log(this.Category);
+    this.classCategory = this.Category;
+    this.classInstructor = this.Instructor;
+  },
   updated: function () {
+    console.log(this.Category);
     this.classCategory = this.Category;
     this.classInstructor = this.Instructor;
   },
