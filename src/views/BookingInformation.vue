@@ -1,4 +1,7 @@
 <template>
+<div>
+  <SavedModal v-show="showModal" @close-modal="showModal = false" />
+</div>
 <div class="main">
 
   <div class="sub">
@@ -31,7 +34,7 @@
       <br>
       </div>
       <div class="bookingbutton">
-        <button id="button"> BOOK </button> 
+        <button id="button" @click="booking()"> BOOK </button> 
         <button id="button"> CANCEL </button>
       </div>
     </div>
@@ -42,6 +45,7 @@
 <script>
 //Import Datepicker for calendar
 import Datepicker from 'vue3-datepicker'
+import SavedModal from '../components/SavedModal.vue'
 
 //Firebase imports
 import firebaseApp from "../main.js";
@@ -53,6 +57,7 @@ const db = getFirestore(firebaseApp);
 export default {
 	components: {
 		Datepicker,
+    SavedModal,
 	},
   data() {
     return {
@@ -64,7 +69,14 @@ export default {
       classVenue: null,
       classPhoto: null,
       classDescription: null,
+      showModal: false,
     };
+  },
+  methods: {
+    booking() {
+      //Need method for this cause will extend later on
+      this.showModal = true;
+    }
   },
   //Get details based on classID
   created: async function () {
