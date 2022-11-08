@@ -1,30 +1,30 @@
 <template>
-  <div style="margin-left:15%">
-  <div class="AddEmployeeForm">
-    <h1>Personal information</h1>
+  <div style="margin-left: 15%">
+    <div class="AddEmployeeForm">
+      <h1>Personal information</h1>
 
-    <label for="name"> Name: </label>
-    <input type="text" id="name" placeholder="Name" v-model="name" />
-    <br /><br />
+      <label for="name"> Name: </label>
+      <input type="text" id="name" placeholder="Name" v-model="name" />
+      <br /><br />
 
-    <label for="Phone"> Phone Number: </label>
-    <input type="text" id="number" placeholder="Number" v-model="number" />
-    <br /><br />
+      <label for="Phone"> Phone Number: </label>
+      <input type="text" id="number" placeholder="Number" v-model="number" />
+      <br /><br />
 
-    <label for="Address"> Address: </label>
-    <input type="text" id="address" placeholder="Address" v-model="address" />
-    <br /><br />
-    <v-layout row>
-      <v-flex md6 offset-sm3>
-        <div>
-          <button class="button" @click="saveChanges">Save Changes</button>
-        </div>
-      </v-flex>
-    </v-layout>
+      <label for="Address"> Address: </label>
+      <input type="text" id="address" placeholder="Address" v-model="address" />
+      <br /><br />
+      <v-layout row>
+        <v-flex md6 offset-sm3>
+          <div>
+            <button class="button" @click="saveChanges">Save Changes</button>
+          </div>
+        </v-flex>
+      </v-layout>
+    </div>
   </div>
-</div>
 
-  <div class="sidenav" style="width:15%">
+  <div class="sidenav" style="width: 15%">
     <router-link to="/profile">Profile</router-link>
     <router-link to="/profile/account">Account</router-link>
     <router-link to="/profile/membership">Membership</router-link>
@@ -39,7 +39,7 @@
 
 <script>
 import firebaseApp from "../main.js";
-import { getFirestore, doc, updateDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
@@ -48,10 +48,22 @@ export default {
   name: "SaveProfileChanges",
   data() {
     return {
-      name: "",
-      number: "",
-      address: "",
+      name: null,
+      number: null,
+      address: null,
     };
+  },
+  created: async function () {
+    const auth = getAuth(firebaseApp);
+    this.email = auth.currentUser.email;
+    const userRef = doc(db, "users", this.email);
+    getDoc(userRef).then((userDoc) => {
+      if (userDoc.exists()) {
+        this.name = userDoc.data()["First_Name"];
+        this.number = userDoc.data()["Phone_Number"];
+        this.address = userDoc.data()["Address"];
+      }
+    });
   },
   methods: {
     saveChanges() {
@@ -92,8 +104,7 @@ export default {
   padding: 100px;
   background: #ffffff;
   border-radius: 15px;
-  font-family: 'Avenir',serif;
-
+  font-family: "Avenir", serif;
 }
 
 /* The sidebar menu */
@@ -107,8 +118,7 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
-  font-family: 'Avenir',serif;
-
+  font-family: "Avenir", serif;
 }
 
 /* The navigation menu links */
@@ -118,7 +128,6 @@ export default {
   font-size: 25px;
   color: black;
   display: block;
-  
 }
 
 /* When you mouse over the navigation links, change their color */
