@@ -1,5 +1,5 @@
 <template>
-  <article class="article">
+  <article class="article" @click="view()">
     <router-link to="/bookInfo">
       <figure class="image">
         <img src="@/assets/logo.png" alt="Booking" />
@@ -21,29 +21,57 @@
 </template>
 
 <script>
+//Firebase imports
+import firebaseApp from "../main.js";
+import { getFirestore } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+const db = getFirestore(firebaseApp);
+
+
 export default {
   name: "BookingListing",
   //Pass classID from Booking to this component
   props: {
     Category: String,
     Instructor: String,
+    Viewing: String,
+  },
+  methods: {
+    async view() {
+      //Hax method to pass ID to BookingInformation
+      const auth = getAuth(firebaseApp);
+      console.log(this.classID);
+      this.email = auth.currentUser.email;
+      const userRef = doc(db, "users", this.email);
+      updateDoc(userRef, {
+        Viewing: this.classID,
+      }).catch((error) => {
+        console.error("Error Saving Information", error);
+      });
+      //Give time for firebase to write viewing
+      await new Promise(r => setTimeout(r, 2000));
+    }
   },
   data() {
     return {
       classCategory: "",
       classInstructor: "",
+      classID: "",
+      email: "",
     };
   },
   //Get details based on classID
   created: function () {
-    console.log(this.Category);
     this.classCategory = this.Category;
     this.classInstructor = this.Instructor;
+    this.classID = this.Viewing;
   },
   updated: function () {
-    console.log(this.Category);
     this.classCategory = this.Category;
     this.classInstructor = this.Instructor;
+    this.classID = this.Viewing;
   },
 };
 </script>

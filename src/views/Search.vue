@@ -31,7 +31,7 @@
           
         </div>
           <div v-for="Class in filteredClasses" :key="Class">
-            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category"></BookingListing>
+            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID"></BookingListing>
           </div>
         </div>
         
@@ -47,15 +47,11 @@
 <script>
 //Import BookingListing so can pass classID to it
 import BookingListing from "../components/BookingListing.vue"
-
 //Firebase imports
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
-
-
 const db = getFirestore(firebaseApp);
-
 export default {
   name: "Search",
   components: {
@@ -94,12 +90,9 @@ export default {
     }
   }
 } 
-
 </script>
   
 <style>
-
-
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -157,9 +150,7 @@ export default {
   background: #fff;
   margin-top: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-
 }
-
 .input {
   border: none;
   height: 25px;
@@ -168,15 +159,12 @@ export default {
   font-size: 15px;
   outline: none;
 }
-
-
 .input:focus ~ .label {
   font-size: 9px;
   top: 3px;
   color: rgba(255, 106, 40);
   transition: all 0.5s ease;
 }
-
 .label {
   color: #aaaaaa;
   position: absolute;
@@ -184,7 +172,6 @@ export default {
   pointer-events: none;
   transition: all 0.5s ease;
 }
-
 .search-btn {
   background:rgba(255, 106, 40);
   border-radius: 20px;
@@ -199,16 +186,13 @@ export default {
   position: absolute;
   transition: all 1s ease;
 }
-
 .icon {
   display: inline-flex;
 }
-
 .icon-18 {
   width: 18px;
   height: 18px;
 }
-
 .highlight {
   width: 0px;
   height: 1px;
@@ -217,7 +201,6 @@ export default {
   bottom: 8px;
   transition: all 1s ease;
 }
-
 .input:focus ~ .highlight {
   width: 300px;
   transition: all 1s ease;
@@ -225,11 +208,4 @@ export default {
 searchbar.example button:hover {
   background: rgba(255, 106, 40);
 }
-
-
 </style>
-  
-
-
-
-

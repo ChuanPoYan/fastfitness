@@ -85,6 +85,8 @@ export default {
   },
   //Get details based on classID
   created: async function () {
+    //Give time for firebase to update
+    await new Promise(r => setTimeout(r, 2000));
     const auth = await getAuth(firebaseApp);
     var email = auth.currentUser.email;
     const usersDocRef = doc(db, "users", email);
