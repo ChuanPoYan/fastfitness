@@ -82,6 +82,7 @@ export default {
   /* margin-left: 200px; */
   display: flex;
   justify-content: space-evenly;
+  width: 85%;
   /* background-color: grey; */
 
 }
@@ -132,6 +133,7 @@ export default {
   width: 400px;
   height: 300px;
   padding-top: 20px;
+  background-color: white;
 }
 
 /* credits button */

@@ -8,36 +8,30 @@
           <div class="grid-container">
 
             <div class="search-bar">
-            <input type="text" class="input" placeholder="&nbsp;">
+            <input type="text" class="input" v-model = "search" placeholder="&nbsp;">
             <span class="label">Search</span>
             <span class="highlight"></span>
             <div class="search-btn">
-              <i class="fa fa-search"></i>
+               <i class="fa fa-search" @click="filterClasses()" ></i> 
             </div>
             </div>
 
           <!-- <div class="dropdown"> -->
-            <select v-model="selected" id="topnav">
+            <!-- <select v-model="selected" id="topnav">
             <option disabled value="">Category</option>
             <option>Exercise</option>
             <option>Karate</option>
             <option>Yoga</option>
             <option>Meditation</option>
-          </select>
+          </select> -->
           <!-- </div> -->
 
           </div>
           
           
         </div>
-
-            <div class="child inline-block-child">
-            <BookingListing :Category = "categories[0]" :Instructor = "instructors[0]"/>
-            <BookingListing :Category = "categories[1]" :Instructor = "instructors[1]"/>
-            </div>
-          <div class="child inline-block-child">
-            <BookingListing :Category = "categories[2]" :Instructor = "instructors[2]"/>
-            <BookingListing :Category = "categories[3]" :Instructor = "instructors[3]"/>
+          <div v-for="Class in filteredClasses" :key="Class">
+            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category"></BookingListing>
           </div>
         </div>
         
@@ -69,21 +63,38 @@ export default {
   },
   data() {
     return {
-      classIDs: [],
-      instructors: [],
-      categories: [],
+      search: '',
+      classArray: [],
+      filteredClasses: []
     }
   },
-  created: async function () {
-    const classRef = collection(db, "Class");
-    const snapshot = await getDocs(classRef);
-    snapshot.forEach(doc => {
-      this.classIDs.push(doc.id);
-      this.categories.push(doc.data()["Category"]);
-      this.instructors.push(doc.data()["Instructor"]);
-    })
+  created: async function() {
+      const classArray = []
+      const classRef = collection(db, "Class");
+      const allClasses = await getDocs(classRef);
+      allClasses.forEach(doc => {
+        classArray.push(doc.data())
+        console.log(doc.data()['Name'])
+        this.classArray = classArray;
+      })
   },
-}
+  methods: {
+    filterClasses() {
+      const filteredClasses = []
+      console.log(this.search)
+      if(this.search.length != 0) {
+        for (const Class of this.classArray){
+          if(Class["Name"].toLowerCase().includes(this.search.toLowerCase())) 
+            filteredClasses.push(Class)
+            this.filteredClasses = filteredClasses;
+        }
+      } else  {
+        window.alert("Search Field Empty")
+      }
+    }
+  }
+} 
+
 </script>
   
 <style>
