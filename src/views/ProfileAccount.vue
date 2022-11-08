@@ -82,6 +82,7 @@ export default {
   /* margin-left: 200px; */
   display: flex;
   justify-content: space-evenly;
+  width: 85%;
   /* background-color: grey; */
 
 }

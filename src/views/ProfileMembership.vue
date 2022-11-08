@@ -167,6 +167,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   font-family: 'Avenir',serif;
+  width: 85%;
 }
 /* .dot {
   height: 15px;
@@ -256,7 +257,7 @@ h1 {
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
-  background: red;
+  background:green;
   border-radius: 9px;
   border: none;
   color: #fff;
