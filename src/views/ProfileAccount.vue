@@ -132,6 +132,7 @@ export default {
   width: 400px;
   height: 300px;
   padding-top: 20px;
+  background-color: white;
 }
 
 /* credits button */
