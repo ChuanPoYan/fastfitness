@@ -13,7 +13,7 @@
         </div>
         <div style="margin-left: 40%">
           <img src="../assets/time.png" alt="Icon" class="icon" />
-          <span class="post">8:00AM - 11:00AM</span>
+          <span class="post">{{ this.className }}</span>
         </div>
       </div>
     </router-link>
@@ -37,12 +37,12 @@ export default {
     Category: String,
     Instructor: String,
     Viewing: String,
+    Name: String,
   },
   methods: {
     async view() {
       //Hax method to pass ID to BookingInformation
       const auth = getAuth(firebaseApp);
-      console.log(this.classID);
       this.email = auth.currentUser.email;
       const userRef = doc(db, "users", this.email);
       updateDoc(userRef, {
@@ -58,6 +58,7 @@ export default {
     return {
       classCategory: "",
       classInstructor: "",
+      className: "",
       classID: "",
       email: "",
     };
@@ -67,11 +68,15 @@ export default {
     this.classCategory = this.Category;
     this.classInstructor = this.Instructor;
     this.classID = this.Viewing;
+    this.className = this.Name;
+    console.log(this.className);
   },
   updated: function () {
     this.classCategory = this.Category;
     this.classInstructor = this.Instructor;
     this.classID = this.Viewing;
+    this.className = this.Name;
+    console.log(this.className);
   },
 };
 </script>

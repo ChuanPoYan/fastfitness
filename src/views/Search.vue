@@ -31,7 +31,7 @@
           
         </div>
           <div v-for="Class in filteredClasses" :key="Class">
-            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID"></BookingListing>
+            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name"></BookingListing>
           </div>
         </div>
         

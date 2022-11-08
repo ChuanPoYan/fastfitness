@@ -8,6 +8,7 @@
           :Viewing="item.Viewing"
           :Category="item.Category"
           :Instructor="item.Instructor"
+          :Name="item.Name"
         />
       </div>
     </div>
@@ -19,6 +20,7 @@
           :Viewing="item.Viewing"
           :Category="item.Category"
           :Instructor="item.Instructor"
+          :Name="item.Name"
         />
       </div>
     </div>
@@ -74,6 +76,7 @@ export default {
                       Status: bookingInfo["Status"],
                       Category: classInfo["Category"],
                       Instructor: classInfo["Instructor"],
+                      Name: classInfo["Name"],
                     };
                     this.classIDs.push(data);
                   }
