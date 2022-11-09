@@ -2,17 +2,17 @@
   <article class="article" @click="view()">
     <router-link to="/bookInfo">
       <figure class="image">
-        <img src="@/assets/logo.png" alt="Booking" />
+        <img src="{{this.preview}}" alt="Booking" />
       </figure>
       <div class="content">
-        <h3 class="title">{{ this.classCategory }}</h3>
+        <h3 class="title">{{ this.Viewing }}</h3>
         <hr class="solid" />
         <div style="width: 40%; float: left">
           <img src="../assets/person.png" alt="Icon" class="icon" />
           <span class="post">{{ this.classInstructor }}</span>
         </div>
-        <div style="margin-left: 40%">
-          <img src="../assets/time.png" alt="Icon" class="icon" />
+        <div style="margin-left: 40% ">
+          <img src="../assets/run.png" alt="Icon" class="icon" style="height:35px;width:25px;margin-top: 10px;margin-left: 30px;" />
           <span class="post">{{ this.className }}</span>
         </div>
       </div>
@@ -38,6 +38,7 @@ export default {
     Instructor: String,
     Viewing: String,
     Name: String,
+    Preview: String,
   },
   methods: {
     async view() {
@@ -61,6 +62,7 @@ export default {
       className: "",
       classID: "",
       email: "",
+      classPreview:null,
     };
   },
   //Get details based on classID
@@ -69,6 +71,7 @@ export default {
     this.classInstructor = this.Instructor;
     this.classID = this.Viewing;
     this.className = this.Name;
+    this.preview = this.Preview;
     console.log(this.className);
   },
   updated: function () {
@@ -76,6 +79,7 @@ export default {
     this.classInstructor = this.Instructor;
     this.classID = this.Viewing;
     this.className = this.Name;
+    this.preview = this.Preview;
     console.log(this.className);
   },
 };

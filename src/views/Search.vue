@@ -31,11 +31,9 @@
           
         </div>
           <div v-for="Class in filteredClasses" :key="Class">
-            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name"></BookingListing>
+            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></BookingListing>
           </div>
         </div>
-        
-
         <div style="margin-left: 67%; padding-right: 20px; padding-top: 10px;">
         <!-- <h3 class="title">Studio Location</h3> -->
         <img src="../assets/mapwithtop.png" alt="Icon" style= "width:100%   ">
