@@ -29,7 +29,6 @@ import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
 
-
 export default {
   name: "BookingListing",
   //Pass classID from Booking to this component
@@ -52,8 +51,8 @@ export default {
         console.error("Error Saving Information", error);
       });
       //Give time for firebase to write viewing
-      await new Promise(r => setTimeout(r, 2000));
-    }
+      await new Promise((r) => setTimeout(r, 2000));
+    },
   },
   data() {
     return {

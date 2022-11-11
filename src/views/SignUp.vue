@@ -16,8 +16,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { default as error_dict } from "../data/error.js";
 import firebaseApp from "@/main";
-import { getFirestore } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import router from "../router/index.js";
 
 const db = getFirestore(firebaseApp);
@@ -57,7 +56,7 @@ export default {
         Membership: null,
         Credits: 0,
         Bookings: [],
-        Viewing: null, 
+        Viewing: null,
       })
         .then((docRef) => {
           console.log(docRef);

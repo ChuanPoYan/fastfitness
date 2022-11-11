@@ -52,8 +52,15 @@ import SavedModal from "../components/SavedModal.vue";
 
 //Firebase imports
 import firebaseApp from "../main.js";
-import { getFirestore } from "firebase/firestore";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  addDoc,
+  getDoc,
+  collection,
+  updateDoc, 
+  arrayUnion, 
+} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
@@ -65,6 +72,7 @@ export default {
   },
   data() {
     return {
+      selectedDate: null,
       classID: null,
       className: "Description",
       classCapacity: null,
@@ -75,21 +83,16 @@ export default {
       classPhoto: null,
       classDescription: null,
       showModal: false,
+      email: null,
     };
-  },
-  methods: {
-    booking() {
-      //Need method for this cause will extend later on
-      this.showModal = true;
-    },
   },
   //Get details based on classID
   created: async function () {
     //Give time for firebase to update
-    await new Promise(r => setTimeout(r, 2000));
-    const auth = await getAuth(firebaseApp);
-    var email = auth.currentUser.email;
-    const usersDocRef = doc(db, "users", email);
+    await new Promise((r) => setTimeout(r, 2000));
+    const auth = getAuth(firebaseApp);
+    this.email = auth.currentUser.email;
+    const usersDocRef = doc(db, "users", this.email);
     getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         this.classID = userDoc.data()["Viewing"];
@@ -108,6 +111,32 @@ export default {
         });
       }
     });
+  },
+  methods: {
+    async booking() {
+      const userDocRef = doc(db, "users", this.email);
+      getDoc(userDocRef).then((userDoc) => {
+        if (userDoc.exists()) {
+          const credits = userDoc.data()["Credits"];
+          if (credits >= this.classPrice) {
+            const bookingRef = addDoc(collection(db, "Booking"), {
+              Class: this.classID,
+              Date: this.selectedDate,
+              Status: "Booked",
+              User: this.email,
+            });
+            updateDoc(userDocRef, {
+              Bookings: arrayUnion(bookingRef.id), 
+              Credits: credits - this.classPrice, 
+            }).catch((error) => {
+              console.error("Error Saving Information", error);
+            });
+          }
+        } else {
+          console.error("Insufficient Credits");
+        }
+      });
+    },
   },
 };
 </script>
@@ -152,7 +181,6 @@ export default {
   position: relative;
   overflow: hidden;
   height: 100%;
-  float: right;
   width: 50%;
   display: inline-block;
 }
@@ -170,7 +198,6 @@ export default {
 }
 
 .information {
-  background-colour: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 10px;

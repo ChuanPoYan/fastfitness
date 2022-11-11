@@ -11,11 +11,11 @@
             <!-- <hr />
             <br /> -->
             <div class="price">
-            <hr />
-            <br />
+              <hr />
+              <br />
               <h1>50/month</h1>
-            <br />
-            <hr />
+              <br />
+              <hr />
             </div>
             <!-- <br />
             <hr /> -->
@@ -41,11 +41,11 @@
           <div class="card2">
             <h2>Intermediate Package</h2>
             <div class="price">
-            <hr />
-            <br />
+              <hr />
+              <br />
               <h1>90/month</h1>
-            <br />
-            <hr />
+              <br />
+              <hr />
             </div>
             <h3>6-9 Classes</h3>
             <hr />
@@ -72,11 +72,11 @@
           <div class="card2">
             <h2>Advanced Package</h2>
             <div class="price">
-            <hr />
-            <br />
+              <hr />
+              <br />
               <h1>120/month</h1>
-            <br />
-            <hr />
+              <br />
+              <hr />
             </div>
             <h3>10-15 Classes</h3>
             <hr />
@@ -103,6 +103,7 @@
     <router-view />
   </div>
 </template>
+
 <script>
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
@@ -155,8 +156,8 @@ export default {
 <style>
 @import url(https://fonts.googleapis.com/css?family=Avenir);
 
-.Body{
-  font-family: 'Avenir',serif;
+.Body {
+  font-family: "Avenir", serif;
 }
 .main {
   /* display: grid;
@@ -166,7 +167,7 @@ export default {
   align-content: center; */
   display: flex;
   justify-content: space-evenly;
-  font-family: 'Avenir',serif;
+  font-family: "Avenir", serif;
   width: 85%;
 }
 /* .dot {
@@ -190,8 +191,7 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
-  font-family: 'Avenir',serif;
-
+  font-family: "Avenir", serif;
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -208,7 +208,7 @@ export default {
   width: 350px;
   height: 475px;
   padding-top: 20px;
-  font-family: 'Avenir',serif;
+  font-family: "Avenir", serif;
 }
 button {
   border: none;
@@ -227,7 +227,7 @@ hr {
 }
 h1 {
   text-align: center;
-  font-family: 'Avenir',serif;
+  font-family: "Avenir", serif;
   /* font-size:60px; */
 }
 
@@ -257,15 +257,14 @@ h1 {
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
-  background:green;
+  background: green;
   border-radius: 9px;
   border: none;
   color: #fff;
   font-weight: bold;
   letter-spacing: 1px;
 }
-.price{
+.price {
   background-color: white;
 }
-
 </style>

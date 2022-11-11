@@ -14,7 +14,8 @@
           float: left;
           width: 150px;
           height: auto;
-          margin: 10px 10px 10px 30px;"
+          margin: 10px 10px 10px 30px;
+        "
         alt="poyan"
       />
     </ul>
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import firebaseApp from "../main.js"
+import firebaseApp from "../main.js";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
