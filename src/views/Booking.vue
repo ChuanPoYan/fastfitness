@@ -9,6 +9,7 @@
           :Category="item.Category"
           :Instructor="item.Instructor"
           :Name="item.Name"
+          :Preview="item.Preview"
         />
       </div>
     </div>
@@ -21,6 +22,7 @@
           :Category="item.Category"
           :Instructor="item.Instructor"
           :Name="item.Name"
+          :Preview="item.Preview"
         />
       </div>
     </div>
@@ -77,6 +79,7 @@ export default {
                       Category: classInfo["Category"],
                       Instructor: classInfo["Instructor"],
                       Name: classInfo["Name"],
+                      Preview: classInfo["Preview"],
                     };
                     this.classIDs.push(data);
                   }
