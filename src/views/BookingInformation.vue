@@ -33,7 +33,7 @@
         <!-- calendar datepicker-->
         <div class="calendar">
           <label for="datepicker">Date</label>
-          <datepicker v-model="picked" id="datepicker" />
+          <Datepicker v-model="date" ref="datepicker" :enableTimePicker="false" textInput/>
           <br />
         </div>
         <div class="bookingbutton">
@@ -47,8 +47,8 @@
 
 <script>
 //Import Datepicker for calendar
-import Datepicker from "vue3-datepicker";
 import SavedModal from "../components/SavedModal.vue";
+import { ref } from 'vue';
 
 //Firebase imports
 import firebaseApp from "../main.js";
@@ -67,9 +67,14 @@ const db = getFirestore(firebaseApp);
 
 export default {
   components: {
-    Datepicker,
     SavedModal,
   },
+  setup() {
+      const date = ref(new Date());
+      return {
+          date,
+      }
+  }, 
   data() {
     return {
       selectedDate: null,
@@ -114,6 +119,9 @@ export default {
   },
   methods: {
     async booking() {
+      console.log(this.date); //returns Sun Nov 13 2022 01:09:37 GMT+0800 (Singapore Standard Time)
+      console.log(this.date.toDateString()) //returns Sun Nov 13 2022 
+      this.selectedDate = this.date.toDateString()
       const userDocRef = doc(db, "users", this.email);
       getDoc(userDocRef).then((userDoc) => {
         if (userDoc.exists()) {

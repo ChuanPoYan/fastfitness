@@ -1,17 +1,16 @@
 <template>
-  <Datepicker v-model="date"></Datepicker>
+    <Datepicker v-model="date" ref="datepicker" :enableTimePicker="false" textInput/>
 </template>
 
 <script>
-import Datepicker from "@vuepic/vue-datepicker";
-import "@vuepic/vue-datepicker/dist/main.css";
+import { ref } from 'vue';
 
 export default {
-  components: { Datepicker },
-  data() {
-    return {
-      date: null,
-    };
-  },
-};
+    setup() {
+        const date = ref(new Date());
+        return {
+            date,
+        }
+    }
+}
 </script>
