@@ -89,6 +89,7 @@ export default {
       classDescription: null,
       showModal: false,
       email: null,
+      bookingRefID: null,
     };
   },
   //Get details based on classID
@@ -123,28 +124,46 @@ export default {
       console.log(this.date.toDateString()) //returns Sun Nov 13 2022 
       this.selectedDate = this.date.toDateString()
       const userDocRef = doc(db, "users", this.email);
-      getDoc(userDocRef).then((userDoc) => {
+      //Add booking to firebase
+      await this.addBooking(userDocRef);
+      //Wait for update
+      await new Promise((r) => setTimeout(r, 2000));
+      //Update user's booking to firebase
+      await this.updateUser(userDocRef);
+    },
+    async addBooking(ref) {
+      getDoc(ref).then((userDoc) => {
         if (userDoc.exists()) {
           const credits = userDoc.data()["Credits"];
           if (credits >= this.classPrice) {
-            const bookingRef = addDoc(collection(db, "Booking"), {
+            addDoc(collection(db, "Booking"), {
               Class: this.classID,
               Date: this.selectedDate,
               Status: "Booked",
               User: this.email,
-            });
-            updateDoc(userDocRef, {
-              Bookings: arrayUnion(bookingRef.id), 
-              Credits: credits - this.classPrice, 
-            }).catch((error) => {
-              console.error("Error Saving Information", error);
-            });
+            }).then(docRef => {
+              this.bookingRefID = docRef.id;
+              this.showModal = true;
+            })
           }
         } else {
           console.error("Insufficient Credits");
         }
       });
     },
+    async updateUser(ref) {
+      getDoc(ref).then((userDoc) => {
+        if (userDoc.exists()) {
+          const credits = userDoc.data()["Credits"];
+          updateDoc(ref, {
+            Bookings: arrayUnion(this.bookingRefID), 
+            Credits: credits - this.classPrice, 
+          }).catch((error) => {
+            console.error("Error Saving Information", error);
+          });
+        }
+      });
+    }
   },
 };
 </script>
