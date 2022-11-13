@@ -28,7 +28,7 @@
         </div>
       </div>
       <br />
-      <div class="booking">
+      <div class="booking2">
         <h3>Select an available date!</h3>
         <!-- calendar datepicker-->
         <div class="calendar">
@@ -273,7 +273,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-.booking {
+.booking2 {
   background-color: rgba(255, 106, 40);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -287,7 +287,7 @@ export default {
 }
 
 /* On mouse-over, add a deeper shadow */
-.booking:hover {
+.booking2:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
