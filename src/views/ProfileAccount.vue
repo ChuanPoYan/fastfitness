@@ -3,27 +3,35 @@
     <div class="bodyalignment">
       <br /><br /><br /><br /><br />
       <div class="main">
-        <div class="Currentmembershipplan">
-          <h1>Current membership plan</h1>
-          <div class="card">
-            <br /><br />
-            <h2>Intermediate Membership</h2>
-            <hr />
-            <h3>Purchased Date is 26 October 2022</h3>
-            <p>Our package gives you access to 60 credits</p>
-            <p>{{ name }}</p>
-            <p>{{ address }}</p>
-            <p>{{ phone }}</p>
+        <!-- card for user information -->
+        <div class="user">
+          <h3> USER INFORMATION </h3>
+          <div class="card3">
+            <img src="../assets/person2.png" alt="Icon" class="icon" />
+            <h4> NAME: {{ name }} </h4>
+            <h4> NUMBER: {{ address }} </h4>
+            <h4> ADDRESS: {{ phone }} </h4>
           </div>
         </div>
-
+        <!-- card for current membership plan -->
+        <div class="Currentmembershipplan">
+          <h3> CURRENT PACKAGE PLAN </h3>
+          <div class="card">
+            <br /><br />
+            <h2>Intermediate Package</h2>
+            <hr />
+            <p>Our package gives you access to 60 credits</p>
+            <p> NOTE: Package has 1 MONTH validity</p>
+          </div>
+        </div>
+        <!-- card for credits -->
         <div class="Credits">
-          <h1>Credits</h1>
+          <h3> CREDITS </h3>
           <div class="card2">
             <h1 style="font-size: 60px">{{ credit }}</h1>
             <hr />
-            <h3>Credits remaining</h3>
-            <p>Expiring on 1st October</p>
+            <h3>CREDITS REMAINING</h3>
+            <p>Valid till 1st October</p>
             <button class="topupbutton">Top Up Credits</button>
           </div>
         </div>
@@ -109,28 +117,35 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* transition: 0.3s; */
   border-radius: 5px; /* 5px rounded corners */
-  width: 400px;
-  height: 300px;
+  width: 350px;
+  height: 320px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: center;
   text-align: center;
-
   /* padding-top: 20px; */
   /* padding-left: 70px; */
 }
-/* .Currentmembershipplan {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-} */
+
 .card2 {
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; /* 5px rounded corners */
-  width: 400px;
+  width: 350px;
   height: 300px;
   padding-top: 20px;
   background-color: white;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+.card3 {
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px; /* 5px rounded corners */
+  width: 350px;
+  height: 300px;
+  padding-top: 20px;
+  background-color: white;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 /* credits button */
@@ -157,7 +172,13 @@ hr {
   height: 3px;
   background-color: rgba(255, 106, 40);
 }
-h1 {
+h3 {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+ max-width: 40%;
+ max-height: 40%;
 }
 </style>
