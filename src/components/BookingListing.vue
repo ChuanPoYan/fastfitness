@@ -16,6 +16,14 @@
         <div style="margin-left: 40% ">
           <img src="../assets/run.png" alt="Icon" class="icon" style="height:35px;width:25px;margin-top: 10px;margin-left: 30px;" />
           <span class="post">{{ this.className }}</span>
+        </div >
+        <!-- DATE -->
+        <div>  
+          <h4> Date </h4>
+        </div>
+        <!-- CANCEL BUTTON -->
+        <div>  
+          <button class="cancelbutton"> Cancel Session </button>
         </div>
       </div>
     </router-link>
@@ -138,5 +146,23 @@ export default {
   border: none;
   height: 3px;
   background-color: grey;
+}
+
+.cancelbutton {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  padding: 20px; 
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: rgba(255, 106, 40);
+  border-radius: 9px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.cancelbutton:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 </style>
