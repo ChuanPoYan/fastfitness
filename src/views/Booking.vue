@@ -49,6 +49,7 @@ export default {
   data() {
     return {
       classIDs: [],
+      date: new Date().toDateString,
     };
   },
   created: async function () {
