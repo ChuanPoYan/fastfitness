@@ -49,7 +49,48 @@ export default {
   data() {
     return {
       classIDs: [],
+      date: new Date().toDateString,
     };
+  },
+  methods: {
+    compareDate(bookDate) {
+      var stuff = bookDate.split(" ");
+      var currDate = new Date().toDateString().split(" ");
+      var year = stuff[3];
+      var day = stuff[2];
+      var month = stuff[1];
+      var currYear = currDate[3];
+      var currDay = currDate[2];
+      var currMonth = currDate[1];
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      for (let i = 0; i < 12; i++) {
+        if (months[i] == month) {
+          month = i;
+        }
+        if (months[i] == currMonth) {
+          currMonth = i;
+        }
+      }
+      if (year < currYear) {
+        return false;
+      } else if (year > currYear) {
+        return true;
+      } else {
+        if (month < currMonth) {
+          return false;
+        } else if (month > currMonth) {
+          return true;
+        } else {
+          if (day < currDay) {
+            return false;
+          } else if (day > currDay) {
+            return true;
+          } else {
+            return true;
+          }
+        }
+      }
+    }
   },
   created: async function () {
 

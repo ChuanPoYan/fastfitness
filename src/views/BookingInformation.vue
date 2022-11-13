@@ -90,6 +90,7 @@ export default {
       showModal: false,
       email: null,
       bookingRefID: null,
+      isOver: false,
     };
   },
   //Get details based on classID
@@ -120,9 +121,47 @@ export default {
   },
   methods: {
     async booking() {
-      console.log(this.date); //returns Sun Nov 13 2022 01:09:37 GMT+0800 (Singapore Standard Time)
-      console.log(this.date.toDateString()) //returns Sun Nov 13 2022 
-      this.selectedDate = this.date.toDateString()
+      //console.log(this.date); //returns Sun Nov 13 2022 01:09:37 GMT+0800 (Singapore Standard Time)
+      //console.log(this.date.toDateString()) //returns Sun Nov 13 2022 
+      this.selectedDate = this.date.toDateString();
+
+      var stuff = this.selectedDate.split(" ");
+      var currDate = new Date().toDateString().split(" ");
+      var year = stuff[3];
+      var day = stuff[2];
+      var month = stuff[1];
+      var currYear = currDate[3];
+      var currDay = currDate[2];
+      var currMonth = currDate[1];
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      for (let i = 0; i < 12; i++) {
+        if (months[i] == month) {
+          month = i;
+        }
+        if (months[i] == currMonth) {
+          currMonth = i;
+        }
+      }
+      if (year < currYear) {
+        this.isOver = true;
+      } else if (year > currYear) {
+        this.isOver = false
+      } else {
+        if (month < currMonth) {
+          this.isOver = true;
+        } else if (month > currMonth) {
+          this.isOver = false
+        } else {
+          if (day < currDay) {
+            this.isOver = true;
+          } else if (day > currDay) {
+            this.isOver = false
+          } else {
+            this.isOver = false
+          }
+        }
+      }
+
       const userDocRef = doc(db, "users", this.email);
       //Add booking to firebase
       await this.addBooking(userDocRef);
@@ -135,11 +174,12 @@ export default {
       getDoc(ref).then((userDoc) => {
         if (userDoc.exists()) {
           const credits = userDoc.data()["Credits"];
+          console.log(this.selectedDate)
           if (credits >= this.classPrice) {
             addDoc(collection(db, "Booking"), {
               Class: this.classID,
               Date: this.selectedDate,
-              Status: "Booked",
+              Status: (this.isOver) ? "Completed" : "Booked",
               User: this.email,
             }).then(docRef => {
               this.bookingRefID = docRef.id;
@@ -163,7 +203,7 @@ export default {
           });
         }
       });
-    }
+    },
   },
 };
 </script>
