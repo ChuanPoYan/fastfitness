@@ -7,14 +7,13 @@
       <input type="password" placeholder="Password" v-model="password" />
       <br /><br />
       <button class="button">Login</button>
-      <p id="signup">Haven't signed up? Sign up.</p>
+      <p id="signup">Haven't signed up? <router-link to="/signup">Sign up</router-link></p>
     </form>
-    <button class="logoutbutton" @click="logout">Logout</button>
   </div>
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { default as error_dict } from "../data/error.js";
 import firebaseApp from "@/main";
 import router from "../router/index.js";
@@ -42,16 +41,6 @@ export default {
           } else {
             alert(error.message);
           }
-        });
-    },
-    logout() {
-      const auth = getAuth(firebaseApp);
-      signOut(auth)
-        .then(() => {
-          console.log("Successfully logged out!");
-        })
-        .catch((error) => {
-          alert(error.message);
         });
     },
   },
@@ -87,7 +76,6 @@ input {
 }
 
 .loginpage {
-  background-colour: white;
   border-radius: 5px; 
   width: 100%;
   height: 50%;

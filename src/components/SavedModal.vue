@@ -5,7 +5,7 @@
       <h6>Saved!</h6>
       <p>Your Booking is Successful!</p>
       <!-- Button has currently no usage -->
-      <button>Back to Page</button>
+      <button><router-link to="/">Back to Home</router-link></button>
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />

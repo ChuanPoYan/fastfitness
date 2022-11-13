@@ -6,7 +6,7 @@
       <h6>Purchased Successfully!</h6>
       <p>You may start booking your classes!</p>
       <!-- Button has currently no usage -->
-      <button>Back to Page</button> 
+      <button><router-link to="/profile">Back to Page</router-link></button> 
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />

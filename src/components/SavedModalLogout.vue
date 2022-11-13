@@ -5,7 +5,7 @@
       <img class= "check" src="../assets/logout.png" alt="checkicon">
       <h6>Logged Out Successfully!</h6>
       <!-- Button has currently no usage -->
-      <button>Back to Home</button> 
+      <button><router-link to="/">Back to Home</router-link></button> 
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />

@@ -7,7 +7,7 @@
       <input type="password" placeholder="Password..." v-model="password" />
       <br /><br />
       <button class="button">Sign Up</button>
-      <p>Signed Up Already? Login</p>
+      <p>Signed Up Already? <router-link to="/login">Login</router-link></p>
     </form>
   </div>
 </template>

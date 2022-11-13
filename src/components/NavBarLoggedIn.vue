@@ -3,7 +3,7 @@
   <nav id="nav">
     <ul>
       <li class="username">{{ this.name }}</li>
-      <li><router-link to="/logout">LogOut</router-link></li>
+      <li class="logout" @click="logout">LogOut</li>
       <li><router-link to="/profile">Profile</router-link></li>
       <li><router-link to="/booking">Booking</router-link></li>
       <li><router-link to="/search">Search</router-link></li>
@@ -20,16 +20,25 @@
       />
     </ul>
   </nav>
+  <div>
+    <SavedModalLogout v-show="showModal" @close-modal="showModal = false" />
+  </div>
 </template>
 
 <script>
 import firebaseApp from "../main.js";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
+
+import SavedModalLogout from "@/components/SavedModalLogout.vue";
 
 export default {
+  components: {
+    SavedModalLogout,
+  },
   data() {
     return {
+      showModal: false,
       name: null,
       email: null,
     };
@@ -44,6 +53,19 @@ export default {
         this.name = userDoc.data()["First_Name"];
       }
     });
+  },
+  methods: {
+    logout() {
+      const auth = getAuth(firebaseApp);
+      signOut(auth)
+        .then(() => {
+          this.showModal = true;
+          console.log("Successfully logged out!");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    },
   },
 };
 </script>
@@ -60,6 +82,16 @@ export default {
   margin-left: 0.5em;
   font-size: 18px;
   font-weight: 400;
+}
+
+.logout {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 120%;
+  margin: 7px;
 }
 
 ul {
@@ -79,6 +111,10 @@ ul {
 
 li {
   float: right;
+}
+
+li:hover {
+  color: #ff6a28;
 }
 
 li a {
