@@ -1,13 +1,15 @@
 <template>
-  <div class="loginpage"> 
+  <div class="loginpage">
     <form id="login" @submit.prevent="login">
-      <h2 id="title">LOGIN PAGE</h2>
+      <h2 id="title">LOGIN</h2>
       <input type="email" placeholder="Email Address" v-model="email" />
       <br /><br />
       <input type="password" placeholder="Password" v-model="password" />
       <br /><br />
       <button class="button">Login</button>
-      <p id="signup">Haven't signed up? <router-link to="/signup">Sign up</router-link></p>
+      <p id="signup">
+        Haven't signed up? <router-link to="/signup">Sign up</router-link>
+      </p>
     </form>
   </div>
 </template>
@@ -52,9 +54,10 @@ export default {
   font-size: 20px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
+
 input,
 .placeholder {
-  font-size: 1.0rem;
+  font-size: 1rem;
   padding: 0 1.2rem;
 }
 
@@ -71,12 +74,12 @@ input {
   color: white;
   font-size: 30px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  padding: 20px; 
-  border-radius: 20px; 
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .loginpage {
-  border-radius: 5px; 
+  border-radius: 5px;
   width: 100%;
   height: 50%;
   margin-left: auto;
@@ -104,25 +107,8 @@ input {
   margin-left: auto;
   margin-right: auto;
 }
-.button:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
 
-.logoutbutton {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  padding: 1rem 3rem;
-  text-align: center;
-  font-size: 16px;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: rgba(255, 106, 40);
-  border-radius: 9px;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-.logoutbutton:hover {
+.button:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 </style>
