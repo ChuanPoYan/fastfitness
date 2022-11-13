@@ -1,9 +1,11 @@
 <template>
   <article class="article" @click="view()">
     <router-link to="/bookInfo">
+    <!--
       <figure class="image">
         <img :src="require(`@/${this.classPreview}`)" alt="Booking" />
       </figure>
+    -->
       <div class="content">
         <h3 class="title">{{ this.Viewing }}</h3>
         <hr class="solid" />
@@ -71,7 +73,6 @@ export default {
     this.classID = this.Viewing;
     this.className = this.Name;
     this.classPreview = this.Preview;
-    console.log(this.className);
   },
   updated: function () {
     this.classCategory = this.Category;
@@ -79,7 +80,6 @@ export default {
     this.classID = this.Viewing;
     this.className = this.Name;
     this.classPreview = this.Preview;
-    console.log(this.className);
   },
 };
 </script>

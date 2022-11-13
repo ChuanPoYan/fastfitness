@@ -11,6 +11,8 @@
           :Name="item.Name"
           :Preview="item.Preview"
         />
+        <h3 v-if="'Booked' == item.Status">{{item.Date}}</h3>
+        <button v-if="'Booked' == item.Status" type="button" @click="cancelSession(item.BookingID)"> Cancel Session </button>
       </div>
     </div>
     <div id="previous">
@@ -22,8 +24,8 @@
           :Category="item.Category"
           :Instructor="item.Instructor"
           :Name="item.Name"
-          :Preview="item.Preview"
-        />
+          :Preview="item.Preview"/>
+        <h3 v-if="'Completed' == item.Status">{{item.Date}}</h3>
       </div>
     </div>
   </div>
@@ -36,7 +38,7 @@ import BookingListing from "../components/BookingListing.vue";
 //Firebase imports
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, arrayRemove, deleteDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
@@ -45,6 +47,61 @@ export default {
   name: "Booking",
   components: {
     BookingListing,
+  },
+  methods: {
+    async cancelSession(bookID) {
+      //Remove from user
+      const auth = await getAuth(firebaseApp);
+      var email = auth.currentUser.email;
+      const usersDocRef = doc(db, "users", email);
+      updateDoc(usersDocRef, {
+        Bookings: arrayRemove(bookID)
+      }).catch((error) => {
+        console.error("Error Deleting Booking", error);
+      });
+      //Remove from booking
+      const bookRef = doc(db, "Booking", bookID);
+      await deleteDoc(bookRef)
+
+      //Need to refresh page
+      this.classIDs = [];
+      getDoc(usersDocRef).then((userDoc) => {
+        if (userDoc.exists()) {
+          var bookingIDs = userDoc.data()["Bookings"];
+
+          // Get bookings class data
+          bookingIDs.forEach((item) => {
+            const docRefBooking = doc(db, "Booking", item);
+              getDoc(docRefBooking).then((refBooking) => {
+                if (refBooking.exists()) {
+                  var bookingInfo = refBooking.data();
+                  var docRefClass = doc(db, "Class", bookingInfo["Class"]);
+
+                  // Get class data
+                  getDoc(docRefClass).then((refClass) => {
+                    if (refClass.exists()) {
+                      var classInfo = refClass.data();
+                      console.log(refBooking.id);
+                      var data = {
+                        Viewing: refClass.id, 
+                        Status: bookingInfo["Status"],
+                        BookingID: refBooking.id,
+                        Date: bookingInfo["Date"],
+                        Category: classInfo["Category"],
+                        Instructor: classInfo["Instructor"],
+                        Name: classInfo["Name"],
+                        Preview: classInfo["Preview"],
+                      };
+                      this.classIDs.push(data);
+                    }
+                  });
+                }
+              });
+            
+          });
+        }
+      });
+    }
   },
   data() {
     return {
@@ -74,9 +131,12 @@ export default {
                 getDoc(docRefClass).then((refClass) => {
                   if (refClass.exists()) {
                     var classInfo = refClass.data();
+                    console.log(refBooking.id);
                     var data = {
                       Viewing: refClass.id, 
                       Status: bookingInfo["Status"],
+                      BookingID: refBooking.id,
+                      Date: bookingInfo["Date"],
                       Category: classInfo["Category"],
                       Instructor: classInfo["Instructor"],
                       Name: classInfo["Name"],
