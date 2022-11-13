@@ -280,9 +280,6 @@ export default {
   color: white;
   border-radius: 30px;
   height: 300px;
-  width: 600px;
-  display: inline-block;
-  margin: 5px;
   padding: 20px;
 }
 
@@ -293,7 +290,6 @@ export default {
 
 .calendar {
   display: inline-block;
-  margin: 5px;
 }
 
 .bookingbutton {

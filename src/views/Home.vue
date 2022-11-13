@@ -7,7 +7,7 @@
   <!-- RIGHT COMPONENT -->
   <div class="sub">
   <!-- CARD 1 -->
-  <div class="information1">
+  <div class="information3">
         <img src="../assets/promo4.png" alt="Promotion1" style="width: 480px" />
         <h4><b>Collaboration with Kydra Activewear!</b></h4>
         <p>Up to 75% discounts if you spend a minimum of $50!</p>
@@ -15,7 +15,7 @@
   </div>
   <br>
   <!-- CARD 2 -->
-  <div class="information2">
+  <div class="information4">
         <img src="../assets/promo3.png" alt="Promotion1" style="width: 480px" />
         <h4><b>Collaboration with Barry's Bootcamp!</b></h4>
         <p> FREE Barry's Bootcamp Class for GOLD members! </p>
@@ -44,7 +44,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-.information1 {
+.information3 {
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; 
@@ -53,7 +53,7 @@ export default {
   height: 330px;
 }
 
-.information2 {
+.information4 {
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; 
