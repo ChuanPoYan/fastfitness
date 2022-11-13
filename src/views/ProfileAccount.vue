@@ -9,8 +9,8 @@
           <div class="card3">
             <img src="../assets/person2.png" alt="Icon" class="icon" />
             <h4> NAME: {{ name }} </h4>
-            <h4> NUMBER: {{ address }} </h4>
-            <h4> ADDRESS: {{ phone }} </h4>
+            <h4> NUMBER: {{ phone }} </h4>
+            <h4> ADDRESS: {{ address }} </h4>
           </div>
         </div>
         <!-- card for current membership plan -->
