@@ -1,11 +1,11 @@
 <template>
   <article class="article" @click="view()">
     <router-link to="/bookInfo">
-    <!--
-      <figure class="image">
-        <img :src="require(`@/${this.classPreview}`)" alt="Booking" />
-      </figure>
-    -->
+
+      <div class="image">
+        <img id = "preview" :src="require(`@/${this.classPreview}`)" alt="Booking" style="width:90%"/>
+      </div>
+
       <div class="content">
         <h3 class="title">{{ this.Viewing }}</h3>
         <hr class="solid" />
@@ -85,6 +85,8 @@ export default {
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Avenir);
+
 .article {
   width: 400px;
   height: 340px;
@@ -93,19 +95,23 @@ export default {
   margin-right: 30px;
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Avenir", serif;
 }
 
 .link {
   text-decoration: none;
 }
 
-.image {
+/* .image {
   margin-left: auto;
   margin-right: auto;
-  width: 380px;
-  height: 200px;
+  width: 30px;
+  height: 20px;
 }
-
+.preview{
+  width:30%;
+  height:50%;
+} */
 .content {
   color: black;
   text-align: left;
