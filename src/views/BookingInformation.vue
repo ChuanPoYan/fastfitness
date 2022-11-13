@@ -24,7 +24,7 @@
           <p><b>CATEGORY:</b> {{ this.className }}</p>
           <p><b>INSTRUCTOR:</b> {{ this.classInstructor }}</p>
           <p><b>DURATION:</b> 50 MINS</p>
-          <p>{{ this.classDescription }}</p>
+          <p id="classDescription">{{ this.classDescription }}</p>
         </div>
       </div>
       <br />
@@ -209,8 +209,17 @@ export default {
 </script>
 
 <style>
+
+.information {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  line-height: 1em;
+}
+
 .information1 {
   line-height: 0.5em;
+
 }
 
 .information2 {
@@ -264,13 +273,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-.information {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  padding: 10px;
-  line-height: 1em;
-}
-
 .booking {
   background-color: rgba(255, 106, 40);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -322,5 +324,8 @@ export default {
   vertical-align: middle;
   margin-right: 15px;
   width: 200px;
+}
+#classDescription {
+  line-height: 1.5em;
 }
 </style>
