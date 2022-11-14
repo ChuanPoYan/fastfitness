@@ -25,7 +25,7 @@
           <div class="searchitems">
             <h1>Search classes</h1>
             <div v-for="Class in filteredClasses" :key="Class">
-              <ClassesListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></ClassesListing>
+              <ClassesListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview" :Alias="Class.Alias"></ClassesListing>
             </div>
           </div>
         <div class ="Recommended">
@@ -33,7 +33,7 @@
           <hr/> 
           <h1>Recommended Classes</h1>
             <div class="recc" v-for="Class in classArray" :key="Class">
-              <ClassesListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></ClassesListing>
+              <ClassesListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview" :Alias="Class.Alias"></ClassesListing>
             </div>
           </div>
         </div>

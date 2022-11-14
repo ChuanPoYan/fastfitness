@@ -15,6 +15,7 @@
           :Date="item.Date"
           :BookID="item.BookingID"
           :Price="item.Price"
+          :Alias="item.Alias"
         />
       </div>
     </div>
@@ -30,6 +31,7 @@
           :Preview="item.Preview"
           :Date="item.Date"
           :BookID="item.BookingID"
+          :Alias="item.Alias"
           />
       </div>
     </div>
@@ -109,7 +111,7 @@ export default {
                     if (refClass.exists()) {
                       var classInfo = refClass.data();
                       var data = {
-                        Viewing: refClass.id, 
+                        Viewing: refClass.id,
                         Status: bookingInfo["Status"],
                         BookingID: refBooking.id,
                         Date: bookingInfo["Date"],
@@ -118,6 +120,7 @@ export default {
                         Name: classInfo["Name"],
                         Preview: classInfo["Preview"],
                         Price: classInfo["Number"],
+                        Alias: classInfo["Alias"],
                       };
                       this.classIDs.push(data);
                     }
@@ -226,7 +229,7 @@ export default {
                   if (refClass.exists()) {
                     var classInfo = refClass.data();
                     var data = {
-                      Viewing: refClass.id, 
+                      Viewing: refClass.id,
                       Status: bookingInfo["Status"],
                       BookingID: refBooking.id,
                       Date: bookingInfo["Date"],
@@ -235,6 +238,7 @@ export default {
                       Name: classInfo["Name"],
                       Preview: classInfo["Preview"],
                       Price: classInfo["Price"],
+                      Alias: classInfo["Alias"],
                     };
                     this.classIDs.push(data);
                   }

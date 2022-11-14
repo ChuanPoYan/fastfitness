@@ -5,7 +5,7 @@
           <img id = "preview" :src="require(`@/${this.classPreview}`)" alt="Booking" style="width:90%"/>
         </div>
         <div class="content">
-          <h3 class="title">{{ this.Viewing }}</h3>
+          <h3 class="title">{{ this.Alias }}</h3>
           <hr/>
           <div class="classinfo">
             <div class="instructor">
@@ -40,6 +40,7 @@
       Viewing: String,
       Name: String,
       Preview: String,
+      Alias: String,
   
     },
     methods: {
@@ -48,13 +49,11 @@
         const auth = getAuth(firebaseApp);
         this.email = auth.currentUser.email;
         const userRef = doc(db, "users", this.email);
-        updateDoc(userRef, {
+        await updateDoc(userRef, {
           Viewing: this.classID,
         }).catch((error) => {
           console.error("Error Saving Information", error);
         });
-        //Give time for firebase to write viewing
-        await new Promise((r) => setTimeout(r, 2000));
       },
     },
     data() {

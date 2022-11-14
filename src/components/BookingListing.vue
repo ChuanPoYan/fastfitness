@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <div class="content">
-      <h3 class="title">{{ this.Viewing }}</h3>
+      <h3 class="title">{{ this.Alias }}</h3>
       <hr/>
       <div class="classinfo">
         <div class="instructor">
@@ -52,6 +52,7 @@ export default {
     Date: String,
     BookID: String,
     Price: Number,
+    Alias: String,
   },
   methods: {
     async view() {
