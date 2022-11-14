@@ -209,7 +209,6 @@ export default {
 </script>
 
 <style>
-
 .information {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -320,6 +319,7 @@ export default {
   vertical-align: middle;
   margin-right: 15px;
   width: 200px;
+  color: black;
 }
 #classDescription {
   line-height: 1.5em;
