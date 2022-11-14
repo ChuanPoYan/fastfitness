@@ -81,7 +81,6 @@ export default {
                   getDoc(docRefClass).then((refClass) => {
                     if (refClass.exists()) {
                       var classInfo = refClass.data();
-                      console.log(refBooking.id);
                       var data = {
                         Viewing: refClass.id, 
                         Status: bookingInfo["Status"],
@@ -111,10 +110,21 @@ export default {
   },
   created: async function () {
 
-    // Get user bookings data
+    //Make booked data
+    const completedData = {"Status" : "Completed"}
+
+    //Get current date
+    var currDate = new Date().toDateString().split(" ");
+    var currYear = currDate[3];
+    var currDay = currDate[2];
+    var currMonth = currDate[1];
+
+    //Manipulate user bookings data according to current date
     const auth = await getAuth(firebaseApp);
     var email = auth.currentUser.email;
     const usersDocRef = doc(db, "users", email);
+
+    // Get user bookings data
     getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         var bookingIDs = userDoc.data()["Bookings"];
@@ -124,14 +134,67 @@ export default {
           const docRefBooking = doc(db, "Booking", item);
             getDoc(docRefBooking).then((refBooking) => {
               if (refBooking.exists()) {
+                //Tweak data based on date
+                if (refBooking.data()["Status"] == "Booked") {
+                  var date = refBooking.data()["Date"];
+                  var isOver = false;
+                  var stuff = date.split(" ");
+                  var year = stuff[3];
+                  var day = stuff[2];
+                  var month = stuff[1];
+                  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                  for (let i = 0; i < 12; i++) {
+                    if (months[i] == month) {
+                      month = i;
+                    }
+                    if (months[i] == currMonth) {
+                      currMonth = i;
+                    }
+                  }
+                  if (year < currYear) {
+                    isOver = true;
+                  } else if (year > currYear) {
+                    isOver = false
+                  } else {
+                    if (month < currMonth) {
+                      isOver = true;
+                    } else if (month > currMonth) {
+                      isOver = false
+                    } else {
+                      if (day < currDay) {
+                        isOver = true;
+                      } else if (day > currDay) {
+                        isOver = false
+                      } else {
+                        isOver = false
+                      }
+                    }
+                  }
+                  if (isOver) {
+                    updateDoc(docRefBooking, completedData);
+                  }
+                }
+              }
+            })
+        })
+      }
+    });
+    //Wait for update
+    await new Promise((r) => setTimeout(r, 2000));
+    getDoc(usersDocRef).then((userDoc) => {
+      if (userDoc.exists()) {
+        var bookingIDs = userDoc.data()["Bookings"];
+        // Get bookings class data
+        bookingIDs.forEach((item) => {
+          const docRefBooking = doc(db, "Booking", item);
+            getDoc(docRefBooking).then((refBooking) => {
+              if (refBooking.exists()) {
                 var bookingInfo = refBooking.data();
                 var docRefClass = doc(db, "Class", bookingInfo["Class"]);
-
                 // Get class data
                 getDoc(docRefClass).then((refClass) => {
                   if (refClass.exists()) {
                     var classInfo = refClass.data();
-                    console.log(refBooking.id);
                     var data = {
                       Viewing: refClass.id, 
                       Status: bookingInfo["Status"],
