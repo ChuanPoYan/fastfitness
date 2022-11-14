@@ -14,6 +14,7 @@
           :Preview="item.Preview"
           :Date="item.Date"
           :BookID="item.BookingID"
+          :Price="item.Price"
         />
       </div>
     </div>
@@ -55,7 +56,7 @@ export default {
     PreviousBooking,
   },
   methods: {
-    async cancelSession(bookID) {
+    async cancelSession(bookID, price) {
       //Remove from user
       const auth = await getAuth(firebaseApp);
       var email = auth.currentUser.email;
@@ -64,20 +65,30 @@ export default {
       await getDoc(bookRef).then((bookingRef) => {
         var bookingInfo = bookingRef.data();
         console.log(bookingInfo);
-        const docClassRef = doc(db, "Class", bookingInfo["Class"])
-        getDoc(docClassRef).then((classRef) => {
-          var classInfo = classRef.data();
-          updateDoc(usersDocRef, {
-            Bookings: arrayRemove(bookID),
-            Credits: this.credits + classInfo["Price"],
-          }).catch((error) => {
-            console.error("Error Deleting Booking", error);
-          });
+        updateDoc(usersDocRef, {
+          Bookings: arrayRemove(bookID),
+        }).catch((error) => {
+          console.error("Error Deleting Booking", error);
         })
       })
 
+      await getDoc(bookRef).then((bookingRef) => {
+        var bookingInfo = bookingRef.data();
+        var className = bookingInfo["Class"]
+        var classRef = doc(db, "Class", className);
+        getDoc(classRef).then((classsRef) => {
+          var classInfo = classsRef.data();
+          this.creditsToAdd = classInfo["Price"];
+        })
+      })
+      console.log(price);
+      console.log(this.credits);
+      await updateDoc(usersDocRef, {
+        Credits: this.credits + price
+      });
+
       //Remove from booking
-      await deleteDoc(bookRef)
+      await deleteDoc(bookRef);
 
       //Need to refresh page
       this.classIDs = [];
@@ -106,6 +117,7 @@ export default {
                         Instructor: classInfo["Instructor"],
                         Name: classInfo["Name"],
                         Preview: classInfo["Preview"],
+                        Price: classInfo["Number"],
                       };
                       this.classIDs.push(data);
                     }
@@ -142,7 +154,7 @@ export default {
     const usersDocRef = doc(db, "users", email);
 
     // Get user bookings data
-    getDoc(usersDocRef).then((userDoc) => {
+    await getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         var bookingIDs = userDoc.data()["Bookings"];
         this.credits = userDoc.data()["Credits"];
@@ -199,7 +211,7 @@ export default {
     });
     //Wait for update
     await new Promise((r) => setTimeout(r, 2000));
-    getDoc(usersDocRef).then((userDoc) => {
+    await getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         var bookingIDs = userDoc.data()["Bookings"];
         // Get bookings class data
@@ -222,6 +234,7 @@ export default {
                       Instructor: classInfo["Instructor"],
                       Name: classInfo["Name"],
                       Preview: classInfo["Preview"],
+                      Price: classInfo["Price"],
                     };
                     this.classIDs.push(data);
                   }

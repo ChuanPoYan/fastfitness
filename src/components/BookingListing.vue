@@ -24,7 +24,7 @@
           <h4> {{ this.classDate }} </h4>
         </div>
         <div class ="cancelbttn">
-          <button class="cancel" @click="$emit('cancel', this.BookID)">Cancel</button>
+          <button class="cancel" @click="$emit('cancel', this.BookID, this.Price)">Cancel</button>
         </div>
       </div>
     </div>
@@ -51,6 +51,7 @@ export default {
     Preview: String,
     Date: String,
     BookID: String,
+    Price: Number,
   },
   methods: {
     async view() {
