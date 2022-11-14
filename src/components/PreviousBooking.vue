@@ -23,9 +23,6 @@
           <!-- <span class="post">{{ this.Date }}</span> -->
           <h4> {{ this.classDate }} </h4>
         </div>
-        <div class ="cancelbttn">
-          <button class="cancel" @click="$emit('cancel', this.BookID)">Cancel</button>
-        </div>
       </div>
     </div>
   </article>

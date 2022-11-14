@@ -1,39 +1,44 @@
 <template>
+  <br><br><br>
   <div class="booking">
     <div id="upcoming">
       <h1 style="text-align: left">Upcoming Bookings</h1>
       <div v-for="item in this.classIDs" :key="item">
         <BookingListing
+          @cancel = "cancelSession"
           v-if="'Booked' == item.Status"
           :Viewing="item.Viewing"
           :Category="item.Category"
           :Instructor="item.Instructor"
           :Name="item.Name"
           :Preview="item.Preview"
+          :Date="item.Date"
+          :BookID="item.BookingID"
         />
-        <h3 v-if="'Booked' == item.Status">{{item.Date}}</h3>
-        <button v-if="'Booked' == item.Status" type="button" @click="cancelSession(item.BookingID)"> Cancel Session </button>
       </div>
     </div>
     <div id="previous">
       <h1 style="text-align: left">Previous Bookings</h1>
       <div v-for="item in this.classIDs" :key="item">
-        <BookingListing
+        <PreviousBooking
           v-if="'Completed' == item.Status"
           :Viewing="item.Viewing"
           :Category="item.Category"
           :Instructor="item.Instructor"
           :Name="item.Name"
-          :Preview="item.Preview"/>
-        <h3 v-if="'Completed' == item.Status">{{item.Date}}</h3>
+          :Preview="item.Preview"
+          :Date="item.Date"
+          :BookID="item.BookingID"
+          />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-//Import BookingListing so can pass classID to it
+//Import BookingListing and PreviousBooking so can pass classID to it
 import BookingListing from "../components/BookingListing.vue";
+import PreviousBooking from "../components/PreviousBooking.vue"
 
 //Firebase imports
 import firebaseApp from "../main.js";
@@ -47,25 +52,36 @@ export default {
   name: "Booking",
   components: {
     BookingListing,
+    PreviousBooking,
   },
   methods: {
     async cancelSession(bookID) {
       //Remove from user
       const auth = await getAuth(firebaseApp);
       var email = auth.currentUser.email;
-      const usersDocRef = doc(db, "users", email);
-      updateDoc(usersDocRef, {
-        Bookings: arrayRemove(bookID)
-      }).catch((error) => {
-        console.error("Error Deleting Booking", error);
-      });
-      //Remove from booking
+      const usersDocRef = await doc(db, "users", email);
       const bookRef = doc(db, "Booking", bookID);
+      await getDoc(bookRef).then((bookingRef) => {
+        var bookingInfo = bookingRef.data();
+        console.log(bookingInfo);
+        const docClassRef = doc(db, "Class", bookingInfo["Class"])
+        getDoc(docClassRef).then((classRef) => {
+          var classInfo = classRef.data();
+          updateDoc(usersDocRef, {
+            Bookings: arrayRemove(bookID),
+            Credits: this.credits + classInfo["Price"],
+          }).catch((error) => {
+            console.error("Error Deleting Booking", error);
+          });
+        })
+      })
+
+      //Remove from booking
       await deleteDoc(bookRef)
 
       //Need to refresh page
       this.classIDs = [];
-      getDoc(usersDocRef).then((userDoc) => {
+      await getDoc(usersDocRef).then((userDoc) => {
         if (userDoc.exists()) {
           var bookingIDs = userDoc.data()["Bookings"];
 
@@ -106,6 +122,7 @@ export default {
     return {
       classIDs: [],
       date: new Date().toDateString,
+      credits: 0,
     };
   },
   created: async function () {
@@ -128,6 +145,7 @@ export default {
     getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         var bookingIDs = userDoc.data()["Bookings"];
+        this.credits = userDoc.data()["Credits"];
 
         // Get bookings class data
         bookingIDs.forEach((item) => {
