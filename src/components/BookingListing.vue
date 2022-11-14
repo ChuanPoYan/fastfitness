@@ -6,14 +6,25 @@
       </div>
       <div class="content">
         <h3 class="title">{{ this.Viewing }}</h3>
-        <hr class="solid" />
-        <div style="width: 40%; float: left">
-          <img src="../assets/person.png" alt="Icon" class="icon" />
-          <span class="post">{{ this.classInstructor }}</span>
+        <hr/>
+        <div class="classinfo">
+          <div class="instructor">
+            <img src="../assets/person.png" alt="Icon" class="icon" />
+            <span class="post">{{ this.classInstructor }}</span>
+          </div>
+          <div class="name">
+            <img src="../assets/run.png" alt="Icon" class="icon2" />
+            <span class="post">{{ this.className }}</span>
+          </div>
         </div>
-        <div style="margin-left: 40% ">
-          <img src="../assets/run.png" alt="Icon" class="icon" style="height:35px;width:25px;margin-top: 10px;margin-left: 30px;" />
-          <span class="post">{{ this.className }}</span>
+        <div class="datecancel">
+          <div class="date">
+            <!-- <span class="post">{{ this.Date }}</span> -->
+            <h4> Date </h4>
+          </div>
+          <div class ="cancelbttn">
+            <button class="cancel">Cancel</button>
+          </div>
         </div>
       </div>
     </router-link>
@@ -38,6 +49,7 @@ export default {
     Viewing: String,
     Name: String,
     Preview: String,
+
   },
   methods: {
     async view() {
@@ -87,7 +99,7 @@ export default {
 
 .article {
   width: 400px;
-  height: 340px;
+  height: 400px;
   border-radius: 10px;
   /* border: solid 2px; */
   margin-left:30px;
@@ -100,6 +112,10 @@ export default {
 
 .link {
   text-decoration: none;
+}
+.name{
+  margin-left: 40% ;
+  /* background-color:aqua; */
 }
 
 /* .image {
@@ -127,11 +143,17 @@ export default {
   height: 40px;
   margin: 5px;
 }
-
+.icon2 {
+  height:40px;width:25px;margin-top: 10px;margin-left: 30px;
+}
 .post {
   margin: 5px;
   position: relative;
   bottom: 15px;
+}
+.instructor{
+  width: 40%; float: left;
+  /* background-color: green; */
 }
 .solid {
   display: block;
@@ -139,5 +161,36 @@ export default {
   height: 3px;
   background-color: grey;
 }
-
+/* .datecancel{
+  grid-template: grid;
+  grid-column: 1fr,1fr;
+} */
+.date{
+  width:40%; 
+  height:60px;
+  /* background-color: grey; */
+  float:left;
+}
+.cancelbttn{
+  /* margin-left: 40%; */
+  /* background-color: green; */
+  height:60px;
+  width:240px;
+  float:right;
+  padding-top: 10px;
+}
+.cancel {
+  font-family: "Avenir", serif;
+  width:150px;
+  height:50px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  background: rgba(255, 106, 40);
+  border-radius: 9px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 </style>
