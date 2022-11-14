@@ -1,14 +1,13 @@
 <template>
   <div>
     <div style="width: 67%; float: left">
+      <div class="grid-container">
       <div class="top_search">
         <!-- Load seach icon library -->
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
-        <!-- searchbar -->
-        <div class="grid-container">
           <div class="search-bar">
             <input
               type="text"
@@ -21,34 +20,27 @@
             <div class="search-btn">
               <i class="fa fa-search" @click="filterClasses()"></i>
             </div>
+            </div>
           </div>
-
-          <!-- <div class="dropdown"> -->
-          <!-- <select v-model="selected" id="topnav">
-            <option disabled value="">Category</option>
-            <option>Exercise</option>
-            <option>Karate</option>
-            <option>Yoga</option>
-            <option>Meditation</option>
-          </select> -->
           <!-- </div> -->
-
+          <div class="searchitems">
+            <h1>Search classes</h1>
+            <div v-for="Class in filteredClasses" :key="Class">
+              <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></BookingListing>
+            </div>
           </div>
-          
-          
-        </div>
-          <div v-for="Class in filteredClasses" :key="Class">
-            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></BookingListing>
+        <div class ="Recommended">
+          <br><br>
+          <hr/> 
+          <h1>Recommended Classes</h1>
+            <div class="recc" v-for="Class in classArray" :key="Class">
+              <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></BookingListing>
+            </div>
           </div>
         </div>
-        <div>
-          <div v-for="Class in classArray" :key="Class">
-            <BookingListing :Instructor="Class.Instructor" :Category="Class.Category" :Viewing="Class.ID" :Name="Class.Name" :Preview="Class.Preview"></BookingListing>
-          </div>
-        </div>
+      </div>
         <div style="margin-left: 67%; padding-right: 20px; padding-top: 10px;">
-        <!-- <h3 class="title">Studio Location</h3> -->
-        <img src="../assets/mapwithtop.png" alt="Icon" style= "width:100%   ">
+          <img src="../assets/mapwithtop.png" alt="Icon" style= "width:100%  ">
       </div>
     </div>
 
@@ -117,24 +109,21 @@ export default {
   display: inline-block;
 }
 
-/* .content{
-  display: flex;
-  justify-content: space-around;
-} */
 .grid-container {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
-  display: flex;
-  justify-content: space-evenly;
-  /* grid-gap: 10px; */
-  /* background-color: grey; */
+  display: grid;
+  grid-template-rows: 200;
+  /* display:flex; */
+  /* justify-content: center; */
+
   padding-right: 40px;
   padding-left: 40px;
-  /* justify-content: space-evenly; */
 }
 .top_search {
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-left:auto;
+  margin-right:auto;
+  /* justify-content: center; */
 }
 #topnav {
   /* font-size: 20px; */
@@ -142,7 +131,6 @@ export default {
   height: 44px;
   margin-top: 10px;
   /* margin: 20px; */
-  /* background-color: green; */
   border-color: rgba(241, 241, 241, 1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 40px;
@@ -216,5 +204,16 @@ export default {
 }
 searchbar.example button:hover {
   background: rgba(255, 106, 40);
+}
+hr {
+  display: block;
+  border: none;
+  height: 3px;
+  background-color: rgba(255, 106, 40);
+}
+.recc{
+  margin-left:auto;
+  margin-right:auto;
+  background-color: green;
 }
 </style>

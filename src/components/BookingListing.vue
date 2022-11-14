@@ -18,13 +18,13 @@
           <span class="post">{{ this.className }}</span>
         </div >
         <!-- DATE -->
-        <div>  
+        <!-- <div>  
           <h4> Date </h4>
-        </div>
+        </div> -->
         <!-- CANCEL BUTTON -->
-        <div>  
+        <!-- <div>  
           <button class="cancelbutton"> Cancel Session </button>
-        </div>
+        </div> -->
       </div>
     </router-link>
   </article>
@@ -100,7 +100,9 @@ export default {
   height: 340px;
   border-radius: 10px;
   /* border: solid 2px; */
+  margin-left:30px;
   margin-right: 30px;
+  margin-bottom:30px;
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   font-family: "Avenir", serif;
