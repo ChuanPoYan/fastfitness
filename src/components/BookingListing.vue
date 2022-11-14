@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <div class="content">
-      <h3 class="title">{{ this.Alias }}</h3>
+      <h2 class="title">{{ this.Alias }}</h2>
       <hr/>
       <div class="classinfo">
         <div class="instructor">
@@ -21,7 +21,7 @@
       <div class="datecancel">
         <div class="date">
           <!-- <span class="post">{{ this.Date }}</span> -->
-          <h4> {{ this.classDate }} </h4>
+          <h2> {{ this.classDate }} </h2>
         </div>
         <div class ="cancelbttn">
           <button class="cancel" @click="$emit('cancel', this.BookID, this.Price)">Cancel</button>
@@ -98,12 +98,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/css?family=Avenir);
 
 .article {
   width: 400px;
-  height: 400px;
+  height: 370px;
   border-radius: 10px;
   /* border: solid 2px; */
   margin-left:30px;
@@ -154,6 +154,7 @@ export default {
   margin: 5px;
   position: relative;
   bottom: 15px;
+  font-size: 20px;
 }
 .instructor{
   width: 40%; float: left;
@@ -174,21 +175,23 @@ export default {
   height:60px;
   /* background-color: grey; */
   float:left;
+  padding-left: 20px;
+  /* padding-top: 7px; */
 }
 .cancelbttn{
   /* margin-left: 40%; */
   /* background-color: green; */
   height:60px;
-  width:240px;
+  width:50%;
   float:right;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 .cancel {
   font-family: "Avenir", serif;
   width:150px;
   height:50px;
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   background: rgba(255, 106, 40);
   border-radius: 9px;
@@ -196,5 +199,6 @@ export default {
   color: #fff;
   font-weight: bold;
   letter-spacing: 1px;
+  /* margin-left: 50px; */
 }
 </style>

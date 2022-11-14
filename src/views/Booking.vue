@@ -257,11 +257,11 @@ export default {
 .booking {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 #upcoming {
   margin-left: 30px;
-  height: 400px;
+  height: 450px;
   width: 100%;
 }
 #previous {
