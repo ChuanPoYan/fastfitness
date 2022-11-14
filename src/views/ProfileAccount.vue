@@ -32,7 +32,7 @@
             <hr />
             <h3>CREDITS REMAINING</h3>
             <p>Valid till 1st October</p>
-            <button class="topupbutton">Top Up Credits</button>
+            <button class="topupbutton" @click="topup()">Top Up 10 Credits</button>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
 
 <script>
 import firebaseApp from "../main.js";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const db = getFirestore(firebaseApp);
@@ -74,6 +74,15 @@ export default {
         this.credit = userDoc.data()["Credits"];
       }
     });
+  },
+  methods: {
+    topup() {
+      const userDocRef = doc(db, "users", this.email);
+      updateDoc(userDocRef, {
+        Credits: this.credit + 10
+      });
+      this.credit += 10;
+    }
   },
 };
 </script>
