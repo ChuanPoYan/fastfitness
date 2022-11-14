@@ -23,7 +23,7 @@
         <div class="information2">
           <p><b>CATEGORY:</b> {{ this.className }}</p>
           <p><b>INSTRUCTOR:</b> {{ this.classInstructor }}</p>
-          <p><b>SESSION:</b> 9pm - 10pm </p>
+          <p><b>SESSION:</b> {{ this.classDuration }} </p>
           <p id="classDescription">{{ this.classDescription }}</p>
         </div>
       </div>
@@ -87,6 +87,7 @@ export default {
       classVenue: null,
       classPhoto: null,
       classDescription: null,
+      classDuration: null,
       showModal: false,
       email: null,
       bookingRefID: null,
@@ -114,6 +115,7 @@ export default {
             this.classVenue = result.data()["Venue"];
             this.classPhoto = result.data()["Photo"];
             this.classDescription = result.data()["Description"];
+            this.classDuration = result.data()["Duration"];
           }
         });
       }

@@ -32,7 +32,7 @@
             <hr />
             <h3>CREDITS REMAINING</h3>
             <p>Valid till 1st October</p>
-            <button class="topupbutton" @click="topup()">Top Up 10 Credits</button>
+            <button class="topupbutton" @click="topup()"> Top Up 10 Credits for $25 </button>
           </div>
         </div>
       </div>
