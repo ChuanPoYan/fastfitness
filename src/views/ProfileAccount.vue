@@ -174,7 +174,7 @@ hr {
 }
 h3 {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Avenir", serif;
 }
 
 img {
