@@ -23,7 +23,7 @@
         <div class="information2">
           <p><b>CATEGORY:</b> {{ this.className }}</p>
           <p><b>INSTRUCTOR:</b> {{ this.classInstructor }}</p>
-          <p><b>DURATION:</b> 50 MINS</p>
+          <p><b>SESSION:</b> 9pm - 10pm </p>
           <p id="classDescription">{{ this.classDescription }}</p>
         </div>
       </div>

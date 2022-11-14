@@ -56,13 +56,11 @@ export default {
       const auth = getAuth(firebaseApp);
       this.email = auth.currentUser.email;
       const userRef = doc(db, "users", this.email);
-      updateDoc(userRef, {
+      await updateDoc(userRef, {
         Viewing: this.classID,
       }).catch((error) => {
         console.error("Error Saving Information", error);
       });
-      //Give time for firebase to write viewing
-      await new Promise((r) => setTimeout(r, 2000));
     },
   },
   data() {
