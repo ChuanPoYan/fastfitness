@@ -40,9 +40,6 @@
     <div>
         <SavedModalTopup v-show="showModal" @close-modal="showModal = false" />
       </div>
-    <div class="save-btn">
-        <button @click="showModal = true">10 credits topup Successful Popup</button>
-    </div>
     <!-- remove up till here -->
     </div>
   </body>
@@ -98,6 +95,7 @@ export default {
         Credits: this.credit + 10
       });
       this.credit += 10;
+      this.showModal = true;
     }
   },
 };
