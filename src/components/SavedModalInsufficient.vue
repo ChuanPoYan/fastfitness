@@ -1,10 +1,11 @@
+//Popup for Insufficient Credits 
 // Popup for credits purchase 
 <template>
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <img class= "check" src="../assets/purchased.png" alt="checkicon">
-      <h6>Purchased Successfully!</h6>
-      <p>$25 has been credited into your account.</p>
+      <img class= "check" src="../assets/insufficient.png" alt="insufficienticon">
+      <h6>Insufficient Credits!</h6>
+      <p>Please top up.</p>
       <!-- Button has currently no usage -->
       <!-- <button><router-link to="/profile">Back to Page</router-link></button>  -->
     </div>
