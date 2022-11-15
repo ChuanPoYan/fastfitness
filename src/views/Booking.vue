@@ -212,8 +212,6 @@ export default {
         })
       }
     });
-    //Wait for update
-    await new Promise((r) => setTimeout(r, 2000));
     await getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         var bookingIDs = userDoc.data()["Bookings"];

@@ -20,8 +20,9 @@
       </div>
       <div class="datecancel">
         <div class="date">
-          <!-- <span class="post">{{ this.Date }}</span> -->
-          <h2> {{ this.classDate }} </h2>
+          <img src="../assets/person.png" alt="Icon" class="icon" />
+          <span class="post">{{ this.classDate }}</span>
+          <!-- <h2> {{ this.classDate }} </h2> -->
         </div>
         <div class ="cancelbttn">
           <button class="cancel" @click="$emit('cancel', this.BookID, this.Price)">Cancel</button>
@@ -85,7 +86,7 @@ export default {
     this.classID = this.Viewing;
     this.className = this.Name;
     this.classPreview = this.Preview;
-    this.classDate = this.Date;
+    this.classDate = this.Date.slice(4);
   },
   updated: function () {
     this.classCategory = this.Category;
@@ -93,7 +94,7 @@ export default {
     this.classID = this.Viewing;
     this.className = this.Name;
     this.classPreview = this.Preview;
-    this.classDate = this.Date;
+    this.classDate = this.Date.slice(4);
   },
 };
 </script>
@@ -118,8 +119,7 @@ export default {
   text-decoration: none;
 }
 .name{
-  margin-left: 40% ;
-  /* background-color:aqua; */
+ padding-left: 5px;
 }
 
 /* .image {
@@ -175,8 +175,8 @@ export default {
   height:60px;
   /* background-color: grey; */
   float:left;
-  padding-left: 20px;
-  /* padding-top: 7px; */
+  padding-left: 5px;
+  padding-top: 0px;
 }
 .cancelbttn{
   /* margin-left: 40%; */
