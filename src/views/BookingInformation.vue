@@ -6,7 +6,7 @@
       @close-modal="showModal2 = false"
     />
   </div>
-  <div class="main">
+  <div class="main2">
     <div class="sub">
       <img
         id="photo"
@@ -284,7 +284,7 @@ export default {
   display: inline-block;
 }
 
-.main {
+.main2 {
   padding-top: 50px;
   width: 100%;
   display: flex;
