@@ -36,6 +36,14 @@
           </div>
         </div>
       </div>
+    <!-- include Credits Topup Popup -temporary -->
+    <div>
+        <SavedModalTopup v-show="showModal" @close-modal="showModal = false" />
+      </div>
+    <div class="save-btn">
+        <button @click="showModal = true">10 credits topup Successful Popup</button>
+    </div>
+    <!-- remove up till here -->
     </div>
   </body>
   <div class="sidenav" style="width: 15%">
@@ -50,16 +58,24 @@
 import firebaseApp from "../main.js";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+//topup popup
+import SavedModalTopup from '@/components/SavedModalTopup.vue'
 
 const db = getFirestore(firebaseApp);
 
 export default {
+  // topup popup
+  components: {
+      SavedModalTopup,
+  },
   data() {
     return {
       name: null,
       number: null,
       address: null,
       credit: null, 
+      //topup popup
+      showModal:false,
     };
   },
   created: async function () {
