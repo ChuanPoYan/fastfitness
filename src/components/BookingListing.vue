@@ -85,7 +85,7 @@ export default {
     this.classID = this.Viewing;
     this.className = this.Name;
     this.classPreview = this.Preview;
-    this.classDate = this.Date;
+    this.classDate = this.Date.slice(4);
   },
   updated: function () {
     this.classCategory = this.Category;
@@ -93,7 +93,7 @@ export default {
     this.classID = this.Viewing;
     this.className = this.Name;
     this.classPreview = this.Preview;
-    this.classDate = this.Date;
+    this.classDate = this.Date.slice(4);
   },
 };
 </script>

@@ -167,8 +167,6 @@ export default {
       const userDocRef = doc(db, "users", this.email);
       //Add booking to firebase
       await this.addBooking(userDocRef);
-      //Wait for update
-      await new Promise((r) => setTimeout(r, 2000));
       //Update user's booking to firebase
       await this.updateUser(userDocRef);
     },
