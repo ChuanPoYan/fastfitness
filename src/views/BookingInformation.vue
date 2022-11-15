@@ -11,7 +11,6 @@
         style="width: 100%"
       />
     </div>
-
     <div class="sub">
       <div class="information">
         <div class="information1">
@@ -43,11 +42,19 @@
       </div>
     </div>
   </div>
+  <!-- include Credits Insufficient Popup -temporary -->
+  <div>
+    <SavedModalInsufficient v-show="showModal" @close-modal="showModal = false" />
+    </div>
+  <div class="save-btn">
+      <button @click="showModal = true">Creds Insufficient Popup</button>
+  </div>
 </template>
 
 <script>
 //Import Datepicker for calendar
 import SavedModal from "../components/SavedModal.vue";
+import SavedModalInsufficient from "../components/SavedModalInsufficient.vue";
 import { ref } from 'vue';
 
 //Firebase imports
@@ -68,6 +75,7 @@ const db = getFirestore(firebaseApp);
 export default {
   components: {
     SavedModal,
+    SavedModalInsufficient,
   },
   setup() {
       const date = ref(new Date());
