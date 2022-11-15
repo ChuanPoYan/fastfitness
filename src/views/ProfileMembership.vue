@@ -118,30 +118,32 @@ export default {
     return {
       membership: null,
       email: null,
+      currCredits: 0,
     };
   },
   created: async function () {
     const auth = getAuth(firebaseApp);
     this.email = auth.currentUser.email;
     const usersDocRef = doc(db, "users", this.email);
-    getDoc(usersDocRef).then((userDoc) => {
+    await getDoc(usersDocRef).then((userDoc) => {
       if (userDoc.exists()) {
         this.membership = userDoc.data()["Membership"];
+        this.currCredits = userDoc.data()["Credits"]
       }
     });
   },
   methods: {
-    select(membership) {
+    async select(membership) {
       const auth = getAuth(firebaseApp);
       this.email = auth.currentUser.email;
       const usersDocRef = doc(db, "users", this.email);
       const membershipDocRef = doc(db, "Membership", membership);
-      getDoc(membershipDocRef).then((membershipDoc) => {
+      await getDoc(membershipDocRef).then((membershipDoc) => {
         if (membershipDoc.exists()) {
           const credits = membershipDoc.data()["Credits"];
           updateDoc(usersDocRef, {
             Membership: membership,
-            Credits: credits,
+            Credits: credits + this.currCredits,
           }).catch((error) => {
             console.error("Error Saving Information", error);
           });
