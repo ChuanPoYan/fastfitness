@@ -14,6 +14,14 @@
       </p>
     </form>
   </div>
+  <!-- added -->
+  <div>
+    <SavedModalSignup v-show="showModal" @close-modal="showModal = false" />
+  </div>
+  <div class="save-btn">
+      <button @click="showModal = true">Signup Successful Popup</button>
+  </div>
+  <!-- up till here -->
 </template>
 
 <script>
@@ -26,16 +34,24 @@ import { default as error_dict } from "../data/error.js";
 import firebaseApp from "@/main";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import router from "../router/index.js";
+// added
+import SavedModalSignup from '@/components/SavedModalSignup.vue'
 
 const db = getFirestore(firebaseApp);
 
 export default {
+  // added
+  components: {
+      SavedModalSignup,
+  },
   name: "SignUp",
   data() {
     return {
       name: "", 
       email: "",
       password: "",
+      //added
+      showModal:false,
     };
   },
   methods: {
