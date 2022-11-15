@@ -6,8 +6,7 @@
       <img class= "check" src="../assets/insufficient.png" alt="insufficienticon">
       <h6>Insufficient Credits!</h6>
       <p>Please top up.</p>
-      <!-- Button has currently no usage -->
-      <!-- <button><router-link to="/profile">Back to Page</router-link></button>  -->
+      <button><router-link to="/profile/account">Top Up</router-link></button> 
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />
