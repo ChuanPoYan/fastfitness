@@ -15,6 +15,7 @@
         style="width: 100%"
       />
     </div>
+
     <div class="sub">
       <div class="information">
         <div class="information1">
@@ -76,8 +77,8 @@ const db = getFirestore(firebaseApp);
 
 export default {
   components: {
-    SavedModal,
-    SavedModalInsufficient,
+    SavedModal, 
+    SavedModalInsufficient, 
   },
   setup() {
     const date = ref(new Date());
