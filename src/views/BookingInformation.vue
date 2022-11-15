@@ -1,6 +1,10 @@
 <template>
   <div>
-    <SavedModal v-show="showModal" @close-modal="showModal = false" />
+    <SavedModal v-show="showModal1" @close-modal="showModal1 = false" />
+    <SavedModalInsufficient
+      v-show="showModal2"
+      @close-modal="showModal2 = false"
+    />
   </div>
   <div class="main">
     <div class="sub">
@@ -23,7 +27,7 @@
         <div class="information2">
           <p><b>CATEGORY:</b> {{ this.className }}</p>
           <p><b>INSTRUCTOR:</b> {{ this.classInstructor }}</p>
-          <p><b>SESSION:</b> {{ this.classDuration }} </p>
+          <p><b>SESSION:</b> {{ this.classDuration }}</p>
           <p id="classDescription">{{ this.classDescription }}</p>
         </div>
       </div>
@@ -33,7 +37,12 @@
         <!-- calendar datepicker-->
         <div class="calendar">
           <label for="datepicker">Date</label>
-          <Datepicker v-model="date" ref="datepicker" :enableTimePicker="false" textInput/>
+          <Datepicker
+            v-model="date"
+            ref="datepicker"
+            :enableTimePicker="false"
+            textInput
+          />
           <br />
         </div>
         <div class="bookingbutton">
@@ -48,7 +57,8 @@
 <script>
 //Import Datepicker for calendar
 import SavedModal from "../components/SavedModal.vue";
-import { ref } from 'vue';
+import SavedModalInsufficient from "../components/SavedModalInsufficient.vue";
+import { ref } from "vue";
 
 //Firebase imports
 import firebaseApp from "../main.js";
@@ -58,8 +68,8 @@ import {
   addDoc,
   getDoc,
   collection,
-  updateDoc, 
-  arrayUnion, 
+  updateDoc,
+  arrayUnion,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
@@ -67,14 +77,15 @@ const db = getFirestore(firebaseApp);
 
 export default {
   components: {
-    SavedModal,
+    SavedModal, 
+    SavedModalInsufficient, 
   },
   setup() {
-      const date = ref(new Date());
-      return {
-          date,
-      }
-  }, 
+    const date = ref(new Date());
+    return {
+      date,
+    };
+  },
   data() {
     return {
       selectedDate: null,
@@ -88,7 +99,8 @@ export default {
       classPhoto: null,
       classDescription: null,
       classDuration: null,
-      showModal: false,
+      showModal1: false,
+      showModal2: false,
       email: null,
       bookingRefID: null,
       isOver: false,
@@ -124,7 +136,7 @@ export default {
   methods: {
     async booking() {
       //console.log(this.date); //returns Sun Nov 13 2022 01:09:37 GMT+0800 (Singapore Standard Time)
-      //console.log(this.date.toDateString()) //returns Sun Nov 13 2022 
+      //console.log(this.date.toDateString()) //returns Sun Nov 13 2022
       this.selectedDate = this.date.toDateString();
 
       var stuff = this.selectedDate.split(" ");
@@ -135,7 +147,20 @@ export default {
       var currYear = currDate[3];
       var currDay = currDate[2];
       var currMonth = currDate[1];
-      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
       for (let i = 0; i < 12; i++) {
         if (months[i] == month) {
           month = i;
@@ -147,59 +172,57 @@ export default {
       if (year < currYear) {
         this.isOver = true;
       } else if (year > currYear) {
-        this.isOver = false
+        this.isOver = false;
       } else {
         if (month < currMonth) {
           this.isOver = true;
         } else if (month > currMonth) {
-          this.isOver = false
+          this.isOver = false;
         } else {
           if (day < currDay) {
             this.isOver = true;
           } else if (day > currDay) {
-            this.isOver = false
+            this.isOver = false;
           } else {
-            this.isOver = false
+            this.isOver = false;
           }
         }
       }
 
       const userDocRef = doc(db, "users", this.email);
-      //Add booking to firebase
-      await this.addBooking(userDocRef);
-      //Wait for update
-      await new Promise((r) => setTimeout(r, 2000));
-      //Update user's booking to firebase
-      await this.updateUser(userDocRef);
+
+      this.addBooking(userDocRef);
     },
-    async addBooking(ref) {
+    addBooking(ref) {
       getDoc(ref).then((userDoc) => {
         if (userDoc.exists()) {
           const credits = userDoc.data()["Credits"];
-          console.log(this.selectedDate)
+          console.log(this.selectedDate);
           if (credits >= this.classPrice) {
             addDoc(collection(db, "Booking"), {
               Class: this.classID,
               Date: this.selectedDate,
-              Status: (this.isOver) ? "Completed" : "Booked",
+              Status: this.isOver ? "Completed" : "Booked",
               User: this.email,
-            }).then(docRef => {
+            }).then((docRef) => {
               this.bookingRefID = docRef.id;
-              this.showModal = true;
-            })
+              this.updateUser(ref);
+              this.showModal1 = true;
+            });
+          } else {
+            console.log("Insufficient credits");
+            this.showModal2 = true;
           }
-        } else {
-          console.error("Insufficient Credits");
         }
       });
     },
-    async updateUser(ref) {
+    updateUser(ref) {
       getDoc(ref).then((userDoc) => {
         if (userDoc.exists()) {
           const credits = userDoc.data()["Credits"];
           updateDoc(ref, {
-            Bookings: arrayUnion(this.bookingRefID), 
-            Credits: credits - this.classPrice, 
+            Bookings: arrayUnion(this.bookingRefID),
+            Credits: credits - this.classPrice,
           }).catch((error) => {
             console.error("Error Saving Information", error);
           });
@@ -220,7 +243,6 @@ export default {
 
 .information1 {
   line-height: 0.5em;
-
 }
 
 .information2 {
