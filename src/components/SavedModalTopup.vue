@@ -5,8 +5,6 @@
       <img class= "check" src="../assets/purchased.png" alt="checkicon">
       <h6>Purchased Successfully!</h6>
       <p>$25 has been credited into your account.</p>
-      <!-- Button has currently no usage -->
-      <button><router-link to="/profile">Back to Page</router-link></button> 
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />
@@ -35,7 +33,7 @@
 .modal {
   text-align: center;
   background-color: white;
-  height: 400px;
+  height: 280px;
   width: 500px;
   margin-top: 10%;
   padding: 60px 0;
