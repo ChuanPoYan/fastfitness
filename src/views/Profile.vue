@@ -1,7 +1,7 @@
 <template>
   <div style="margin-left: 15%">
     <div class="AddEmployeeForm">
-      <h1>Personal information</h1>
+      <h1>Personal Information</h1>
 
       <label for="name"> Name: </label>
       <input type="text" id="name" placeholder="Name" v-model="name" />
