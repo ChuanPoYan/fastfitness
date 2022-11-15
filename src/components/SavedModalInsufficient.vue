@@ -7,7 +7,7 @@
       <h6>Insufficient Credits!</h6>
       <p>Please top up.</p>
       <!-- Button has currently no usage -->
-      <button><router-link to="/profile">Back to Page</router-link></button> 
+      <!-- <button><router-link to="/profile">Back to Page</router-link></button>  -->
     </div>
     <div class="close" @click="$emit('close-modal')">
       <img class="close-img" src="../assets/closeicon.png" alt="closeicon" />
@@ -36,7 +36,7 @@
 .modal {
   text-align: center;
   background-color: white;
-  height: 400px;
+  height: 280px;
   width: 500px;
   margin-top: 10%;
   padding: 60px 0;
