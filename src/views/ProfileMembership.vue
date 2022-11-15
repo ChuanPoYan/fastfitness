@@ -23,7 +23,7 @@
             <hr />
             <p>Free Lanyard</p>
             <hr />
-            <p>Bronze Member</p>
+            <p>1 Complimentary Pre-Requisite Class</p>
             <hr />
             <p>Access to all classes</p>
             <button class="selected" v-if="'Starter' == this.membership">
@@ -51,7 +51,7 @@
             <hr />
             <p>Free Shirt</p>
             <hr />
-            <p>Silver Member</p>
+            <p>1 Complimentary Pre-Requisite Class</p>
             <hr />
             <p>Access to all classes</p>
             <button class="selected" v-if="'Intermediate' == this.membership">
@@ -82,7 +82,7 @@
             <hr />
             <p>Free Resistance Beads</p>
             <hr />
-            <p>Gold Member</p>
+            <p> 2 Complimentary Pre-Requisite Classes </p>
             <hr />
             <p>Access to all classes</p>
             <button class="selected" v-if="'Advance' == this.membership">
