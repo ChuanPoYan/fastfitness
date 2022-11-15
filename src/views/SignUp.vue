@@ -60,7 +60,7 @@ export default {
             Phone_Number: null,
             Email: this.email,
             Address: null,
-            Membership: null,
+            Membership: "No",
             Credits: 0,
             Bookings: [],
             Viewing: null,

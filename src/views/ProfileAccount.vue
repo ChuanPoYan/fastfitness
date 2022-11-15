@@ -18,10 +18,11 @@
           <h3> CURRENT PACKAGE PLAN </h3>
           <div class="card">
             <br /><br />
-            <h2>Intermediate Package</h2>
+            <h2>{{this.membership}} Package</h2>
             <hr />
-            <p>Our package gives you access to 60 credits</p>
-            <p> NOTE: Package has 1 MONTH validity</p>
+            <p>Our package gives you access to {{this.fixCredits}} credits</p>
+            <p v-if="this.membership != 'No'"> NOTE: Package has 1 MONTH validity</p>
+            <p v-if="this.membership == 'No'"> Do purchase a package from the Membership tab to enjoy our classes! </p>
           </div>
         </div>
         <!-- card for credits -->
@@ -31,7 +32,7 @@
             <h1 style="font-size: 60px">{{ credit }}</h1>
             <hr />
             <h3>CREDITS REMAINING</h3>
-            <p>Valid till 1st October</p>
+            <p>Valid till 1st {{ this.month }}</p>
             <button class="topupbutton" @click="topup()"> Top Up 10 Credits for $25 </button>
           </div>
         </div>
@@ -55,6 +56,7 @@
 import firebaseApp from "../main.js";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+
 //topup popup
 import SavedModalTopup from '@/components/SavedModalTopup.vue'
 
@@ -71,27 +73,42 @@ export default {
       number: null,
       address: null,
       credit: null, 
+      membership: null,
+      fixCredits: null,
+      month: null,
       //topup popup
       showModal:false,
     };
   },
   created: async function () {
+    const date = new Date();
+    console.log(date.getMonth());
+    console.log(date);
+    const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August",
+    "September", "October", "November", "December"];
+    this.month = (date.getMonth() != 11) ? monthArray[date.getMonth() + 1] : monthArray[0];
+
     const auth = getAuth(firebaseApp);
     this.email = auth.currentUser.email;
     const userRef = doc(db, "users", this.email);
-    getDoc(userRef).then((userDoc) => {
+    await getDoc(userRef).then((userDoc) => {
       if (userDoc.exists()) {
         this.name = userDoc.data()["First_Name"];
         this.phone = userDoc.data()["Phone_Number"];
         this.address = userDoc.data()["Address"];
         this.credit = userDoc.data()["Credits"];
+        this.membership = userDoc.data()["Membership"];
+        const membershipRef = doc(db, "Membership", this.membership);
+        getDoc(membershipRef).then((membershipDoc) => {
+          this.fixCredits = membershipDoc.data()["Credits"];
+        })
       }
     });
   },
   methods: {
-    topup() {
+    async topup() {
       const userDocRef = doc(db, "users", this.email);
-      updateDoc(userDocRef, {
+      await updateDoc(userDocRef, {
         Credits: this.credit + 10
       });
       this.credit += 10;
