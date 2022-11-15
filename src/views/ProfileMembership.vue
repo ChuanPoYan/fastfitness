@@ -171,6 +171,7 @@ export default {
   justify-content: space-evenly;
   font-family: "Avenir", serif;
   width: 85%;
+  margin-left: 200px;
 }
 /* .dot {
   height: 15px;

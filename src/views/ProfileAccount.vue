@@ -130,6 +130,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   width: 85%;
+  margin-left: 200px;
   /* background-color: grey; */
 }
 .sidenav {
