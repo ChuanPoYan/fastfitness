@@ -2,7 +2,7 @@
   <body>
     <div class="Body">
       <br /><br /><br /><br /><br />
-      <div class="main">
+      <div class="main3">
         <div class="Credits">
           <!-- <h1>Credits</h1> -->
           <br /><br /><br /><br />
@@ -161,7 +161,7 @@ export default {
 .Body {
   font-family: "Avenir", serif;
 }
-.main {
+.main3 {
   /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: grey;
@@ -184,7 +184,7 @@ export default {
     height:20%;
   }, */
 .sidenav {
-  margin-top: 95px !important;
+  margin-top: 75px !important;
   height: 100%;
   /* width: 300px; Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */

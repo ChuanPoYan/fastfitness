@@ -196,7 +196,6 @@ export default {
       getDoc(ref).then((userDoc) => {
         if (userDoc.exists()) {
           const credits = userDoc.data()["Credits"];
-          console.log(this.selectedDate);
           if (credits >= this.classPrice) {
             addDoc(collection(db, "Booking"), {
               Class: this.classID,

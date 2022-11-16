@@ -1,6 +1,7 @@
 <template>
   <div style="margin-left: 15%">
     <div class="AddEmployeeForm">
+      <br><br><br>
       <h1>Personal Information</h1>
 
       <label for="name"> Name: </label>
@@ -101,7 +102,6 @@ export default {
   width: 382px;
   overflow: hidden;
   margin: auto;
-  padding: 100px;
   background: #ffffff;
   border-radius: 15px;
   font-family: "Avenir", serif;
@@ -109,7 +109,7 @@ export default {
 
 /* The sidebar menu */
 .sidenav {
-  margin-top: 95px !important;
+  margin-top: 75px !important;
   height: 100%;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
