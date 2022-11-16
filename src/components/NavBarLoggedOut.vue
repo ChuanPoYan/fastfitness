@@ -5,7 +5,7 @@
       <ul>
         <li>
           <router-link to="/signup" style="margin-right: 30px"
-            >SignUp</router-link
+            >Signup</router-link
           >
         </li>
         <li><router-link to="/login">Login</router-link></li>
