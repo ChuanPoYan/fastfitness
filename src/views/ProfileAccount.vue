@@ -45,7 +45,7 @@
     </div>
   </body>
   <div class="sidenav" style="width: 15%">
-    <router-link to="/profile">Profile</router-link>
+    <router-link to="/profile">Personal Information</router-link>
     <router-link to="/profile/account">Account</router-link>
     <router-link to="/profile/membership">Membership</router-link>
     <router-view />
@@ -82,8 +82,6 @@ export default {
   },
   created: async function () {
     const date = new Date();
-    console.log(date.getMonth());
-    console.log(date);
     const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"];
     this.month = (date.getMonth() != 11) ? monthArray[date.getMonth() + 1] : monthArray[0];

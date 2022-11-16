@@ -71,14 +71,12 @@ export default {
     const allClasses = await getDocs(classRef);
     allClasses.forEach((doc) => {
       classArray.push(doc.data());
-      console.log(doc.data()["Name"]);
       this.classArray = classArray;
     });
   },
   methods: {
     filterClasses() {
       const filteredClasses = [];
-      console.log(this.search);
       if (this.search.length != 0) {
         for (const Class of this.classArray) {
           if (Class["Name"].toLowerCase().includes(this.search.toLowerCase()))

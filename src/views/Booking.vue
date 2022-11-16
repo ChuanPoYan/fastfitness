@@ -69,14 +69,10 @@ export default {
       var email = auth.currentUser.email;
       const usersDocRef = await doc(db, "users", email);
       const bookRef = doc(db, "Booking", bookID);
-      await getDoc(bookRef).then((bookingRef) => {
-        var bookingInfo = bookingRef.data();
-        console.log(bookingInfo);
-        updateDoc(usersDocRef, {
-          Bookings: arrayRemove(bookID),
-        }).catch((error) => {
-          console.error("Error Deleting Booking", error);
-        })
+      await updateDoc(usersDocRef, {
+        Bookings: arrayRemove(bookID),
+      }).catch((error) => {
+        console.error("Error Deleting Booking", error);
       })
 
       await getDoc(bookRef).then((bookingRef) => {
