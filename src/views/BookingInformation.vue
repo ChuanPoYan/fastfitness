@@ -42,6 +42,7 @@
             ref="datepicker"
             :enableTimePicker="false"
             textInput
+            style="z-index: -1"
           />
           <br />
         </div>

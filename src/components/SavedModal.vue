@@ -27,6 +27,7 @@ export default {};
   display: flex;
   justify-content: center;
   background-color: #000000da;
+  z-index: 9999;
 }
 
 .modal {
