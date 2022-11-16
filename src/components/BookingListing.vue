@@ -24,7 +24,7 @@
           <h2> {{ this.classDate }} </h2>
         </div>
         <div class ="cancelbttn">
-          <button class="cancel" @click="$emit('cancel', this.BookID, this.Price)">Cancel</button>
+          <button class="cancel" @click="$emit('cancel', this.BookID)">Cancel</button>
         </div>
       </div>
     </div>

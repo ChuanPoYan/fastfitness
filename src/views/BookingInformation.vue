@@ -47,7 +47,6 @@
         </div>
         <div class="bookingbutton">
           <button id="button" @click="booking()">BOOK</button>
-          <button id="button">CANCEL</button>
         </div>
       </div>
     </div>

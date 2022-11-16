@@ -1,5 +1,7 @@
 <template>
-  <br><br><br>
+  <div>
+    <SavedModalCancel v-show="showModal" @close-modal="showModal = false" />
+  </div>
   <div class="booking">
     <div id="upcoming">
       <h1 style="text-align: left">Upcoming Bookings</h1>
@@ -43,6 +45,8 @@
 import BookingListing from "../components/BookingListing.vue";
 import PreviousBooking from "../components/PreviousBooking.vue"
 
+import SavedModalCancel from "../components/SavedModalCancel.vue"
+
 //Firebase imports
 import firebaseApp from "../main.js";
 import { getFirestore } from "firebase/firestore";
@@ -56,9 +60,10 @@ export default {
   components: {
     BookingListing,
     PreviousBooking,
+    SavedModalCancel,
   },
   methods: {
-    async cancelSession(bookID, price) {
+    async cancelSession(bookID) {
       //Remove from user
       const auth = await getAuth(firebaseApp);
       var email = auth.currentUser.email;
@@ -83,10 +88,11 @@ export default {
           this.creditsToAdd = classInfo["Price"];
         })
       })
-      console.log(price);
-      console.log(this.credits);
+      //Wait for creditsToAdd to update
+      await new Promise((r) => setTimeout(r, 2000));
+
       await updateDoc(usersDocRef, {
-        Credits: this.credits + price
+        Credits: this.credits + this.creditsToAdd,
       });
 
       //Remove from booking
@@ -131,12 +137,15 @@ export default {
           });
         }
       });
+      this.showModal = true;
+
     }
   },
   data() {
     return {
       classIDs: [],
       date: new Date().toDateString,
+      showModal: false,
       credits: 0,
     };
   },
