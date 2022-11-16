@@ -16,9 +16,9 @@
         <div class="Currentmembershipplan">
           <h3> CURRENT PACKAGE PLAN </h3>
           <div class="card">
-            <br /><br />
+            <br/><br/>
             <h2>{{this.membership}} Package</h2>
-            <hr />
+            <hr/>
             <p>Our package gives you access to {{this.fixCredits}} credits</p>
             <p v-if="this.membership != 'No'"> NOTE: Package has 1 MONTH validity</p>
             <p v-if="this.membership == 'No'"> Do purchase a package from the Membership tab to enjoy our classes! </p>
@@ -28,8 +28,9 @@
         <div class="Credits">
           <h3> CREDITS </h3>
           <div class="card2">
-            <h1 style="font-size: 60px">{{ credit }}</h1>
-            <hr />
+            <br/><br/>
+            <h2>{{ this.credit }}</h2>
+            <hr/>
             <h3>CREDITS REMAINING</h3>
             <p>Valid till 1st {{ this.month }}</p>
             <button class="topupbutton" @click="topup()"> Top Up 10 Credits for $25 </button>
@@ -156,7 +157,8 @@ export default {
   /* transition: 0.3s; */
   border-radius: 5px; /* 5px rounded corners */
   width: 350px;
-  height: 320px;
+  height: 300px;
+  padding-top: 20px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   float: center;
   text-align: center;

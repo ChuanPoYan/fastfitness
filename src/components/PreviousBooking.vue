@@ -2,7 +2,7 @@
   <article class="article">
     <div class="image">
       <router-link to="/bookInfo" @click="view()">
-        <img id = "preview" :src="require(`@/${this.classPreview}`)" alt="Booking" style="width:90%"/>
+        <img id = "preview" :src="require(`@/${this.classPreview}`)" alt="Booking"/>
       </router-link>
     </div>
     <div class="content">
@@ -107,6 +107,11 @@ export default {
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   font-family: "Avenir", serif;
+}
+
+#preview {
+  width: 380px;
+  height: 200px;
 }
 
 .link {

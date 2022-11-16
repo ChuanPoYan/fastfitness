@@ -3,7 +3,7 @@
   <nav id="nav">
     <ul>
       <li class="username">{{ this.name }}</li>
-      <li class="logout" @click="logout">LogOut</li>
+      <li class="logout" @click="logout">Logout</li>
       <li><router-link to="/profile">Profile</router-link></li>
       <li><router-link to="/booking">Booking</router-link></li>
       <li><router-link to="/search">Search</router-link></li>
@@ -75,7 +75,7 @@ export default {
   padding: 5px 25px;
   background-color: #ff6a28;
   color: white;
-  border-radius: 50px;
+  border-radius: 40px;
   font-family: Arial, Helvetica, sans-serif;
   margin-right: 2.5em;
   margin-top: 1em;
