@@ -72,10 +72,10 @@ export default {
 
 <style scoped>
 .username {
-  padding: 5px 25px;
+  padding: 2px 25px;
   background-color: #ff6a28;
   color: white;
-  border-radius: 40px;
+  border-radius: 50px;
   font-family: Arial, Helvetica, sans-serif;
   margin-right: 2.5em;
   margin-top: 1em;
