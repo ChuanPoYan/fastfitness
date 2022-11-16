@@ -155,6 +155,7 @@ export default {
   position: relative;
   bottom: 15px;
   font-size: 20px;
+  z-index: -1;
 }
 .instructor{
   width: 40%; float: left;

@@ -271,5 +271,6 @@ export default {
   margin-left: 30px;
   height: 400px;
   width: 100%;
+  clear: both;
 }
 </style>

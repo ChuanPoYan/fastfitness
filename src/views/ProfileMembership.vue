@@ -84,10 +84,10 @@
             <p> 2 Complimentary Pre-Requisite Classes </p>
             <hr />
             <p>Access to all classes</p>
-            <button class="selected" v-if="'Advance' == this.membership">
+            <button class="selected" v-if="'Advanced' == this.membership">
               Selected
             </button>
-            <button class="creditsbutton" v-else @click="select('Advance')">
+            <button class="creditsbutton" v-else @click="select('Advanced')">
               80 Credits
             </button>
           </div>
