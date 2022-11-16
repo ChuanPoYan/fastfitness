@@ -1,7 +1,6 @@
 <template>
   <body>
     <div class="bodyalignment">
-      <br /><br /><br /><br /><br />
       <div class="main">
         <!-- card for user information -->
         <div class="user">

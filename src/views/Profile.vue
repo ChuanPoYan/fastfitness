@@ -1,7 +1,6 @@
 <template>
-  <div style="margin-left: 15%">
+  <div class="profile">
     <div class="AddEmployeeForm">
-      <br><br><br>
       <h1>Personal Information</h1>
 
       <label for="name"> Name: </label>
@@ -84,6 +83,10 @@ export default {
 </script>
 
 <style scoped>
+.profile {
+  margin-left: 15%
+}
+
 .header {
   height: 50px;
   background-color: grey;
