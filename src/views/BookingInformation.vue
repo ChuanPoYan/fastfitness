@@ -41,8 +41,8 @@
             v-model="date"
             ref="datepicker"
             :enableTimePicker="false"
-            textInput
             style="z-index: -1"
+            textInput
           />
           <br />
         </div>
