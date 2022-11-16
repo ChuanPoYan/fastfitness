@@ -183,7 +183,7 @@ export default {
     height:20%;
   }, */
 .sidenav {
-  margin-top: 75px !important;
+  margin-top: 95px !important;
   height: 100%;
   /* width: 300px; Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */

@@ -17,7 +17,7 @@
           <h3> CURRENT PACKAGE PLAN </h3>
           <div class="card">
             <br/><br/>
-            <h2>{{this.membership}} Package</h2>
+            <h1>{{this.membership}} Package</h1>
             <hr/>
             <p>Our package gives you access to {{this.fixCredits}} credits</p>
             <p v-if="this.membership != 'No'"> NOTE: Package has 1 MONTH validity</p>
@@ -29,7 +29,7 @@
           <h3> CREDITS </h3>
           <div class="card2">
             <br/><br/>
-            <h2>{{ this.credit }}</h2>
+            <h1>{{ this.credit }}</h1>
             <hr/>
             <h3>CREDITS REMAINING</h3>
             <p>Valid till 1st {{ this.month }}</p>
@@ -132,7 +132,7 @@ export default {
   /* background-color: grey; */
 }
 .sidenav {
-  margin-top: 75px !important;
+  margin-top: 95px !important;
   height: 100%;
   /* width: 300px; Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */

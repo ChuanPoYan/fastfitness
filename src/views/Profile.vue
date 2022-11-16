@@ -112,7 +112,7 @@ export default {
 
 /* The sidebar menu */
 .sidenav {
-  margin-top: 75px !important;
+  margin-top: 95px !important;
   height: 100%;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
