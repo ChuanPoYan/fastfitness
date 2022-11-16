@@ -79,7 +79,7 @@
             </div>
             <h3>10-15 Classes</h3>
             <hr />
-            <p>Free Resistance Beads</p>
+            <p>Free Resistance Bands</p>
             <hr />
             <p> 2 Complimentary Pre-Requisite Classes </p>
             <hr />
