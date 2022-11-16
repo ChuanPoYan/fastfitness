@@ -1,6 +1,6 @@
 <template>
   <!-- navigation bar when person is logged IN: Home search booking profile logout-->
-  <nav id="nav">
+  <nav id="nav" style="z-index: 9999">
     <ul>
       <li class="username">{{ this.name }}</li>
       <li class="logout" @click="logout">Logout</li>
