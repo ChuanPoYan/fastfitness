@@ -103,7 +103,7 @@ export default {
 <style>
 #login {
   font-size: 20px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 input,
@@ -124,7 +124,7 @@ input {
   background: rgba(255, 106, 40);
   color: white;
   font-size: 30px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   padding: 20px;
   border-radius: 20px;
 }
@@ -143,7 +143,7 @@ input {
 }
 
 .button {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   padding: 1rem 3rem;
   text-align: center;
   font-size: 16px;

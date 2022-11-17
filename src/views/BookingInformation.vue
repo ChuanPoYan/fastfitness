@@ -254,7 +254,7 @@ export default {
   color: rgba(255, 106, 40);
 }
 #studio {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   color: black;
 }
 #credits {
@@ -292,7 +292,7 @@ export default {
 .sub {
   width: 50%;
   padding: 30px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .booking2 {
@@ -328,7 +328,7 @@ export default {
 
 #button {
   background-color: white;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 16px;

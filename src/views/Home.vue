@@ -47,7 +47,7 @@ export default {
 .sub {
   width: 90%; 
   padding: 30px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .information3 {

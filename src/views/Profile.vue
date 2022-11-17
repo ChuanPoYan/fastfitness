@@ -107,7 +107,7 @@ export default {
   margin: auto;
   background: #ffffff;
   border-radius: 15px;
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 
 /* The sidebar menu */
@@ -121,7 +121,7 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 
 /* The navigation menu links */
@@ -167,7 +167,7 @@ input,
   padding: 0 1.2rem;
 }
 .button {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   padding: 1rem 3rem;
   text-align: center;
   font-size: 16px;

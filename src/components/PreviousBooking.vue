@@ -94,8 +94,6 @@ export default {
 </script>
 
 <style scoped>
-@import url(https://fonts.googleapis.com/css?family=Avenir);
-
 .article {
   width: 400px;
   height: 350px;
@@ -106,7 +104,7 @@ export default {
   margin-bottom:30px;
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 
 #preview {
@@ -181,7 +179,7 @@ text-align: center;
   /* float:left; */
 }
 .cancel {
-  font-family: "Avenir", serif;
+  font-family: serif;
   width:150px;
   height:50px;
   text-align: center;

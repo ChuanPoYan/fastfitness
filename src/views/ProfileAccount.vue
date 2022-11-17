@@ -142,7 +142,7 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -159,7 +159,7 @@ export default {
   width: 350px;
   height: 300px;
   padding-top: 20px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   float: center;
   text-align: center;
   /* padding-top: 20px; */
@@ -174,7 +174,7 @@ export default {
   height: 300px;
   padding-top: 20px;
   background-color: white;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .card3 {
@@ -185,12 +185,12 @@ export default {
   height: 300px;
   padding-top: 20px;
   background-color: white;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* credits button */
 .topupbutton {
-  font-family: "Avenir", serif;
+  font-family: serif;
   padding: 1rem 3rem;
   text-align: center;
   font-size: 16px;
@@ -215,7 +215,7 @@ hr {
 }
 h3 {
   text-align: center;
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 
 img {

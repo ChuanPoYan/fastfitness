@@ -155,10 +155,8 @@ export default {
 </script>
 
 <style scoped>
-@import url(https://fonts.googleapis.com/css?family=Avenir);
-
 .Body {
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 .main3 {
   /* display: grid;
@@ -168,7 +166,7 @@ export default {
   align-content: center; */
   display: flex;
   justify-content: space-evenly;
-  font-family: "Avenir", serif;
+  font-family: serif;
   width: 85%;
   margin-left: 200px;
 }
@@ -193,7 +191,7 @@ export default {
   background-color: rgba(241, 241, 241, 1); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 40px;
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -210,7 +208,7 @@ export default {
   width: 350px;
   height: 475px;
   padding-top: 20px;
-  font-family: "Avenir", serif;
+  font-family: serif;
 }
 button {
   border: none;
@@ -229,13 +227,13 @@ hr {
 }
 h1 {
   text-align: center;
-  font-family: "Avenir", serif;
+  font-family: serif;
   /* font-size:60px; */
 }
 
 /* credits button */
 .creditsbutton {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   padding: 1rem 3rem;
   text-align: center;
   font-size: 16px;
@@ -253,7 +251,7 @@ h1 {
 }
 
 .selected {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   padding: 1rem 3rem;
   text-align: center;
   font-size: 16px;
