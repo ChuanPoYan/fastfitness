@@ -8,7 +8,7 @@
   <div class="sub">
   <!-- CARD 1 -->
   <div class="information3">
-        <img class="image" src="../assets/promo4.png" alt="Promotion1" />
+        <img class="image2" src="../assets/promo4.png" alt="Promotion1" />
         <h4><b>Collaboration with Kydra Activewear!</b></h4>
         <p>Up to 75% discounts if you spend a minimum of $50!</p>
         <h5><b>Promotion up till 31st December 2022</b></h5>
@@ -16,7 +16,7 @@
   <br>
   <!-- CARD 2 -->
   <div class="information4">
-        <img class="image" src="../assets/promo3.png" alt="Promotion1" />
+        <img class="image2" src="../assets/promo3.png" alt="Promotion1" />
         <h4><b>Collaboration with Barry's Bootcamp!</b></h4>
         <p> FREE Barry's Bootcamp Class for GOLD members! </p>
         <h5><b>Promotion up till 31st December 2022</b></h5>
@@ -35,7 +35,7 @@ export default {
 .bigimage {
   width: 840px;
 }
-.image {
+.image2 {
   width: 480px; 
 }
 .main{

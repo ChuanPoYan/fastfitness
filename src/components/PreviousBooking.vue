@@ -125,11 +125,15 @@ export default {
   margin-right: auto;
   width: 30px;
   height: 20px;
+} */
+.image {
+  width: 400px;
 }
+
 .preview{
   width:30%;
   height:50%;
-} */
+}
 .content {
   color: black;
   text-align: left;
